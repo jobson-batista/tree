@@ -8,9 +8,8 @@ so=`hostnamectl | grep 'Operating System' | cut -d: -f2`
 user=`who -u | cut -d" " -f1`
 
 #Identificando caminho atual
-pathRole=`pwd`
-dicN=node-v14.16.0
 NODEJS=node-v14.16.0-linux-x64
+OPT=$HOME/opt
 
 echo "+------------------------------+"
 echo "| Configurando Ambiente NodeJS |"
@@ -35,12 +34,30 @@ echo
 echo "Pronto! Descompactado!"
 echo
 
-echo "Movendo para /opt"
-sudo cp -r $NODEJS/ /opt
+if [ ! -d $OPT ]; then
+	sudo mkdir $OPT
+fi
+
+echo "Copiando $NODEJS para $OPT"
+sudo cp -r $NODEJS/ $OPT
 
 # Remover arquivos baixados
 rm -r node*
 
-echo "export PATH=/opt/$NODEJS/bin:$PATH" >> ~/.profile
+# Alterando proprietário do diretório para o usuario atual
+sudo chown -R $(whoami) $OPT/$NODEJS
 
-echo "Pronto!"
+echo "export PATH=$OPT/$NODEJS/bin:$PATH" >> ~/.profile
+
+echo "--> Pronto!"
+
+. ~/.profile
+
+if [ `node -v` &> /dev/null = "bash: node: command not found"]; then
+	echo "O Node não foi instalado corretamente"
+else
+	echo
+	echo "Instalando o Angular CLI"
+	echo
+	npm i -g @angular/cli
+fi
