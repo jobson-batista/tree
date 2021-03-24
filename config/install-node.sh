@@ -11,14 +11,14 @@ user=`who -u | cut -d" " -f1`
 NODEJS=node-v14.16.0-linux-x64
 OPT=$HOME/opt
 
-echo "+------------------------------+"
-echo "| Configurando Ambiente NodeJS |"
-echo "|              by Tree         |"
-echo "+------------------------------+"
+echo "+--------------------------------------+"
+echo "| Instalação do NodeJS e do AngularCLI |"
+echo "|                       by Tree        |"
+echo "+--------------------------------------+"
 echo
 
-echo "Distro:  		$so"
-echo "Nome de usuário:	 $user"
+echo "Distro:  		     $so"
+echo "Nome de usuário:	  $user"
 echo
 
 echo "--> Baixando o NodeJS v14.16.0 ..."
@@ -49,7 +49,7 @@ sudo chown -R $(whoami) $OPT/$NODEJS
 
 echo "export PATH=$OPT/$NODEJS/bin:$PATH" >> ~/.profile
 
-echo "--> Pronto!"
+echo "--> Pronto! Node Instalado!"
 
 . ~/.profile
 
@@ -61,3 +61,9 @@ else
 	echo
 	npm i -g @angular/cli
 fi
+echo
+echo "Pronto! Angular CLI instalado"
+echo
+
+
+
