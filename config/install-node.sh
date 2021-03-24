@@ -16,24 +16,24 @@ echo "+------------------------------+"
 echo "| Configurando Ambiente NodeJS |"
 echo "|              by Tree         |"
 echo "+------------------------------+"
-echo ""
+echo
 
 echo "Distro:  		$so"
-echo "Nome de usuário:	$user"
-echo ""
+echo "Nome de usuário:	 $user"
+echo
 
 echo "--> Baixando o NodeJS v14.16.0 ..."
-echo ""
+echo
 wget -c -q --show-progress https://nodejs.org/dist/v14.16.0/node-v14.16.0-linux-x64.tar.xz
 
-echo ""
+echo
 echo "--> Descompactando..."
-echo ""
+echo
 tar -xf $NODEJS.tar.xz
 
-echo ""
+echo
 echo "Pronto! Descompactado!"
-echo ""
+echo
 
 echo "Movendo para /opt"
 sudo cp -r $NODEJS/ /opt
@@ -42,7 +42,5 @@ sudo cp -r $NODEJS/ /opt
 rm -r node*
 
 echo "export PATH=/opt/$NODEJS/bin:$PATH" >> ~/.profile
-. ~/.profile
 
 echo "Pronto!"
-echo "Node instalado com sucesso!"
