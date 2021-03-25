@@ -1,9 +1,13 @@
 import { Router, Request, Response } from 'express';
+import { deleteUser, findUser, findUsers, saveUser, updateUser } from './controller/UserController';
 
 const routes = Router();
 
-routes.get('/ola', (req: Request, res: Response) => {
-    return res.status(200).send({ message: "Tá Rodando!" }); 
-});
+// Rotas de User
+routes.get('/users', findUsers);
+routes.get('/users/:id', findUser);
+routes.post('/users', saveUser);
+routes.put('/users/:id', updateUser);
+routes.delete('/users/:id', deleteUser);
 
 export default routes;
