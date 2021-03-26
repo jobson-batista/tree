@@ -1,6 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity()
 export abstract class Vacancy {
     
     @PrimaryGeneratedColumn()
