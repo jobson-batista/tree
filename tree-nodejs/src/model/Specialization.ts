@@ -10,6 +10,8 @@ export class Specialization extends Vacancy {
     @Column()
     institution: string;
 
-    @Column()
+    @Column({
+        type: "float"
+    })
     purse: number;
 }
