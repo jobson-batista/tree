@@ -7,6 +7,8 @@ export class Job extends Vacancy {
     @Column()
     type: string;
 
-    @Column()
+    @Column({
+        type: "float"
+    })
     salary: number;
 }

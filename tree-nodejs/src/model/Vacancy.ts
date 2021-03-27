@@ -11,14 +11,18 @@ export abstract class Vacancy {
     @Column()
     description: string;
 
-    @Column()
+    /*@Column({
+        default: "Date"
+    })
     startDate: Date;
+    
+    @Column({
+        default: "Date"
+    })
+    endDate: Date; */
 
     @Column()
     contactEmail: string;
-
-    @Column()
-    endDate: Date;
 
     @Column()
     qty: number;
