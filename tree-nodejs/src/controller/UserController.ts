@@ -12,6 +12,7 @@ export const findUser = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     const user = await getRepository(User).findOne(id);
+    console.log(user.created_at);    
     return res.status(302).send(user);
 }
 
