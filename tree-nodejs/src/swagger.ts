@@ -562,7 +562,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
             "/api/events": {
                 get: {
                     tags: [
-                        "Users"
+                        "Events"
                     ],
                     description: "Retorna eventos cadastrados no banco de dados.",
                     responses: {
@@ -596,18 +596,18 @@ const swaggerOptions: swaggerJsDoc.Options = {
                     description: "Cria um evento no banco de dados",
                     parameters: [
                         {
-                            name: "firstName",
+                            name: "title",
                             in: "path",
-                            description: "Primeiro nome do usuário.",
+                            description: "Título do evento.",
                             required: true,
                             schema: {
                                 type: "string"
                             }
                         },
                         {
-                            name: "lastName",
+                            name: "description",
                             in: "path",
-                            description: "Sobrenome do usuário.",
+                            description: "Descrição detalhada do evento.",
                             required: true,
                             schema: {
                                 type: "string"
