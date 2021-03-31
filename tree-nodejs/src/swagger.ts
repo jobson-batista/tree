@@ -558,6 +558,136 @@ const swaggerOptions: swaggerJsDoc.Options = {
                         }
                     }
                 }
+            },
+            "/api/events": {
+                get: {
+                    tags: [
+                        "Users"
+                    ],
+                    description: "Retorna eventos cadastrados no banco de dados.",
+                    responses: {
+                        "200": {
+                            description: "[OK] Eventos listados com sucesso.",
+                            content: {
+                                "application/json": {
+                                   schema: {
+                                       type: "array"
+                                   } 
+                                }
+                            }
+                        },
+                        // Não implementado no UserController.
+                        "404": {
+                            description: "[Not Found] Nenhum evento encontrado.",
+                            content: {
+                                "application/json": {
+                                   schema: {
+                                       type: "array"
+                                   } 
+                                }
+                            }
+                        }
+                    }
+                },
+                post: {
+                    tags: [
+                        "Events"
+                    ],
+                    description: "Cria um evento no banco de dados",
+                    parameters: [
+                        {
+                            name: "firstName",
+                            in: "path",
+                            description: "Primeiro nome do usuário.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            }
+                        },
+                        {
+                            name: "lastName",
+                            in: "path",
+                            description: "Sobrenome do usuário.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            }
+                        },
+                        {
+                            name: "email",
+                            in: "path",
+                            description: "Email do usuário.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            }
+                        },
+                        {
+                            name: "password",
+                            in: "path",
+                            description: "Senha do usuário.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            }
+                        },
+                        {
+                            name: "lastName",
+                            in: "path",
+                            description: "Sobrenome do usuário.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            }
+                        },
+                        {
+                            name: "isAdmin",
+                            in: "path",
+                            description: "Privilégios de administrador.",
+                            required: true,
+                            schema: {
+                                type: "boolean"
+                            }
+                        },
+                        {
+                            name: "phoneNumber",
+                            in: "path",
+                            description: "Telefone para contato do usuário.",
+                            required: false,
+                            schema: {
+                                type: "string"
+                            }
+                        }
+                    ],
+                    responses: {
+                        "200": {
+                            description: "[OK] Usuário criado com sucesso!",
+                            content: {
+                                "application/json": {
+                                   schema: {
+                                       type: "Objeto JSON"
+                                   } 
+                                }
+                            }
+                        },
+                        // Ainda não implementado no UserController
+                        "206": {
+                            description: "[Partial Content] Algum atributo não recebido.",
+                            content: {
+                                "application/json": {
+                                   schema: {
+                                       type: "json"
+                                   } 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/api/events/{id}" : {
+                tags: [
+                    "Events"
+                ]
             }
         }
     },
