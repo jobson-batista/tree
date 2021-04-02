@@ -1,0 +1,11 @@
+# root
+.vscode/
+
+# tree-nodejs/
+tree-nodejs/.idea/
+tree-nodejs/.vscode/
+tree-nodejs/node_modules/
+tree-nodejs/build/
+tree-nodejs/tmp/
+tree-nodejs/temp/
+tree-nodejs/package-lock.json

@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Address } from "./Address";
 
 export abstract class Vacancy {
     
@@ -21,11 +22,24 @@ export abstract class Vacancy {
     })
     endDate: Date; */
 
-    @Column()
+    @Column({
+        name: "contact_email"
+    })
     contactEmail: string;
 
     @Column()
     qty: number;
+
+    @OneToOne(()=> Address,{
+        cascade: true,
+        eager: true,
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+        nullable: false,
+        orphanedRowAction: "delete"
+    })
+    @JoinColumn()
+    address: Address;
 
     @CreateDateColumn()
     created_at: Date;

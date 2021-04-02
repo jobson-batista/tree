@@ -6,10 +6,14 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({
+        name: "first_name"
+    })
     firstName: string;
 
-    @Column()
+    @Column({
+        name: "last_name"
+    })
     lastName: string;
 
     @Column()
@@ -19,11 +23,14 @@ export class User {
     password: string;
 
     @Column({ 
-        default: false 
+        default: false,
+        name: "is_admin" 
     })
     isAdmin: boolean;
 
-    @Column()
+    @Column({
+        name: "phone_number"
+    })
     phoneNumber: string;
 
     @CreateDateColumn()
