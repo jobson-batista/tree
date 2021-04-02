@@ -24,13 +24,15 @@ export const saveEvent = async (req: Request, res: Response) => {
 
 export const updateEvent = async (req: Request, res: Response) => {
     
-    const { address: {id: idAddress}, address} = req.body;     
     const { id } = req.params;
+    if(req.body.address != null) {
+        const { address } = req.body;     
+        await getRepository(Address).save(address);
+    }
     const event = await getRepository(Event).update(id, req.body);
-    await getRepository(Address).update(idAddress, address);
 
     if(event.affected === 1) {
-        const eventUpdated = await getRepository(Event).findOne(id);
+        const eventUpdated = await getRepository(Event).findOne(id, { relations: ["address"] });
         return res.status(200).send(eventUpdated);
     }
 
@@ -42,8 +44,10 @@ export const updateEvent = async (req: Request, res: Response) => {
 export const deleteEvent = async (req: Request, res: Response) => {
 
     const { id } = req.params;
-    const event = await getRepository(Event).findOne(id);
+
+    const event = await getRepository(Event).findOne(id, { relations: ["address"] });
     await getRepository(Address).delete(event.address.id);
+    
     await getRepository(Event).delete(id);
     return res.status(200).json({ message: "Event deleted" });
 }
