@@ -35,7 +35,7 @@ export abstract class Vacancy {
         eager: true,
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
-        nullable: false,
+        nullable: true,
         orphanedRowAction: "delete"
     })
     @JoinColumn()
