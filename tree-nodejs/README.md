@@ -3,5 +3,5 @@
 Passos para rodar o projeto:
 
 1. Rode o comando `npm i`
-2. Configure o banco de dados no arquivo em `environment/.env`
+2. Renomeie `.env-example` para `.env` e configure o banco de dados no arquivo.
 3. Execute `npm start`
