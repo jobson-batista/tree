@@ -1,0 +1,233 @@
+.footer {
+  padding: 40px;
+  background: #2a2f43;
+  display: flex;
+  flex-direction: column;
+}
+
+.gray_text {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  padding: 0;
+}
+
+/* Phrase section */
+
+.phrase_text {
+  color: white;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: fit-content;
+}
+
+.line_down {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.phrase_author {
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+/* Options and Logo section */
+
+.options {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  justify-content: space-between;
+  margin-right: 40px;
+}
+
+.logo img {
+  cursor: pointer;
+}
+
+.options-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  text-decoration: none;
+  color: white;
+  margin: 10px 0px;
+  padding-right: 40px;
+  padding-left: 20px;
+  border-left: 3px solid #05b962;
+  transition: all 0.25s ease-out;
+}
+
+.option:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-button {
+  all: unset;
+  color: #2a2f43;
+  font-weight: bold;
+  background: #fc6681;
+  padding: 18px 35px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+
+.contact-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Info section */
+.info {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright p {
+  color: white;
+  text-decoration: none;
+  margin-right: 100px;
+}
+
+.info-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+}
+
+.info-text a {
+  color: #05b962;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.social-container {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fab:not(:first-child) {
+  margin-left: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.fa-instagram:hover {
+  color: #ff6f91;
+}
+
+.fa-facebook-f:hover {
+  color: #3b5998;
+}
+
+.fa-twitter:hover {
+  color: #26a9db;
+}
+
+.fa-linkedin-in:hover {
+  color: #0077b5;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    padding: 20px;
+  }
+
+  .logo {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .phrase_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .phrase_text {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .line_down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phrase_author {
+    font-size: 0.85rem;
+  }
+
+  .options {
+    flex: 0;
+    margin-top: 40px;
+    flex-direction: column;
+    border-bottom: 2px solid white;
+  }
+
+  .options-container {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .columns {
+    flex-direction: column;
+  }
+
+  .contact-button {
+    margin-top: 20px;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+
+  .info-text {
+    text-align: center;
+  }
+
+  .copyright p {
+    margin-right: 0;
+  }
+
+  .social {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .fab {
+    margin-top: 40px;
+  }
+}
