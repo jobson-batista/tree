@@ -1,0 +1,12 @@
+.container {
+    display: block;
+}
+
+display: inline;
+.firstLine {
+}
+
+.secondLine {
+    display: inline;
+} 
+

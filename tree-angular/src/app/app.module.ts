@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailCardComponent } from './components/detail-card/detail-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    CardComponent
+    CardComponent,
+    DetailCardComponent
   ],
   imports: [
     BrowserModule,
