@@ -6,7 +6,7 @@ export const findSpecializations = async (req: Request, res: Response) => {
 
     const specializations = await getRepository(Specialization).find();
     if (specializations.length<1){
-        return res.status((404)).json({message: "Nenhuma Especialização cadastrada!"})
+        return res.status((404)).json({message: "No Specialization registed!"})
     }
     return res.status(302).send(specializations);
 }
