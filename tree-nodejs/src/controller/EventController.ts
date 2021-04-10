@@ -1,7 +1,6 @@
 import { getRepository } from 'typeorm';
 import { Event } from '../model/Event';
 import { Request, Response } from 'express';
-import { eventNames } from 'process';
 
 export const findEvents = async (req: Request, res: Response) => {
 
