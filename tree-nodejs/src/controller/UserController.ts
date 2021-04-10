@@ -27,14 +27,14 @@ export const saveUser = async (req: Request, res: Response) => {
     const { firstName, lastName, email, password, phoneNumber } = req.body
     for (const user of await getRepository(User).find()) {
         if (user.email==email){
-            return res.status(400).json({message: "Email já cadastrado"});
+            return res.status(400).json({message: "Email registed"});
         }
     }
     if (firstName && lastName && email && password && phoneNumber){
         const user = await getRepository(User).save(req.body);
         return res.status(201).json(user);
     }
-    return res.status(422).json({message: "Algum dos campos não foi preenchido!"})
+    return res.status(422).json({message: "Some of the fields have not been filled in!"})
 }
 
 export const updateUser = async (req: Request, res: Response) => {
@@ -52,7 +52,7 @@ export const updateUser = async (req: Request, res: Response) => {
             message: "User not found."
         })
     }
-    return res.status(422).json({message: "Algum dos campos não foi preenchido!"})
+    return res.status(422).json({message: "Some of the fields have not been filled in!"})
 
 }
 export const deleteUser = async (req: Request, res: Response) => {
