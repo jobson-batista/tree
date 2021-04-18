@@ -3,7 +3,7 @@ import * as swaggerJsDoc from 'swagger-jsdoc';
 const swaggerOptions: swaggerJsDoc.Options = {
     swaggerDefinition: {
         info: {
-            title: 'API do projeto Tree',
+            title: 'API REST do projeto Tree',
             description: 'Documentação da API Tree.',
             contact: {
                 name: "Suporte API Tree",
@@ -701,51 +701,41 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             }
                         },
                         {
-                            name: "email",
+                            name: "contactEmail",
                             type: "string",
                             in: "body",
-                            description: "Email do usuário.",
+                            description: "Email do organizador do evento.",
                             required: true,
                             schema: {
                                 type: "string"
                             }
                         },
                         {
-                            name: "password",
-                            type: "string",
+                            name: "qty",
+                            type: "int",
                             in: "body",
-                            description: "Senha do usuário.",
+                            description: "Quantidade de vagas.",
                             required: true,
                             schema: {
                                 type: "string"
                             }
                         },
                         {
-                            name: "lastName",
+                            name: "place",
                             type: "string",
                             in: "body",
-                            description: "Sobrenome do usuário.",
+                            description: "Nome do local do evento.",
                             required: true,
                             schema: {
                                 type: "string"
                             }
                         },
                         {
-                            name: "isAdmin",
-                            type: "boolean",
-                            in: "body",
-                            description: "Privilégios de administrador.",
-                            required: true,
-                            schema: {
-                                type: "boolean"
-                            }
-                        },
-                        {
-                            name: "phoneNumber",
+                            name: "organizer",
                             type: "string",
                             in: "body",
-                            description: "Telefone para contato do usuário.",
-                            required: false,
+                            description: "Nome do organizador do evento.",
+                            required: true,
                             schema: {
                                 type: "string"
                             }
@@ -884,51 +874,41 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             }
                         },
                         {
-                            name: "email",
+                            name: "contactEmail",
                             type: "string",
                             in: "body",
-                            description: "Email do usuário.",
+                            description: "Email do organizador do evento.",
                             required: true,
                             schema: {
                                 type: "string"
                             }
                         },
                         {
-                            name: "password",
-                            type: "string",
+                            name: "qty",
+                            type: "int",
                             in: "body",
-                            description: "Senha do usuário.",
+                            description: "Quantidade de vagas.",
                             required: true,
                             schema: {
                                 type: "string"
                             }
                         },
                         {
-                            name: "lastName",
+                            name: "place",
                             type: "string",
                             in: "body",
-                            description: "Sobrenome do usuário.",
+                            description: "Nome do local do evento.",
                             required: true,
                             schema: {
                                 type: "string"
                             }
                         },
                         {
-                            name: "isAdmin",
-                            type: "boolean",
-                            in: "body",
-                            description: "Privilégios de administrador.",
-                            required: true,
-                            schema: {
-                                type: "boolean"
-                            }
-                        },
-                        {
-                            name: "phoneNumber",
+                            name: "organizer",
                             type: "string",
                             in: "body",
-                            description: "Telefone para contato do usuário.",
-                            required: false,
+                            description: "Nome do organizador do evento.",
+                            required: true,
                             schema: {
                                 type: "string"
                             }
@@ -1088,7 +1068,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "date",
                             in: "body",
                             description: "Data de termínio da vaga de pós-graduação.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "date"
                             }
@@ -1115,14 +1095,45 @@ const swaggerOptions: swaggerJsDoc.Options = {
                         },
                         {
                             name: "address",
-                            in: "body",
                             type: "object",
-                            description: "Endereço físico do evento.",
-                            require: false,
-                            schemas: {
+                            in: "body",
+                            description: "Endereço físico da instituição.",
+                            required: false,
+                            schema: {
                                 type: "object"
                             },
-                        }
+                        },
+                        {
+                            name: "scholarship",
+                            in: "body",
+                            type: "float",
+                            description: "Bolsa de estudo para pós-graduação.",
+                            required: false,
+                            schema: {
+                                type: "object"
+                            },
+                        },
+                        {
+                            name: "type",
+                            in: "body",
+                            type: "string",
+                            description: "Tipo de pós-graduação. Ex: Mestrado, Especialização, PhD, etc.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            },
+                        },
+                        {
+                            name: "institution",
+                            in: "body",
+                            type: "string",
+                            description: "Instituição de ensino.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            },
+                        },
+
                     ],
                     responses: {
                         "200": {
@@ -1242,7 +1253,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "date",
                             in: "body",
                             description: "Data de termínio da vaga de pós-graduação.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "date"
                             }
@@ -1275,7 +1286,36 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             schema: {
                                 type: "object"
                             }
-                        }
+                        },
+                        {
+                            name: "scholarship",
+                            in: "body",
+                            description: "Bolsa de estudo para pós-graduação.",
+                            required: false,
+                            schema: {
+                                type: "float"
+                            },
+                        },
+                        {
+                            name: "type",
+                            in: "body",
+                            type: "string",
+                            description: "Tipo de pós-graduação. Ex: Mestrado, Especialização, PhD, etc.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            },
+                        },
+                        {
+                            name: "institution",
+                            in: "body",
+                            type: "string",
+                            description: "Instituição de ensino.",
+                            required: true,
+                            schema: {
+                                type: "string"
+                            },
+                        },
                     ],
                     responses: {
                         "200": {

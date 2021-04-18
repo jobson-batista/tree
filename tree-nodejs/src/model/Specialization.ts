@@ -13,5 +13,5 @@ export class Specialization extends Vacancy {
     @Column({
         type: "float"
     })
-    purse: number;
+    scholarship: number;
 }

@@ -11,24 +11,26 @@ export abstract class Vacancy {
     @Column()
     description: string;
 
-    /*@Column({
-        default: "Date"
+    @CreateDateColumn({
+        name: "start_date"
     })
     startDate: Date;
     
     @Column({
-        default: "Date"
+        type: 'timestamptz',
+        nullable: true,
+        name: "end_date",
+        default: new Date()
     })
-    endDate: Date; */
+    endDate: Date;
 
-    @Column()
+    @Column({
+        name: "contact_email"
+    })
     contactEmail: string;
 
     @Column()
     qty: number;
-
-    @CreateDateColumn()
-    created_at: Date;
 
     @UpdateDateColumn()
     updated_at: Date;

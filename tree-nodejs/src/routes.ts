@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import { findEvents, findEvent, saveEvent, updateEvent, deleteEvent } from './controller/EventController';
 import { deleteJob, findJob, findJobs, saveJob, updateJob } from './controller/JobController';
 import { findSpecializations, findSpecialization, deleteSpecialization, saveSpecialization, updateSpecialization } from './controller/SpecializationController';
