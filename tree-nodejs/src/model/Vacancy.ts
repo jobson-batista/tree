@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export abstract class Vacancy {
     
@@ -11,16 +11,20 @@ export abstract class Vacancy {
     @Column()
     description: string;
 
-    @CreateDateColumn({
-        name: "start_date"
+    @Column({
+        name: "start_date",
+        type: "timestamptz",
+        nullable: true,
+        default: new Date()
+
     })
     startDate: Date;
     
     @Column({
+        name: "end_date",
         type: 'timestamptz',
         nullable: true,
-        name: "end_date",
-        default: new Date()
+        default: addDays(30)
     })
     endDate: Date;
 
@@ -34,4 +38,9 @@ export abstract class Vacancy {
 
     @UpdateDateColumn()
     updated_at: Date;
+}
+
+function addDays(days: number){
+    let now = new Date();
+    return new Date(now.setDate(now.getDate() + days));
 }
