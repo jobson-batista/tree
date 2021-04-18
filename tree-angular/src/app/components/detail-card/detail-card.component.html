@@ -1,9 +1,11 @@
 <section class="container">
     <header>
         <div class="firstLine">
-            <img src="https://img.icons8.com/cotton/2x/suitcase--v3.png" width="50em">
-            <h1>{{ item.title }}</h1>
-            <img src="https://img.icons8.com/ios/452/apple-mail.png" width="40em">
+            <img *ngIf="item.firstName" class="icoPerson" src="{{ item.profilePhoto }}" width="50em">
+            <img *ngIf="!item.firstName" class="ico1" src="https://img.icons8.com/cotton/2x/suitcase--v3.png" width="50em">
+            <h1 *ngIf="!item.firstName">{{ item.title }}</h1>
+            <h1 *ngIf="item.firstName">{{ item.firstName }}</h1>
+            <img class="ico2" src="https://img.icons8.com/ios/452/apple-mail.png" width="40em">
         </div>
         <div class="secondLine">
             <h5>{{ item.address.place }} . {{ item.address.city }}, {{ item.address.state }}</h5>
@@ -11,13 +13,15 @@
             <h5 *ngIf="item.firstName">Conta criada a 2 dias atrás</h5>
         </div>
     </header>
-    <h2>Descrição</h2>
-    <p class="description">
-        {{ item.description }}
-    </p>
-    <h2 *ngIf="!item.firstName">Sobre a oportunidade</h2>
-    <h2 *ngIf="item.firstName">Sobre mim</h2>
-    <p class="description">
-        {{ item.description }}
-    </p>
+    <body>
+        <h2>Descrição</h2>
+        <p class="description">
+            {{ item.description }}
+        </p>
+        <h2 *ngIf="!item.firstName">Sobre a oportunidade</h2>
+        <h2 *ngIf="item.firstName">Sobre mim</h2>
+        <p class="description">
+            {{ item.description }}
+        </p>
+    </body>
 <section>

@@ -15,10 +15,11 @@ export class DetailCardComponent implements OnInit {
   ngOnInit(): void {
     this.item = {
       id: 1,
-      title: "Estágio em TI - Sistemas",
+      firstName: "Jobson Batista",
       description: "ALDKSJldkJSldKJLDKSJALKSJDLK",
       startDate: Date,
       endDate: Date,
+      profilePhoto: "https://thispersondoesnotexist.com/image",
       contactEmail: "contato@email.com",
       qty: 3,
       address: {
