@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserCardComponent } from './components/userCard/userCard.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -12,8 +12,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
+    UserCardComponent
     FooterComponent,
-    CardComponent,
     NavbarComponent
   ],
   imports: [
