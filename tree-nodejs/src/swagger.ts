@@ -26,12 +26,12 @@ const swaggerOptions: swaggerJsDoc.Options = {
                     ],
                     description: "Retorna todos os usuários cadastrados no banco de dados.",
                     responses: {
-                        "302": {
+                        "200": {
                             description: "Usuários listados com sucesso.",
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "array"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -42,7 +42,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "array"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -127,23 +127,23 @@ const swaggerOptions: swaggerJsDoc.Options = {
                         }
                     ],
                     responses: {
-                        "200": {
-                            description: "[OK] Usuário criado com sucesso!",
+                        "201": {
+                            description: "[Created] Usuário criado com sucesso!",
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "Objeto JSON"
+                                       type: "object"
                                    } 
                                 }
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -191,7 +191,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -281,18 +281,18 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
                         },
                         // Não implementado no UserController.
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -321,7 +321,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -442,18 +442,18 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -485,7 +485,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -496,7 +496,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -596,18 +596,18 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -625,7 +625,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "json"
+                                       type: "object"
                                    } 
                                 }
                             }
@@ -782,8 +782,8 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
@@ -949,14 +949,14 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             content: {
                                 "application/json": {
                                    schema: {
-                                       type: "Objeto JSON"
+                                       type: "object"
                                    } 
                                 }
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
@@ -1147,8 +1147,8 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
@@ -1329,8 +1329,8 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
@@ -1490,8 +1490,8 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {
@@ -1644,8 +1644,8 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             }
                         },
                         // Ainda não implementado no UserController
-                        "206": {
-                            description: "[Partial Content] Algum atributo não recebido.",
+                        "400": {
+                            description: "[Bad Request] Algum atributo não recebido.",
                             content: {
                                 "application/json": {
                                    schema: {

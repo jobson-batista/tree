@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 export const findUsers = async (req: Request, res: Response) => {
 
     const users = await getRepository(User).find();
-    return res.status(302).send(users);
+    return res.status(200).send(users);
 }
 
 export const findUser = async (req: Request, res: Response) => {
@@ -13,7 +13,7 @@ export const findUser = async (req: Request, res: Response) => {
     const { id } = req.params;
     const user = await getRepository(User).findOne(id);
     console.log(user.created_at);    
-    return res.status(302).send(user);
+    return res.status(200).send(user);
 }
 
 export const saveUser = async (req: Request, res: Response) => {

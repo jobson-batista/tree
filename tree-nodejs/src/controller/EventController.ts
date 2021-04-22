@@ -5,14 +5,14 @@ import { Request, Response } from 'express';
 export const findEvents = async (req: Request, res: Response) => {
 
     const events = await getRepository(Event).find();
-    return res.status(302).send(events);
+    return res.status(200).send(events);
 }
 
 export const findEvent = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     const event = await getRepository(Event).findOne(id);
-    return res.status(302).send(event);
+    return res.status(200).send(event);
 }
 
 export const saveEvent = async (req: Request, res: Response) => {
