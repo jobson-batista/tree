@@ -1110,7 +1110,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             description: "Bolsa de estudo para pós-graduação.",
                             required: false,
                             schema: {
-                                type: "object"
+                                type: "float"
                             },
                         },
                         {
