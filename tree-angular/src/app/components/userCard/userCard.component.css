@@ -1,0 +1,31 @@
+.userCard {
+  border-radius: 15px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+  margin: 2px;
+  background-color: #ffffff;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+.item {
+  display: flex;
+  align-items: center;
+}
+.title {
+  padding-left: 10px;
+}
+.profile-photo {
+  width: 54px;
+  height: 54px;
+  border-radius: 5px;
+  background-size: cover;
+}
+.description {
+  padding: 0px 10px 20px 10px;
+}
+.description p {
+  margin: 0;
+  padding: 0;
+}

@@ -6,14 +6,14 @@ import { Address } from '../model/Address';
 export const findJobs = async (req: Request, res: Response) => {
 
     const jobs = await getRepository(Job).find();
-    return res.status(302).send(jobs);
+    return res.status(200).send(jobs);
 }
 
 export const findJob = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     const job = await getRepository(Job).findOne(id);
-    return res.status(302).send(job);
+    return res.status(200).send(job);
 }
 
 export const saveJob = async (req: Request, res: Response) => {

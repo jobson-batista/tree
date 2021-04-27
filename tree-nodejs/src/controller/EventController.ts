@@ -5,15 +5,15 @@ import { Address } from '../model/Address';
 
 export const findEvents = async (req: Request, res: Response) => {
 
-    const events = await getRepository(Event).find({ relations: ["address"] });
-    return res.status(302).send(events);
+    const events = await getRepository(Event).find();
+    return res.status(200).send(events);
 }
 
 export const findEvent = async (req: Request, res: Response) => {
 
     const { id } = req.params;
-    const event = await getRepository(Event).findOne(id, { relations: ["address"] });
-    return res.status(302).send(event);
+    const event = await getRepository(Event).findOne(id);
+    return res.status(200).send(event);
 }
 
 export const saveEvent = async (req: Request, res: Response) => {
