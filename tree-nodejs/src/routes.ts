@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { findAddress, saveAddress, updateAddress, deleteAddress, findAddressById } from './controller/AddressController';
 import { findEvents, findEvent, saveEvent, updateEvent, deleteEvent } from './controller/EventController';
 import { deleteJob, findJob, findJobs, saveJob, updateJob } from './controller/JobController';
 import { findSpecializations, findSpecialization, deleteSpecialization, saveSpecialization, updateSpecialization } from './controller/SpecializationController';
@@ -33,5 +34,12 @@ routes.get('/events/:id', findEvent);
 routes.post('/events', saveEvent);
 routes.put('/events/:id', updateEvent);
 routes.delete('/events/:id', deleteEvent);
+
+// Rotas para Address
+routes.get('/address', findAddress);
+routes.get('/address/:id', findAddressById);
+routes.post('/address', saveAddress);
+routes.put('/address/:id', updateAddress);
+routes.delete('/address/:id', deleteAddress);
 
 export default routes;
