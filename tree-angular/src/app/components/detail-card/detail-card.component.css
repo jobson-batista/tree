@@ -51,6 +51,11 @@ h4 {
   padding: 0.1em;
   background-color: #fdcb6e;
   border-radius: 10%;
+  color: white;
+}
+
+.fa-envelope {
+  margin-left: 0.5em;
 }
 
 .ico2 {
@@ -60,6 +65,7 @@ h4 {
 
 .description {
   display: block;
+  text-align: justify;
 }
 
 .icoPerson {
@@ -77,9 +83,9 @@ h4 {
     padding: 20px;
   }
 
-  .icoPerson {
+  /* .icoPerson {
     width: 10vw;
-  }
+  } */
 
   h1 {
     margin-left: 4vw;
@@ -93,6 +99,10 @@ h4 {
 
   .secondLine {
     flex-direction: column;
+  }
+
+  .firstLine h1 {
+    font-size: 4vw;
   }
 
   h4 {
