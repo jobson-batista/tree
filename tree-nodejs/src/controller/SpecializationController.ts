@@ -5,14 +5,14 @@ import { Request, Response } from 'express';
 export const findSpecializations = async (req: Request, res: Response) => {
 
     const specializations = await getRepository(Specialization).find();
-    return res.status(302).send(specializations);
+    return res.status(200).send(specializations);
 }
 
 export const findSpecialization = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     const specialization = await getRepository(Specialization).findOne(id);   
-    return res.status(302).send(specialization);
+    return res.status(200).send(specialization);
 }
 
 export const saveSpecialization = async (req: Request, res: Response) => {
