@@ -21,18 +21,18 @@
 }
 
 .icoPerson {
-  width: 64px;
+  width: 1.5em;
 }
 
 h1 {
-  margin-left: 40px;
+  margin-left: 0em;
 }
 
 .fa-envelope {
   border: rgba(42, 47, 67, 0.25) solid 2px;
   border-radius: 10px;
   padding: 16px;
-  font-size: 32px;
+  font-size: 3em;
   color: rgba(42, 47, 67, 0.5);
 }
 
@@ -66,12 +66,14 @@ h4 {
 .description {
   display: block;
   text-align: justify;
+  text-indent: 1em;
 }
 
 .icoPerson {
   margin-right: 0.5em;
   padding: 0.1em;
   border-radius: 10%;
+  font-size: 4em;
 }
 
 @media only screen and (max-width: 600px) {
@@ -83,9 +85,9 @@ h4 {
     padding: 20px;
   }
 
-  /* .icoPerson {
+  .icoPerson {
     width: 10vw;
-  } */
+  }
 
   h1 {
     margin-left: 4vw;
@@ -108,4 +110,13 @@ h4 {
   h4 {
     margin: 5px 0;
   }
+}
+
+.address {
+  color: #2A3043;
+}
+
+.clockIcon {
+  display: flex;
+  align-items: center;
 }

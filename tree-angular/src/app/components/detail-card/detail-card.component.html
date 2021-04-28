@@ -11,9 +11,15 @@
               <i class="far fa-envelope"></i>
           </div>
           <div class="secondLine">
-              <h4>{{ item.address.place }} . {{ item.address.city }}, {{ item.address.state }}</h4>
-              <h4 *ngIf="!item.firstName">Postado a {{ createdTo(item.startDate, item.endDate) }} {{ createdTo(item.startDate, item.endDate) == 1 ? 'dia' : 'dias' }} atrás</h4>
-              <h4 *ngIf="item.firstName">Conta criada a {{ createdTo(item.startDate, item.endDate) }} {{ createdTo(item.startDate, item.endDate) == 1 ? 'dia' : 'dias' }} atrás</h4>
+              <div style="display: inline-flex;">
+                    <h4 class="address">{{ item.address.place }} &nbsp; • &nbsp;</h4>
+                    <h4>{{ item.address.city }}, {{ item.address.state }}</h4>
+              </div>
+              <div class="clockIcon">
+                <i class="far fa-clock"></i> &nbsp; &nbsp;
+                <h4 *ngIf="!item.firstName">Postado a {{ createdTo(item.startDate) }} {{ createdTo(item.startDate) == 1 ? 'dia' : 'dias' }} atrás</h4>
+                <h4 *ngIf="item.firstName">Conta criada a {{ createdTo(item.startDate) }} {{ createdTo(item.startDate) == 1 ? 'dia' : 'dias' }} atrás</h4>
+              </div>
           </div>
       <div>
           <h2>Descrição</h2>
