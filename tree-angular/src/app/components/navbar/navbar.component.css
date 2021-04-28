@@ -99,7 +99,8 @@ nav div ul li a.actived {
 }
 
 .row .signup-button:hover {
-  background: #06a056;
+  background: #05ca6b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 #toggle {
@@ -189,7 +190,7 @@ nav div ul li a.actived {
     left: -100%;
     text-align: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: #2a2f43;
     transition: all 0.5s;
   }
