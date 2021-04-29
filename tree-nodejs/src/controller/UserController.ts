@@ -10,7 +10,7 @@ export const findUsers = async (req: Request, res: Response) => {
     if (users.length<1){
         return res.status(404).json({message: "No registered users!"});
     }
-    return res.status(302).send(users);
+    return res.status(200).send(users);
 }
 
 export const findUser = async (req: Request, res: Response) => {
@@ -20,7 +20,7 @@ export const findUser = async (req: Request, res: Response) => {
         return res.status(404).json({message: "User not found!"})
     }
     console.log(user.created_at);    
-    return res.status(302).send(user);
+    return res.status(200).send(user);
 }
 
 export const saveUser = async (req: Request, res: Response) => {
