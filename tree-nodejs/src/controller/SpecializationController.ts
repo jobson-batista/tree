@@ -1,6 +1,7 @@
 import { getRepository } from 'typeorm';
 import { Specialization } from '../model/Specialization';
 import { Request, Response } from 'express';
+import { Address } from '../model/Address';
 
 export const findSpecializations = async (req: Request, res: Response) => {
 
@@ -8,7 +9,7 @@ export const findSpecializations = async (req: Request, res: Response) => {
     if (specializations.length<1){
         return res.status((404)).json({message: "No Specialization registed!"})
     }
-    return res.status(302).send(specializations);
+    return res.status(200).send(specializations);
 }
 
 export const findSpecialization = async (req: Request, res: Response) => {
@@ -18,7 +19,7 @@ export const findSpecialization = async (req: Request, res: Response) => {
     if(!specialization){
         return res.status(404).json({message: "Specialization not found."})
     }
-    return res.status(302).send(specialization);
+    return res.status(200).send(specialization);
 }
 
 export const saveSpecialization = async (req: Request, res: Response) => {
@@ -39,10 +40,14 @@ export const updateSpecialization = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     const {type, institution} = req.body
+    if(req.body.address != null) {
+        const { address } = req.body;     
+        await getRepository(Address).save(address);
+    }
     if (type && institution){
         const specialization = await getRepository(Specialization).update(id, req.body);
         if(specialization.affected === 1) {
-            const specializationUpdated = await getRepository(Specialization).findOne(id);
+            const specializationUpdated = await getRepository(Specialization).findOne(id, { relations: ["address"] });
             return res.status(200).send(specializationUpdated);
         }
         return res.status(404).json({
@@ -56,6 +61,8 @@ export const deleteSpecialization = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     if(getRepository(Specialization).findOne(id)){
+        const job = await getRepository(Specialization).findOne(id);
+        await getRepository(Address).delete(job.address.id);
         const specialization = await getRepository(Specialization).delete(id);
         return res.status(200).json({ message: "Specialization deleted" });
     }
