@@ -120,7 +120,7 @@
 .copyright p {
   color: white;
   text-decoration: none;
-  margin-right: 100px;
+  margin-right: 45px;
 }
 
 .info-text {
@@ -140,12 +140,15 @@
 
 .social-container {
   font-size: 1.5rem;
+}
+
+.fab {
   color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 
 .fab:not(:first-child) {
   margin-left: 30px;
-  cursor: pointer;
   transition: all 0.25s ease;
 }
 
