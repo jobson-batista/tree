@@ -1,0 +1,67 @@
+.container {
+  border-radius: 2vh;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+  margin: 2px;
+  background-color: #ffffff;
+}
+
+.body {
+  padding: 3vh;
+}
+
+.body:active {
+  background-color: #fdcb6e3e;
+}
+
+.Event:active {
+  background-color: #6c5ce73e;
+  opacity: 0.25;
+}
+
+.Specialization:active {
+  background-color: #b2bec33e;
+  opacity: 0.25;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 1vh;
+}
+
+.fas,
+.far {
+  font-size: 3vh;
+  padding: 9px;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 1vh;
+}
+
+.vacancy {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 100%;
+}
+
+.description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  font-size: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 5vw;
+  }
+}
