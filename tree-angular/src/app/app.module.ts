@@ -7,14 +7,16 @@ import { UserCardComponent } from './components/userCard/userCard.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CommunityComponent } from './components/screens/community/community.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent
+    UserCardComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    CommunityComponent
   ],
   imports: [
     BrowserModule,
