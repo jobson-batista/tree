@@ -1,42 +1,54 @@
 <div class="register">
     <div class="left-container">
-        <div class="left-container-body">            
+        <div class="left-container-body">
             <div class=logo>
                 <img src="../../assets/images/logo.svg"/>
             </div>
             <div class=register-person>
-                <img src="../../assets/images/register.svg">                          
+                <img src="../../assets/images/register.svg">
                 <div class="phrase-text">
                     <h1>Inicie de graça e obtenha</h1>
                     <h1>várias oportunidades</h1>
-                </div>   
-            </div>           
-        </div>
-    </div>  
-    <div class="right-container"> 
-        <div>     
-                <h1>Cadastrar-se</h1>  
-            <div class=header-register>
-                <h2> Já possui uma conta?</h2> &nbsp;
-                <h2 class="text-pink">Entrar</h2>
+                </div>
             </div>
-        </div>  
+        </div>
+    </div>
+    <div class="right-container">
+      <div class="select-option">
+        <p class="signup-option" (click)="setOption(false)" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'"
+        [ngStyle]="{'margin-right': '20px'}">Cadastrar-se</p>
+        <p class="signin-option" (click)="setOption(true)" [ngClass]="this.isLogin ? 'actived' : 'not-actived'">Entrar</p>
+      </div>
+        <div>
+          <h1>{{this.textTop}}</h1>
+          <div class=header-register>
+            <h2 class="text-grey">{{this.textBottom}}</h2> &nbsp;
+            <h2 class="text-pink" (click)="setOption(this.textOption == 'Entrar')">{{this.textOption}}</h2>
+          </div>
+        </div>
         <div class="columns">
             <form>
-                <div>                    
-                <div class="name-input">
-                    Nome <input type="text" name="firstname"/>
+                <div class="name-container" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'">
+                  <div class="name-input">
+                      <p>Nome</p> <input type="text" name="firstname"/>
+                  </div>
+                  <div class="lastname-input">
+                      <p>Sobrenome</p> <input type="text" name="lastname"/>
+                  </div>
                 </div>
-                <div class="lastname-input">
-                    Sobrenome <input type="text" name="lastname"/>
-                </div>                    
+                <p>E-mail</p>
+                <div class="email-input">
+                  <i class="far fa-envelope"></i>
+                  <input type="email" name="email_user"/>
                 </div>
-                <br>
-                E-mail <input type="email" name="email_user"/>
-                <br><br>
-                Senha <input type="text" name="password"/>
-            </form>             
+                <p>Senha</p>
+                <div class="password-input">
+                  <i class="fas fa-lock"></i>
+                  <input type="text" name="password"/>
+                  <i class="far fa-eye"></i>
+                </div>
+            </form>
             <button class="button" type="submit">Cadastrar-se</button>
-        </div>            
+        </div>
     </div>
 </div>
