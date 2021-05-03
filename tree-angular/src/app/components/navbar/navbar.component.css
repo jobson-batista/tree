@@ -32,6 +32,10 @@ nav {
   align-items: center;
 }
 
+.left-container img {
+  cursor: pointer;
+}
+
 .logo {
   margin: 20px 40px;
   width: 10vh;

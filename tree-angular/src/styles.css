@@ -11,6 +11,11 @@ body {
     box-sizing: border-box;
 }
 
+::selection {
+    color: #05b962;
+    background: #2a2f43;
+}
+
 
 /* Custom Scrollbar */
 

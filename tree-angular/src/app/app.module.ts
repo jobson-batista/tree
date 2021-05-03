@@ -9,7 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CommunityComponent } from './components/screens/community/community.component';
+import { CommunityComponent } from './pages/community/community.component';
 import { HomeComponent } from './pages/home/home.component';
 
 
