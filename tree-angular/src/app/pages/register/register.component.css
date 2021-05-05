@@ -19,9 +19,9 @@
   margin: 3vh;
 }
 
-.logo img {
+.logo {
   width: 15vh;
-  margin-left: 40px;
+  margin-left: 5vh;
 }
 
 .register-person {
@@ -48,9 +48,10 @@
 
 .right-container {
   width: 50vw;
-  height: 85vh;
-  padding: 3vw;
+  height: 90vh;
+  padding: 5vh;
   display: flex;
+  align-content: center;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -77,10 +78,29 @@
 
 .select-option {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-option i {
+  padding: 2vh 2.5vh;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 1vh;
+  transition: all ease 0.25s;
+  cursor: pointer;
+}
+
+.select-option i:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.options {
+  display: flex;
   justify-content: flex-end;
 }
 
-.select-option p {
+.options p {
   font-weight: 600;
   font-size: 1vw;
 }
@@ -110,12 +130,13 @@
 }
 
 .right-container h1 {
-  margin: 0;
   font-size: 5vh;
+  margin: 0;
 }
 
 .right-container h2 {
   font-size: 2vh;
+  margin: 0;
 }
 
 .columns {
@@ -246,6 +267,10 @@ input:focus {
   .select-option p {
     margin-top: 3vh;
     font-size: 1.5vh;
+  }
+
+  .header-register {
+    flex-direction: column;
   }
 
   .name-container {

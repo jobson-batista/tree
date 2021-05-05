@@ -1,9 +1,7 @@
 <div class="register">
     <div class="left-container">
         <div class="left-container-body">
-            <div class=logo>
-                <img src="../../assets/images/logo.svg"/>
-            </div>
+            <img class="logo" src="../../assets/images/logo.svg"/>
             <div class=register-person>
                 <img src="../../assets/images/register.svg">
                 <div class="phrase-text">
@@ -15,14 +13,17 @@
     </div>
     <div class="right-container">
       <div class="select-option">
-        <p class="signup-option" (click)="setOption(false)" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'"
-        [ngStyle]="{'margin-right': '20px'}">Cadastrar-se</p>
-        <p class="signin-option" (click)="setOption(true)" [ngClass]="this.isLogin ? 'actived' : 'not-actived'">Entrar</p>
+        <i class="fas fa-chevron-left"></i>
+        <div class="options">
+          <p class="signup-option" (click)="setOption(false)" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'"
+          [ngStyle]="{'margin-right': '20px'}">Cadastrar-se</p>
+          <p class="signin-option" (click)="setOption(true)" [ngClass]="this.isLogin ? 'actived' : 'not-actived'">Entrar</p>
+        </div>
       </div>
-        <div>
+        <div class="text-top">
           <h1>{{this.textTop}}</h1>
           <div class=header-register>
-            <h2 class="text-grey">{{this.textBottom}}</h2> &nbsp;
+            <h2 class="text-grey">{{this.textBottom}} &nbsp;</h2>
             <h2 class="text-pink" (click)="setOption(this.textOption == 'Entrar')">{{this.textOption}}</h2>
           </div>
         </div>
@@ -48,7 +49,7 @@
                   <i class="far fa-eye"></i>
                 </div>
             </form>
-            <button class="button" type="submit">Cadastrar-se</button>
+            <button class="button" type="submit">{{this.textTop}}</button>
         </div>
     </div>
 </div>
