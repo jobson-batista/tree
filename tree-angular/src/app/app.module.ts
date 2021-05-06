@@ -8,6 +8,7 @@ import { UserCardComponent } from "../app/components/userCard/userCard.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { FooterComponent } from "../app/components/footer/footer.component";
 import { HomeComponent } from './pages/home/home.component';
 
@@ -20,7 +21,8 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    DetailCardComponent,
+    RegisterComponent,
+    DetailCardComponent
   ],
   imports: [
     BrowserModule,
