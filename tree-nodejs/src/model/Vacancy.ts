@@ -1,3 +1,5 @@
+import { CreateDateColumn, JoinColumn, OneToOne } from "typeorm";
+import { Address } from "./Address";
 import { Column, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export abstract class Vacancy {
@@ -35,6 +37,20 @@ export abstract class Vacancy {
 
     @Column()
     qty: number;
+
+    @OneToOne(()=> Address,{
+        cascade: true,
+        eager: true,
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+        nullable: true,
+        orphanedRowAction: "delete"
+    })
+    @JoinColumn()
+    address: Address;
+
+    @CreateDateColumn()
+    created_at: Date;
 
     @UpdateDateColumn()
     updated_at: Date;

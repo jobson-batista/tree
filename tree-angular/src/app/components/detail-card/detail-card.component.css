@@ -1,0 +1,122 @@
+.container {
+  padding: 20px;
+}
+
+.container-body {
+  margin: 1em;
+  border: rgba(42, 47, 67, 0.25) solid 2px;
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.firstLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.foto-name {
+  display: flex;
+  align-items: center;
+}
+
+.icoPerson {
+  width: 1.5em;
+}
+
+h1 {
+  margin-left: 0em;
+}
+
+.fa-envelope {
+  border: rgba(42, 47, 67, 0.25) solid 2px;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 3em;
+  color: rgba(42, 47, 67, 0.5);
+}
+
+.secondLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+h4 {
+  font-weight: 500;
+  color: rgba(42, 47, 67, 0.5);
+}
+
+.ico1 {
+  margin-right: 0.5em;
+  padding: 0.1em;
+  background-color: #fdcb6e;
+  border-radius: 10%;
+  color: white;
+}
+
+.fa-envelope {
+  margin-left: 0.5em;
+}
+
+.ico2 {
+  margin-left: 0.5em;
+  color: #c5c7cd;
+}
+
+.description {
+  display: block;
+  text-align: justify;
+  text-indent: 1em;
+}
+
+.icoPerson {
+  margin-right: 0.5em;
+  padding: 0.1em;
+  border-radius: 10%;
+  font-size: 4em;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    font-size: 3vw;
+  }
+
+  .container-body {
+    padding: 20px;
+  }
+
+  .icoPerson {
+    width: 10vw;
+  }
+
+  h1 {
+    margin-left: 4vw;
+  }
+
+  .fa-envelope {
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 5vw;
+  }
+
+  .secondLine {
+    flex-direction: column;
+  }
+
+  .firstLine h1 {
+    font-size: 4vw;
+  }
+
+  h4 {
+    margin: 5px 0;
+  }
+}
+
+.address {
+  color: #2A3043;
+}
+
+.clockIcon {
+  display: flex;
+  align-items: center;
+}
