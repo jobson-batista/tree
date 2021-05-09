@@ -54,7 +54,7 @@ ul {
   font-size: 1rem;
 }
 
-nav div ul li a {
+nav div ul li a.not-actived {
   color: white;
   transition: 0.1s;
 }
