@@ -107,6 +107,54 @@ form div {
   padding-left: 50px;
 }
 
+form div > .wage {
+  display: flex;
+  justify-content: stretch;
+}
+
+.wage {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+  width: 100%;
+}
+
+.wage p {
+  padding-top: 10px;
+}
+
+.email-input,
+.wage-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.email-input:focus-within,
+.wage-input:focus-within {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.email-input input,
+.wage-input input {
+  border: transparent;
+  width: 100%;
+  height: 0vh;
+}
+
+.email-input input:focus,
+.wage-input input:focus {
+  box-shadow: none;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
 i {
   padding: 2vh 0 2vh 2vh;
   color: rgba(0, 0, 0, 0.25);
@@ -114,17 +162,11 @@ i {
   border-right: transparent;
 }
 
-.wage-input {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-right: 20px;
-}
-
 .type-input {
   display: flex;
   flex-direction: column;
-  padding-left: 25px;
+  padding-left: 10px;
+  margin-top: 10px;
 }
 
 .type-input .job-option,

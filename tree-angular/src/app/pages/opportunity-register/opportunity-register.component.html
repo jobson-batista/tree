@@ -15,9 +15,9 @@
     </div>  
     <div class="right-container"> 
         <div class="header">     
-                <h1>Adicionar</h1>  
+            <h1>Adicionar</h1>  
             <div class=header-register>
-                <h1>Vaga/estágio</h1> 
+                <h1>Emprego/Estágio</h1> 
             </div>
         </div>  
         <div class="columns">
@@ -28,20 +28,23 @@
                         <input type="text" name="title"/>
                     </div>                    
                     <div class="date-input">
-                        <p>Date</p>
-                        <input type="text" name="date"/>
+                        <p>Data</p>
+                        <input id="date" type="date">
                     </div>                    
                 </div> 
                 <p>Email de contato</p>
                 <div class="email-input">
                     <i class="far fa-envelope"></i>
                     <input type="email" name="email"/>  
-                </div>                
-                <div>
-                    <div class="wage-input">
+                </div>                               
+                <div> 
+                    <div class="wage">
                         <p>Salário</p>
-                        <input type="text" name="wage"/>
-                    </div> 
+                        <div class="wage-input"> 
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                            <input type="text" name="wage"/>
+                        </div> 
+                    </div>
                     <div class="type-input">
                         <p>Tipo</p>
                         <div class="buttons-option">
