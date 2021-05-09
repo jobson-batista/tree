@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
+import { OpportunityRegisterComponent } from './pages/opportunity-register/opportunity-register.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
     NavbarComponent,
     HomeComponent,
     DetailCardComponent,
+    OpportunityRegisterComponent,
   ],
   imports: [
     BrowserModule,
