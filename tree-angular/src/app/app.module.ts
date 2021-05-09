@@ -11,6 +11,7 @@ import { DetailCardComponent } from './components/detail-card/detail-card.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CommunityComponent } from './pages/community/community.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { HomeComponent } from './pages/home/home.component';
     HomeComponent,
     DetailCardComponent,
     CommunityComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
