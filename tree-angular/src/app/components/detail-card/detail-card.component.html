@@ -1,39 +1,39 @@
 <div class="container">
-    <div class="container-body">
-          <div class="firstLine">
-              <div class="foto-name">
-                <img *ngIf="item.firstName" class="icoPerson" src="{{ item.profilePhoto }}">
-                <h1 *ngIf="item.firstName">{{ item.firstName }}</h1>
-                
-                <i *ngIf="!item.firstName" class="fa fa-suitcase ico1 fa-4x"></i>
-                <h1 *ngIf="!item.firstName">{{ item.title }}</h1>
-              </div>
-              <i class="far fa-envelope"></i>
-          </div>
-          <div class="secondLine">
-              <div style="display: inline-flex;">
-                    <h4 class="address">{{ item.address.place }} &nbsp; • &nbsp;</h4>
-                    <h4>{{ item.address.city }}, {{ item.address.state }}</h4>
-              </div>
-              <div class="clockIcon">
-                <i class="far fa-clock"></i> &nbsp; &nbsp;
-                <h4 *ngIf="!item.firstName">Postado a {{ createdTo(item.startDate) }} {{ createdTo(item.startDate) == 1 ? 'dia' : 'dias' }} atrás</h4>
-                <h4 *ngIf="item.firstName">Conta criada a {{ createdTo(item.startDate) }} {{ createdTo(item.startDate) == 1 ? 'dia' : 'dias' }} atrás</h4>
-              </div>
-          </div>
-      <div>
-          <h2>Descrição</h2>
-          <p class="description">
-              {{ item.description }}
-          </p>
-          <div *ngIf="item.qty != undefined && 0 && !item.firstName">
-              <h2>Sobre a oportunidade</h2>
-              <ul>
-                  <li>{{ item.qty }} {{ item.qty == 1 ? ' vaga.' : ' vagas.'}}</li>
-                  <li>Validade {{ item.qty == 1 ? 'da vaga' : 'das vagas' }} : {{ item.endDate.split(" ")[0] }}</li>
-              </ul>
-          </div>
-          <h2 *ngIf="item.firstName">Sobre mim</h2>
-        </div>
+  <div class="container-body">
+    <div class="firstLine">
+      <div class="foto-name">
+        <img *ngIf="user != null" class="icoPerson" src="{{ user.imageUrl }}">
+        <h1 *ngIf="user != null">{{ user.firstName }} {{user.lastName}}</h1>
+      </div>
+      <i *ngIf="vacancy != null" class="fa fa-suitcase ico1 fa-4x"></i>
+      <h1 *ngIf="vacancy != null">{{ vacancy.description }}</h1>
+      <i class="far fa-envelope"></i>
     </div>
+    <div class="secondLine">
+      <div *ngIf="vacancy != null" style="display: inline-flex;">
+        <h4 class="address">{{ vacancy.promoter }} &nbsp; • &nbsp;</h4>
+        <h4>{{ vacancy.address.city }}, {{ vacancy.address.state }}</h4>
+      </div>
+      <div class="clockIcon">
+        <i class="far fa-clock"></i> &nbsp; &nbsp;
+        <h4 *ngIf="vacancy != null">Postado a {{ createdTo(vacancy.created_at) }} {{ createdTo(vacancy.created_at) == 1
+          ? 'dia' : 'dias' }} atrás</h4>
+        <h4 *ngIf="user != null">{{ createdTo(user.created_at) }}</h4>
+      </div>
+    </div>
+    <div>
+      <h2>Descrição</h2>
+      <p class="description">
+        {{ user == null ? vacancy.description : user.description }}
+      </p>
+      <!-- <div *ngIf="vacancy != null && vacancy.qty != undefined && vacancy.qty != 0">
+        <h2>Sobre a oportunidade</h2>
+        <ul>
+          <li>{{ vacancy.qty }} {{ vacancy.qty == 1 ? ' vaga.' : ' vagas.'}}</li>
+          <li>Validade {{ vacancy.qty == 1 ? 'da vaga' : 'das vagas' }} : {{ vacancy.endDate.split(" ")[0] }}</li>
+        </ul>
+      </div>
+      <h2 *ngIf="user != null">Sobre mim</h2> -->
+    </div>
+  </div>
 </div>
