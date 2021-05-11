@@ -1,13 +1,30 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>TreeAngular</title>
+  <title>Tree - Sua oportunidade lhe espera</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+
+  <!-- Font only -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <app-root></app-root>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/f6fdaba151.js" crossorigin="anonymous"></script>
+  <!-- JQuery 3.x -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- script para alternar item ativo navbar -->
+  <script>
+      $(document).on('click', 'ul li a', function(){
+        $("a.actived").removeClass('actived');
+        $(this).toggleClass('actived');
+      })
+  </script>
 </body>
 </html>

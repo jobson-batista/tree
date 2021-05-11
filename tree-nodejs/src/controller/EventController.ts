@@ -1,6 +1,7 @@
 import { getRepository } from 'typeorm';
 import { Event } from '../model/Event';
 import { Request, Response } from 'express';
+import { Address } from '../model/Address';
 
 export const findEvents = async (req: Request, res: Response) => {
 
@@ -46,13 +47,18 @@ export const saveEvent = async (req: Request, res: Response) => {
 }
 
 export const updateEvent = async (req: Request, res: Response) => {
-
+    
     const { id } = req.params;
+
     const {place, organizer} = req.body
+    if(req.body.address != null) {
+        const { address } = req.body;     
+        await getRepository(Address).save(address);
+    }
     if(place && organizer){
         const event = await getRepository(Event).update(id, req.body);
         if(event.affected === 1) {
-            const eventUpdated = await getRepository(Event).findOne(id);
+            const eventUpdated = await getRepository(Event).findOne(id, { relations: ["address"] });
             return res.status(200).send(eventUpdated);
         }
         return res.status(404).json({
@@ -60,13 +66,16 @@ export const updateEvent = async (req: Request, res: Response) => {
         })
     }    
     return res.status(422).json({message: "Some of the fields have not been filled in!"})
+    
 }
 
 export const deleteEvent = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     if(getRepository(Event).findOne(id)){
-        const event = await getRepository(Event).delete(id);
+        const event = await getRepository(Event).findOne(id, { relations: ["address"] });
+        await getRepository(Address).delete(event.address.id);
+        await getRepository(Event).delete(id);
         return res.status(200).json({ message: "Event deleted" });
     }
     return res.status(404).json({message:"Event not found"})

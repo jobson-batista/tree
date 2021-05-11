@@ -1,0 +1,68 @@
+.userCard {
+  border-radius: 15px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 20px;
+  transition: all ease 0.25s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.userCard:hover {
+  background: rgba(5, 185, 98, 0.25);
+}
+
+.actived {
+  background: rgba(5, 185, 98, 0.25);
+  box-shadow: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+}
+.title {
+  padding-left: 10px;
+  font-size: 100%;
+}
+.profile-photo {
+  width: 6vh;
+  border-radius: 5px;
+  background-size: cover;
+}
+.description {
+  padding: 10px 0;
+}
+.description p {
+  margin: 0;
+  font-size: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@media only screen and (max-width: 1050px) {
+  .userCard {
+    width: 45vw;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .userCard {
+    height: 35vw;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 3.5vw;
+  }
+}
