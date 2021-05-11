@@ -5,29 +5,44 @@ import { Request, Response } from 'express';
 export const findEvents = async (req: Request, res: Response) => {
 
     const events = await getRepository(Event).find();
-    if(events.length<1){
-        return res.status(404).json({message:"Events not found"})
+    try {
+        if(events.length<1){
+            return res.status(404).json({message:"Nenhum evento encontrado."})
+        }
+        return res.status(200).send(events);
+    } catch (e) {
+        throw new Error("Erro ao obter eventos.\n"+e.message);
+        
     }
-    return res.status(302).send(events);
 }
 
 export const findEvent = async (req: Request, res: Response) => {
 
     const { id } = req.params;
-    const event = await getRepository(Event).findOne(id);
-    if(!event){
-        return res.status(302).send(event);
+    try {
+        const event = await getRepository(Event).findOne(id);
+        if(event){
+            return res.status(200).send(event);
+        }
+        return res.status(404).json({message:"Evento não encontrado."})
+    } catch (error) {
+        throw new Error("Erro ao obter um evento\n"+error.message);
+        
     }
-    return res.status(404).json({message:"Event not found"})
 }
 
 export const saveEvent = async (req: Request, res: Response) => {
-    const {place, organizer} = req.body
-    if(place && organizer){
-        const event = await getRepository(Event).save(req.body);
-        res.status(201).json(event);
+    const { place, organizer } = req.body
+    try {
+        if( place && organizer){
+            const event = await getRepository(Event).save(req.body);
+            res.status(201).json(event);
+        }
+        return res.status(400).json({message: "Algum campo está faltando."})
+    } catch (e) {
+        throw new Error("Erro ao salva evento.\n"+e.message);
+        
     }
-    return res.status(422).json({message: "Some of the fields have not been filled in!"})
 }
 
 export const updateEvent = async (req: Request, res: Response) => {
