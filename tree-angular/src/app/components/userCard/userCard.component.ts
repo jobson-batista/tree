@@ -10,6 +10,7 @@ export class UserCardComponent implements OnInit {
 
   @Input() user: User;
   @Input() isSelected: boolean;
+
   constructor() {}
 
   ngOnInit(): void {
