@@ -35,7 +35,9 @@ export abstract class Vacancy {
     })
     contactEmail: string;
 
-    @Column()
+    @Column({
+        default: 0
+    })
     qty: number;
 
     @OneToOne(()=> Address,{
