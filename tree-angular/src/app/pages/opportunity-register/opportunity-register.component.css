@@ -48,16 +48,40 @@
 .right-container {
   width: 50vw;
   margin: 5vw;
-  height: 90vh;
   padding: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.header-register {
+.header {
   display: flex;
-  margin: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.header-left {
+  width: 100%;
+  height: 100%;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.icons {
+  padding: 1.5vh;
+  background: #fdcb6e;
+  color: white;
+  border-radius: 2vh;
+  border-right: transparent;
+  font-size: 2em;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .text-pink {
@@ -93,18 +117,30 @@ form div {
   justify-content: space-between;
 }
 
+.fist-row {
+  display: flex;
+  width: 100%;
+  max-height: 252.38px;
+  justify-content: space-between;
+}
+
 .title-input {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  padding-right: 50px;
+  flex-direction: column;
+  margin-right: 10px;
 }
 
 .date-input {
+  width: 40%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding-left: 50px;
+  margin-left: 10px;
+}
+
+.title-input input,
+.date-input input {
+  padding: 2vh;
 }
 
 form div > .wage {
@@ -150,7 +186,8 @@ form div > .wage {
   box-shadow: none;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
@@ -182,16 +219,22 @@ i {
   padding-left: 5px;
 }
 
-input {
-  width: 100%;
+input,
+textarea {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 1vh;
-  padding: 1vw;
-  margin: 10px 0;
 }
 
-.desc-input {
-  height: 20vh;
+textarea {
+  resize: none;
+  height: 10vh;
+  width: 100%;
+  padding: 1vw;
+}
+
+input {
+  font-size: 2vh;
+  padding: 1vh;
 }
 
 .buttons-option button {

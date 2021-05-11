@@ -14,24 +14,35 @@
         </div>
     </div>  
     <div class="right-container"> 
-        <div class="header">     
-            <h1>Adicionar</h1>  
-            <div class=header-register>
+        <div class="header">
+            <div class="header-left">     
+                <h1>Adicionar</h1>  
                 <h1>Emprego/Estágio</h1> 
             </div>
-        </div>  
+            <div class="header-right">
+                <div>
+                    <a href="#" class="fas fa-suitcase icons"></a>
+                </div>
+                <div>
+                    <a class="far fa-star icons"></a>
+                </div>
+                <div>
+                    <a class="fas fa-book-open icons"></a>
+                </div>   
+            </div> 
+        </div>        
         <div class="columns">
-            <form>                
-                <div>                    
+            <form>
+                <div class="fist-row">                    
                     <div class="title-input">
                         <p>Título</p>
                         <input type="text" name="title"/>
-                    </div>                    
+                    </div>               
                     <div class="date-input">
                         <p>Data</p>
                         <input id="date" type="date">
-                    </div>                    
-                </div> 
+                    </div> 
+                </div>        
                 <p>Email de contato</p>
                 <div class="email-input">
                     <i class="far fa-envelope"></i>
@@ -59,7 +70,7 @@
                 </div> 
                 <p>Descrição</p> 
                 <div class="desc-input">
-                    <input type="text" name="description"/>
+                    <textarea></textarea>
                 </div>     
             </form>             
             <button class="button" type="submit">Cadastrar</button>
