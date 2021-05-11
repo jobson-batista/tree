@@ -9,7 +9,6 @@ import { User } from 'src/app/models/User';
 })
 export class CommunityComponent implements OnInit {
 
-  totalResults: number = 0;
   searchInput: string = '';
   users: User[];
   visibleUsers: User[];
@@ -68,8 +67,16 @@ export class CommunityComponent implements OnInit {
     return quant;
   }
 
-  searchUser(name: string) {
-    // Lógica para nome pesquisa em this.users
+  searchUser(): any {
+    let searchUsers = [];
+    let pesquisa = (<HTMLInputElement>document.getElementById('search-content')).value;
+    this.users.forEach( (user) => {
+      if(user.firstName.toLowerCase().includes(pesquisa.toLowerCase()) 
+        || user.lastName.toLowerCase().includes(pesquisa.toLowerCase())) {
+        searchUsers.push(user);
+      }
+    })
+    this.users = searchUsers;
+    this.visibleUsers = searchUsers;
   }
-
 }
