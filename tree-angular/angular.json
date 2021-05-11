@@ -27,7 +27,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/app/pages/home/typerwriter-effect.js"
+              "src/assets/scripts/typerwriter-effect.js"
             ]
           },
           "configurations": {

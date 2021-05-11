@@ -1,6 +1,6 @@
 .page {
   padding: 0 3vh;
-  padding-top: 12.5vh;
+  padding-top: 15vh;
   padding-bottom: 2vh;
   height: 100%;
 }
@@ -27,7 +27,8 @@
   align-items: flex-end;
 }
 
-.title h1 {
+.title h1,
+.title span {
   font-size: 3.5vw;
   margin: 0;
 }
@@ -167,7 +168,8 @@ img {
     align-items: center;
   }
 
-  .title h1 {
+  .title h1,
+  .title span {
     font-size: 2.5vh;
     margin: 0;
     text-align: center;

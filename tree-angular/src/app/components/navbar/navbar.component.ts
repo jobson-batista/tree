@@ -1,4 +1,5 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -7,10 +8,32 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @ViewChild('drawer') drawer: ElementRef;
+  @Input() indexPage: number;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.getCurrentPage();
+  }
+
+  getCurrentPage(): void {
+    this.router.events.subscribe((url:any) => {
+      switch (url.url) {
+        case '/':
+          this.indexPage = 0;
+          break;
+        case '/community':
+          this.indexPage = 2;
+          break;
+
+        default:
+          break;
+      }
+    });
+  }
+
+  changePage(index: number): void {
+    this.indexPage = index;
   }
 
   actionDrawer(): void {

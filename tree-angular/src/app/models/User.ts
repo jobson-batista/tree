@@ -1,5 +1,8 @@
-export interface User {
-    title: string;
+export interface User{
+    firstName: string;
+    lastName: string;
     description: string;
-    imgUrl: string;
+    imageUrl: string;
+    created_at: Date;
+    updated_at: Date;
 }

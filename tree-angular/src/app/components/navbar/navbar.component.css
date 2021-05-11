@@ -32,6 +32,10 @@ nav {
   align-items: center;
 }
 
+.left-container img {
+  cursor: pointer;
+}
+
 .logo {
   margin: 20px 40px;
   width: 10vh;
@@ -50,7 +54,7 @@ ul {
   font-size: 1rem;
 }
 
-nav div ul li a {
+nav div ul li a.not-actived {
   color: white;
   transition: 0.1s;
 }

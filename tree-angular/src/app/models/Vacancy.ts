@@ -4,6 +4,7 @@ export interface Vacancy {
     type: string;
     title:string;
     description: string;
+    promoter: string;
     startDate: Date;
     endDate: Date;
     contactEmail: string;

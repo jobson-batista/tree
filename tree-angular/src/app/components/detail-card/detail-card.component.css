@@ -1,10 +1,5 @@
-.container {
-  padding: 20px;
-}
-
 .container-body {
-  margin: 1em;
-  border: rgba(42, 47, 67, 0.25) solid 2px;
+  border: rgba(42, 47, 67, 0.15) solid 1px;
   border-radius: 15px;
   padding: 40px;
 }
@@ -21,19 +16,34 @@
 }
 
 .icoPerson {
-  width: 1.5em;
+  width: 1.25em;
+  /* margin-right: 0.5em; */
+  padding: 0.1em;
+  border-radius: 2vh;
+  font-size: 4em;
 }
 
 h1 {
-  margin-left: 0em;
+  margin: 0;
+  margin-left: 0.5em;
 }
 
 .fa-envelope {
-  border: rgba(42, 47, 67, 0.25) solid 2px;
+  border: rgba(42, 47, 67, 0.25) solid 1px;
   border-radius: 10px;
   padding: 16px;
-  font-size: 3em;
+  font-size: 3vh;
   color: rgba(42, 47, 67, 0.5);
+  margin-left: 0.5em;
+  cursor: pointer;
+  transition: all ease 0.25s;
+}
+
+.fa-envelope:hover {
+  background: #ff6961;
+  border-color: #ff6961;
+  color: white;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.5);
 }
 
 .secondLine {
@@ -50,12 +60,12 @@ h4 {
   margin-right: 0.5em;
   padding: 0.1em;
   background-color: #fdcb6e;
-  border-radius: 10%;
+  border-radius: 1vh;
   color: white;
 }
 
-.fa-envelope {
-  margin-left: 0.5em;
+.fa-clock {
+  color: rgba(42, 47, 67, 0.25);
 }
 
 .ico2 {
@@ -65,15 +75,6 @@ h4 {
 
 .description {
   display: block;
-  text-align: justify;
-  text-indent: 1em;
-}
-
-.icoPerson {
-  margin-right: 0.5em;
-  padding: 0.1em;
-  border-radius: 10%;
-  font-size: 4em;
 }
 
 @media only screen and (max-width: 600px) {
@@ -113,10 +114,16 @@ h4 {
 }
 
 .address {
-  color: #2A3043;
+  color: #2a3043;
 }
 
 .clockIcon {
   display: flex;
   align-items: center;
+}
+
+@media only screen and (max-width: 280px) {
+  .container-body {
+    padding: 10px;
+  }
 }
