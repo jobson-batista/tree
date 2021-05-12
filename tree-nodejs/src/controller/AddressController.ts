@@ -5,14 +5,14 @@ import { Request, Response } from 'express';
 export const findAddress = async (req: Request, res: Response) => {
 
     const address = await getRepository(Address).find();
-    return res.status(302).send(address);
+    return res.status(200).send(address);
 }
 
 export const findAddressById = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     const address = await getRepository(Address).findOne(id);
-    return res.status(302).send(address);
+    return res.status(200).send(address);
 }
 
 export const saveAddress = async (req: Request, res: Response) => {

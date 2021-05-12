@@ -77,7 +77,9 @@ export const deleteEvent = async (req: Request, res: Response) => {
     try {
         if(await getRepository(Event).findOne(id)){
             const event = await getRepository(Event).findOne(id, { relations: ["address"] });
-            await getRepository(Address).delete(event.address.id);
+            if(event.address) {
+                await getRepository(Address).delete(event.address.id);
+            }
             await getRepository(Event).delete(id);
             return res.status(200).json({ message: "Evento deletado." });
         }
