@@ -47,8 +47,7 @@
 
 .right-container {
   width: 50vw;
-  margin: 5vw;
-  padding: 5vh;
+  padding: 7vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -58,30 +57,55 @@
   display: flex;
   height: 100%;
   width: 100%;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .header-left {
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-right {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+.icons.actived {
+  margin-left: 20px;
+  padding: 10px;
+  color: white;
+  border-radius: 1vh;
+  border-right: transparent;
+  font-size: 2.5vh;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.category-one {
+  background: #fdcb6e;
+}
+
+.category-two {
+  background: #6c5ce7;
+}
+
+.category-three {
+  background: #b2bec3;
+}
+
+.icons.not-actived {
+  margin-left: 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  border-radius: 1vh;
+  border-right: transparent;
+  font-size: 2.5vh;
 }
 
 .icons {
-  padding: 1.5vh;
-  background: #fdcb6e;
-  color: white;
-  border-radius: 2vh;
-  border-right: transparent;
-  font-size: 2em;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 .text-pink {
@@ -90,11 +114,11 @@
 
 .right-container h1 {
   margin: 0;
-  font-size: 5vh;
+  font-size: 4vh;
 }
 
 .columns {
-  margin-top: 10vh;
+  margin-top: 5vh;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -110,6 +134,7 @@ form {
 form p {
   font-weight: 500;
   margin: 0;
+  margin-top: 10px;
 }
 
 form div {
@@ -155,12 +180,10 @@ form div > .wage {
   width: 100%;
 }
 
-.wage p {
-  padding-top: 10px;
-}
-
 .email-input,
-.wage-input {
+.wage-input,
+.adress-input,
+.bolsa-input {
   display: flex;
   align-items: center;
   margin-top: 10px;
@@ -170,19 +193,25 @@ form div > .wage {
 }
 
 .email-input:focus-within,
-.wage-input:focus-within {
+.wage-input:focus-within,
+.adress-input:focus-within,
+.bolsa-input:focus-within {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .email-input input,
-.wage-input input {
+.wage-input input,
+.adress-input input,
+.bolsa-input input {
   border: transparent;
   width: 100%;
   height: 0vh;
 }
 
 .email-input input:focus,
-.wage-input input:focus {
+.wage-input input:focus,
+.adress-input input:focus,
+.bolsa-input input:focus {
   box-shadow: none;
 }
 
@@ -203,7 +232,6 @@ i {
   display: flex;
   flex-direction: column;
   padding-left: 10px;
-  margin-top: 10px;
 }
 
 .type-input .job-option,
@@ -223,6 +251,7 @@ input,
 textarea {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 1vh;
+  margin-top: 10px;
 }
 
 textarea {

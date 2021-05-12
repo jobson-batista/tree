@@ -5,9 +5,9 @@
                 <img src="../../assets/images/logo.svg"/>
             </div>
             <div class=register-person>
-                <img src="../../assets/images/pages/opp-register/job.svg">                          
+                <img src="{{this.imagePath}}">                          
                 <div class="phrase-text">
-                    <h1>Olá, Nome! Que oportunidade</h1>
+                    <h1>Olá, {{this.name}}! Que oportunidade</h1>
                     <h1>iremos adicionar hoje?</h1>
                 </div>   
             </div>           
@@ -17,17 +17,17 @@
         <div class="header">
             <div class="header-left">     
                 <h1>Adicionar</h1>  
-                <h1>Emprego/Estágio</h1> 
+                <h1>{{this.vancacy}}</h1> 
             </div>
             <div class="header-right">
                 <div>
-                    <a href="#" class="fas fa-suitcase icons"></a>
+                    <i class="fas fa-suitcase icons" [ngClass]="this.category == 1 ? 'actived category-one' : 'not-actived'" (click)="this.changeCategory(1)"></i>
                 </div>
                 <div>
-                    <a class="far fa-star icons"></a>
+                    <i class="far fa-star icons" [ngClass]="this.category == 2 ? 'actived category-two' : 'not-actived'" (click)="this.changeCategory(2)"></i>
                 </div>
                 <div>
-                    <a class="fas fa-book-open icons"></a>
+                    <i class="fas fa-book-open icons" [ngClass]="this.category == 3 ? 'actived category-three' : 'not-actived'" (click)="this.changeCategory(3)"></i>
                 </div>   
             </div> 
         </div>        
@@ -39,24 +39,40 @@
                         <input type="text" name="title"/>
                     </div>               
                     <div class="date-input">
-                        <p>Data</p>
-                        <input id="date" type="date">
+                        <p *ngIf="this.category == 1 || this.category == 2">Data</p>
+                        <p *ngIf="this.category == 3">Tipo</p>
+                        <input id="date" type="date" *ngIf="this.category == 1 || this.category == 2">
+                        <input id="type" type="text" *ngIf="this.category == 3" placeholder="Ex: Pós-graduação">
                     </div> 
                 </div>        
                 <p>Email de contato</p>
                 <div class="email-input">
                     <i class="far fa-envelope"></i>
                     <input type="email" name="email"/>  
-                </div>                               
+                </div> 
+                <p *ngIf="this.category == 3">Bolsa</p>
+                <div  class="bolsa-input" *ngIf="this.category == 3">                    
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    <input type="text" name="bolsa"/>  
+                </div>
+                <p *ngIf="this.category == 2">Endereço</p>
+                <p *ngIf="this.category == 3">Instituição</p>
+                <div class="adress">
+                    <div class="adress-input" *ngIf="this.category == 2 || this.category == 3">
+                        <i class="far fa-building" *ngIf="this.category == 3"></i>                            
+                        <i class="fas fa-compass" *ngIf="this.category == 2"></i>
+                        <input type="text" name="adress"/>  
+                    </div>
+                </div>                              
                 <div> 
-                    <div class="wage">
+                    <div class="wage" *ngIf="this.category == 1" >
                         <p>Salário</p>
                         <div class="wage-input"> 
-                            <i class="fa fa-money" aria-hidden="true"></i>
+                            <i class="fa fa-money"></i>
                             <input type="text" name="wage"/>
                         </div> 
                     </div>
-                    <div class="type-input">
+                    <div class="type-input" *ngIf="this.category == 1" >
                         <p>Tipo</p>
                         <div class="buttons-option">
                             <div class="job-option">
