@@ -400,7 +400,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "int",
                             in: "body",
                             description: "Quantidade de vagas.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "int"
                             }
@@ -554,7 +554,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "int",
                             in: "body",
                             description: "Quantidade de vagas.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "int"
                             }
@@ -715,7 +715,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "int",
                             in: "body",
                             description: "Quantidade de vagas.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "string"
                             }
@@ -888,7 +888,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "int",
                             in: "body",
                             description: "Quantidade de vagas.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "string"
                             }
@@ -1088,7 +1088,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "int",
                             in: "body",
                             description: "Quantidade de vagas para a pós-graduação.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "int"
                             }
@@ -1243,7 +1243,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "date",
                             in: "body",
                             description: "Data de início da vaga de pós-graduação.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "date"
                             }
@@ -1273,7 +1273,7 @@ const swaggerOptions: swaggerJsDoc.Options = {
                             type: "int",
                             in: "body",
                             description: "Quantidade de vagas para a pós-graduação.",
-                            required: true,
+                            required: false,
                             schema: {
                                 type: "int"
                             }
@@ -1688,7 +1688,6 @@ const swaggerOptions: swaggerJsDoc.Options = {
             }
         }
     },
-    // ['.routes/*.js']
     apis: ["app.js"]
 };
 
