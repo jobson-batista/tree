@@ -37,12 +37,22 @@
                     <div class="title-input">
                         <p>Título</p>
                         <input type="text" name="title"/>
-                    </div>               
+                    </div>             
                     <div class="date-input">
                         <p *ngIf="this.category == 1 || this.category == 2">Data</p>
                         <p *ngIf="this.category == 3">Tipo</p>
-                        <input id="date" type="date" *ngIf="this.category == 1 || this.category == 2">
+                        <input id="date" type="date" *ngIf="this.category == 1">
                         <input id="type" type="text" *ngIf="this.category == 3" placeholder="Ex: Pós-graduação">
+                        <div class="date" *ngIf="this.category == 2">                           
+                            <div class="dates">
+                                <div class="fist-date">                                
+                                    <input id="date" type="date" *ngIf="this.category == 2">
+                                </div>
+                                <div class="last-date">
+                                    <input id="date" type="date" *ngIf="this.category == 2">
+                                </div> 
+                            </div>
+                        </div>      
                     </div> 
                 </div>        
                 <p>Email de contato</p>

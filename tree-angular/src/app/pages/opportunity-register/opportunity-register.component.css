@@ -151,7 +151,7 @@ form div {
 
 .title-input {
   display: flex;
-  width: 100%;
+  width: 60%;
   flex-direction: column;
   margin-right: 10px;
 }
@@ -161,6 +161,12 @@ form div {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+}
+
+.date {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title-input input,
