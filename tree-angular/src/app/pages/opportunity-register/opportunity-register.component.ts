@@ -1,18 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { OppotunityRegister } from './OpportunityRegister';
 
 enum Category {
   EMPREGO=1, EVENTO=2, ESPECIALIZACAO=3
 }
 
 @Component({
-  selector: 'page-opportunity-register',
+  selector: 'page-opp-register',
   templateUrl: './opportunity-register.component.html',
   styleUrls: ['./opportunity-register.component.css']
 })
 export class OpportunityRegisterComponent implements OnInit {
-
-  oppRegister: OppotunityRegister;
 
   @Input() name:string = "Joana";
   @Input() title: string;
