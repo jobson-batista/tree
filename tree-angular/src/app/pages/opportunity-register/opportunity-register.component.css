@@ -21,6 +21,7 @@
 .logo img {
   width: 15vh;
   margin-left: 5vh;
+  transition: all ease 0.25s;
 }
 
 .register-person {
@@ -48,6 +49,7 @@
 .right-container {
   width: 50vw;
   padding: 7vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -72,8 +74,13 @@
   margin-left: 10px;
 }
 
-.icons.actived {
+.icons {
+  transition: all ease 0.25s;
+  cursor: pointer;
   margin-left: 20px;
+}
+
+.icons.actived {
   padding: 10px;
   color: white;
   border-radius: 1vh;
@@ -91,21 +98,16 @@
 }
 
 .category-three {
-  background: #b2bec3;
+  background: #1c5253;
 }
 
 .icons.not-actived {
-  margin-left: 20px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.15);
   color: white;
   border-radius: 1vh;
   border-right: transparent;
   font-size: 2.5vh;
-}
-
-.icons {
-  cursor: pointer;
 }
 
 .text-pink {
@@ -115,6 +117,7 @@
 .right-container h1 {
   margin: 0;
   font-size: 4vh;
+  font-weight: 700;
 }
 
 .columns {
@@ -133,8 +136,7 @@ form {
 
 form p {
   font-weight: 500;
-  margin: 0;
-  margin-top: 10px;
+  margin: 20px 0 10px 0;
 }
 
 form div {
@@ -142,16 +144,20 @@ form div {
   justify-content: space-between;
 }
 
-.fist-row {
+.first-row {
   display: flex;
+  flex-direction: row;
   width: 100%;
-  max-height: 252.38px;
   justify-content: space-between;
+}
+
+.third-line {
+  display: flex;
+  flex-direction: row;
 }
 
 .title-input {
   display: flex;
-  width: 60%;
   flex-direction: column;
   margin-right: 10px;
 }
@@ -160,7 +166,6 @@ form div {
   width: 40%;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
 }
 
 .date {
@@ -174,6 +179,18 @@ form div {
   padding: 2vh;
 }
 
+.date-input input {
+  max-height: 23px;
+}
+
+.dates input {
+  max-height: 23px;
+}
+
+.date-input input::-webkit-calendar-picker-indicator {
+  padding: 0;
+}
+
 form div > .wage {
   display: flex;
   justify-content: stretch;
@@ -182,7 +199,7 @@ form div > .wage {
 .wage {
   display: flex;
   flex-direction: column;
-  padding-right: 10px;
+  margin-right: 10px;
   width: 100%;
 }
 
@@ -192,7 +209,6 @@ form div > .wage {
 .bolsa-input {
   display: flex;
   align-items: center;
-  margin-top: 10px;
   width: 100%;
   border-radius: 1vh;
   border: 1px solid rgba(0, 0, 0, 0.25);
@@ -211,7 +227,6 @@ form div > .wage {
 .bolsa-input input {
   border: transparent;
   width: 100%;
-  height: 0vh;
 }
 
 .email-input input:focus,
@@ -221,8 +236,7 @@ form div > .wage {
   box-shadow: none;
 }
 
-input:focus,
-textarea:focus {
+input:focus {
   outline: none !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
@@ -237,12 +251,12 @@ i {
 .type-input {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
+  margin-left: 10px;
 }
 
 .type-input .job-option,
 .work-ex-option {
-  margin: 10px 0;
+  margin: 0px 0;
 }
 
 .job-option {
@@ -253,18 +267,41 @@ i {
   padding-left: 5px;
 }
 
-input,
-textarea {
+input {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 1vh;
-  margin-top: 10px;
 }
 
 textarea {
-  resize: none;
   height: 10vh;
   width: 100%;
+  resize: none;
+  outline: none !important;
+  background: rgba(42, 47, 67, 0.05);
   padding: 1vw;
+  border-radius: 1vh;
+  border-color: transparent;
+  font-size: 1.5vh;
+  font-weight: 600;
+}
+
+textarea::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(42, 47, 67, 0.5);
+  font-weight: 500;
+  opacity: 1; /* Firefox */
+}
+
+textarea:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(42, 47, 67, 0.5);
+  font-weight: 500;
+}
+
+textarea::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgba(42, 47, 67, 0.5);
+  font-weight: 500;
 }
 
 input {
@@ -276,12 +313,12 @@ input {
   background: #05b967;
   text-align: center;
   color: white;
-  font-size: 2.5vh;
-  font-weight: bold;
   align-items: center;
   border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 2vh;
   border-radius: 1vh;
-  padding: 1vw;
+  height: 57.31px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -294,7 +331,95 @@ input {
   align-items: center;
   border: 1px solid transparent;
   border-radius: 1vh;
-  padding: 1vw 3vw;
-  margin-top: 20px;
+  padding: 1.5vh 3vh;
+  margin: 20px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (max-width: 1920px) {
+  .date-input {
+    width: 100%;
+  }
+
+  .first-date input {
+    width: 100%;
+  }
+
+  .last-date input {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1260px) {
+  .right-container {
+    padding: 5vw 3vw;
+  }
+
+  .phrase-text h1 {
+    font-size: 2vw;
+  }
+
+  .header-left h1 {
+    font-size: 2.5vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .left-container {
+    display: none;
+  }
+
+  .header-left h1 {
+    font-size: 3vh;
+  }
+
+  .date-input {
+    width: 100%;
+  }
+
+  .first-date input {
+    width: 100%;
+  }
+
+  .last-date input {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header-left h1 {
+    text-align: center;
+  }
+
+  .header-right {
+    margin-left: 0;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .icons {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .title-input {
+    margin-right: 0;
+  }
+
+  .third-line {
+    flex-direction: column;
+  }
+
+  button.job,
+  button.work-experience {
+    width: 45vw;
+  }
+
+  .type-input {
+    margin-left: 0px;
+  }
 }

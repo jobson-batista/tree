@@ -13,7 +13,7 @@ enum Category {
 export class OpportunityRegisterComponent implements OnInit {
 
   oppRegister: OppotunityRegister;
-  
+
   @Input() name:string = "Joana";
   @Input() title: string;
   @Input() description: string;
@@ -21,7 +21,7 @@ export class OpportunityRegisterComponent implements OnInit {
   @Input() type: string;
   @Input() category: Category = Category.EMPREGO;
   imagePath:string = "../../assets/images/pages/opp-register/job.svg";
-  vancacy:string = "Emprego/Estágio";
+  vancacy:string = "emprego/estágio";
   @Input() email: string;
 
   constructor() { }
@@ -31,20 +31,20 @@ export class OpportunityRegisterComponent implements OnInit {
 
   changeCategory(category:number): void{
     switch(category){
-      case 1: 
+      case 1:
         this.category = Category.EMPREGO;
         this.imagePath = "../../assets/images/pages/opp-register/job.svg"
-        this.vancacy = "Emprego/Estágio"
+        this.vancacy = "emprego/estágio"
         break;
-      case 2: 
+      case 2:
         this.category = Category.EVENTO;
         this.imagePath = "../../assets/images/pages/opp-register/event.svg";
-        this.vancacy = "Evento"
+        this.vancacy = "evento"
         break;
-      case 3: 
+      case 3:
         this.category = Category.ESPECIALIZACAO;
         this.imagePath = "../../assets/images/pages/opp-register/specialization.svg";
-        this.vancacy = "Especialização"
+        this.vancacy = "especialização"
         break;
     }
   }
