@@ -1,0 +1,49 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+enum Category {
+  EMPREGO=1, EVENTO=2, ESPECIALIZACAO=3
+}
+
+@Component({
+  selector: 'page-opp-register',
+  templateUrl: './opportunity-register.component.html',
+  styleUrls: ['./opportunity-register.component.css']
+})
+export class OpportunityRegisterComponent implements OnInit {
+
+  @Input() name:string = "Joana";
+  @Input() title: string;
+  @Input() description: string;
+  @Input() date: Date;
+  @Input() type: string;
+  @Input() category: Category = Category.EMPREGO;
+  imagePath:string = "../../assets/images/pages/opp-register/job.svg";
+  vancacy:string = "emprego/estágio";
+  @Input() email: string;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  changeCategory(category:number): void{
+    switch(category){
+      case 1:
+        this.category = Category.EMPREGO;
+        this.imagePath = "../../assets/images/pages/opp-register/job.svg"
+        this.vancacy = "emprego/estágio"
+        break;
+      case 2:
+        this.category = Category.EVENTO;
+        this.imagePath = "../../assets/images/pages/opp-register/event.svg";
+        this.vancacy = "evento"
+        break;
+      case 3:
+        this.category = Category.ESPECIALIZACAO;
+        this.imagePath = "../../assets/images/pages/opp-register/specialization.svg";
+        this.vancacy = "especialização"
+        break;
+    }
+  }
+
+}

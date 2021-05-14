@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VacancyCardComponent } from '../app/components/vacancy-card/vacancy-card.component';
@@ -12,6 +14,7 @@ import { CommunityComponent } from './pages/community/community.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FooterComponent } from "../app/components/footer/footer.component";
 import { HomeComponent } from './pages/home/home.component';
+import { OpportunityRegisterComponent } from './pages/opportunity-register/opportunity-register.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
 
@@ -24,6 +27,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     NavbarComponent,
     HomeComponent,
     DetailCardComponent,
+    OpportunityRegisterComponent,
     CommunityComponent,
     PaginationComponent,
     RegisterComponent,
@@ -32,7 +36,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

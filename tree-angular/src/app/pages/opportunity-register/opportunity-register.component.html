@@ -1,0 +1,115 @@
+<div class="opp-register">
+  <div class="left-container" fxFlex="50">
+    <div class="left-container-body">
+      <div class=logo>
+        <img src="../../assets/images/logo.svg" />
+      </div>
+      <div class=register-person>
+        <img src="{{this.imagePath}}">
+        <div class="phrase-text">
+          <h1>Olá, {{this.name}}! Que oportunidade</h1>
+          <h1>iremos adicionar hoje?</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-container" fxFlex="50" fxFlex.md="100" fxFlex.lg="100" fxFlex.sm="100" fxFlex.xl="100"
+    fxFlex.xs="100">
+    <div class="header">
+      <div class="header-left">
+        <h1>Adicionar</h1>
+        <h1>{{this.vancacy}}</h1>
+      </div>
+      <div class="header-right">
+        <div>
+          <i class="fas fa-suitcase icons" [ngClass]="this.category == 1 ? 'actived category-one' : 'not-actived'"
+            (click)="this.changeCategory(1)"></i>
+        </div>
+        <div>
+          <i class="far fa-star icons" [ngClass]="this.category == 2 ? 'actived category-two' : 'not-actived'"
+            (click)="this.changeCategory(2)"></i>
+        </div>
+        <div>
+          <i class="fas fa-book-open icons" [ngClass]="this.category == 3 ? 'actived category-three' : 'not-actived'"
+            (click)="this.changeCategory(3)"></i>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <form>
+        <div class="first-row" fxLayout="row" fxLayout.md='column'
+          fxLayout.lg='{{this.category == 2 ? "column": "row"}}' fxLayout.sm='{{this.category == 2 ? "column": "row"}}'
+          fxLayout.xs="column">
+          <div class="title-input" fxFlex='{{this.category == 2 ? "40" : "100"}}'>
+            <p>Título</p>
+            <input type="text" name="title" />
+          </div>
+          <div class="date-input" fxFlex='{{this.category == 2 ? "60" : "100"}}'>
+            <p *ngIf="this.category == 1 || this.category == 2">Data</p>
+            <p *ngIf="this.category == 3">Tipo</p>
+            <input id="date" type="date" *ngIf="this.category == 1">
+            <input id="type" type="text" *ngIf="this.category == 3" placeholder="Ex: Pós-graduação">
+            <div class="date" *ngIf="this.category == 2">
+              <div class="dates" fxFlex="100">
+                <div class="first-date" fxFlex="49">
+                  <input id="date" type="date" *ngIf="this.category == 2">
+                </div>
+                <div class="last-date" fxFlex="49">
+                  <input id="date" type="date" *ngIf="this.category == 2">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Email de contato</p>
+        <div class="email-input">
+          <i class="far fa-envelope"></i>
+          <input type="email" name="email" />
+        </div>
+        <div class="adress">
+          <div fxFlex=' {{this.category==3 ? "49" : "100" }}' fxLayout="column wrap">
+            <p *ngIf="this.category == 2">Endereço</p>
+            <p *ngIf="this.category == 3">Instituição</p>
+            <div class="adress-input" *ngIf="this.category == 2 || this.category == 3">
+              <i class="far fa-building" *ngIf="this.category == 3"></i>
+              <i class="fas fa-compass" *ngIf="this.category == 2"></i>
+              <input type="text" name="adress" fxFlex="100" />
+            </div>
+          </div>
+          <div *ngIf="this.category == 3" fxFlex="49" fxLayout="column wrap">
+            <p>Bolsa</p>
+            <div class="bolsa-input" *ngIf="this.category == 3">
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <input type="text" name="bolsa" />
+            </div>
+          </div>
+        </div>
+        <div class="third-line">
+          <div class="wage" *ngIf="this.category == 1">
+            <p>Salário</p>
+            <div class="wage-input">
+              <i class="fa fa-money"></i>
+              <input type="text" name="wage" />
+            </div>
+          </div>
+          <div class="type-input" *ngIf="this.category == 1">
+            <p>Tipo</p>
+            <div class="buttons-option">
+              <div class="job-option">
+                <button class="job">Emprego</button>
+              </div>
+              <div class="work-ex-option">
+                <button class="work-experience">Estágio</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Descrição</p>
+        <div class="desc-input">
+          <textarea placeholder="Adicionar descrição..."></textarea>
+        </div>
+      </form>
+      <button class="button" type="submit">Cadastrar</button>
+    </div>
+  </div>
+</div>
