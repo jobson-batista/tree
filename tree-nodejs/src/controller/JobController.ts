@@ -46,11 +46,11 @@ export const updateJob = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const {type, salary, title, description, contactEmail} = req.body
-        const job = await getRepository(Job).update(id, req.body);
         if(req.body.address != null) {
             const { address } = req.body;     
             await getRepository(Address).save(address);
         }
+        const job = await getRepository(Job).update(id, req.body);
         if( type && salary && title && description && contactEmail && job.affected === 1){
             const jobUpdated = await getRepository(Job).findOne(id, { relations: ["address"] });
             return res.status(200).send(jobUpdated).json({message: "Emprego atualizado."});
