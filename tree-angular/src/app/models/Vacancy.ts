@@ -1,4 +1,4 @@
-//import { Address } from "./Address";
+import { Address } from "./Address";
 
 export interface Vacancy {
     type: string;
@@ -9,7 +9,7 @@ export interface Vacancy {
     endDate: Date;
     contactEmail: string;
     qty: number;
-   // address: Address;
+    address: Address;
     created_at: Date;
     updated_at: Date;
 }

@@ -1,27 +1,39 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { User } from 'src/app/models/User';
+import { Vacancy } from 'src/app/models/Vacancy';
 
 @Component({
-  selector: 'app-detail-card',
+  selector: 'detail-card',
   templateUrl: './detail-card.component.html',
   styleUrls: ['./detail-card.component.css']
 })
 export class DetailCardComponent implements OnInit {
 
-  @Input() item;
+  @Input() user: User = null;
+  @Input() vacancy: Vacancy = null;
   postDate: Date;
 
   constructor() { }
 
   ngOnInit(): void {
- 
+
   }
 
-  createdTo(startDate: Date): number {
+  createdTo(startDate: Date): String {
     moment.locale('pt-br');
-    let diff = moment(new Date(), "DD/MM/YYYY HH:mm:ss").diff(moment(startDate, "DD/MM/YYYY HH:mm:ss"));
+    let diff = moment(startDate.getDate(), "DD/MM/YYYY HH:mm:ss").diff(moment(new Date(), "DD/MM/YYYY HH:mm:ss"));
     let days = moment.duration(diff).asDays();
-    return Math.trunc(days);
+    switch (Math.trunc(days)) {
+      case 0:
+        return `Conta criada hoje`;
+      case 1:
+        return `Conta criada ontem`
+      case 2:
+        return `Conta criada a 2 dias atrás`
+      default:
+        return `Conta criada em ${moment(startDate).format('DD/MM/YYYY')}`
+    }
   }
 
 }

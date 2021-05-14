@@ -1,15 +1,15 @@
-<div class="userCard">
-    <div class="header">
-        <div class="item">
-            <img class="profile-photo" src={{userCard.imgUrl}}>
-        </div>
-        <div class="item">
-            <h1 class="title">{{userCard.title}}</h1>
-        </div>    
+<div class="userCard" [ngClass]="this.isSelected ? 'actived' : 'not-actived'">
+  <div class="header">
+    <div class="item">
+      <img class="profile-photo" src={{this.user.imageUrl}}>
     </div>
-      <div class="description">
-      <p>
-        {{userCard.description}}
-      </p>
+    <div class="item">
+      <h1 class="title">{{user.firstName}} {{user.lastName}}</h1>
     </div>
+  </div>
+  <div class="description">
+    <p>
+      {{user.description}}
+    </p>
+  </div>
 </div>

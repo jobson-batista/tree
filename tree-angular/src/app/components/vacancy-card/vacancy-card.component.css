@@ -1,96 +1,67 @@
-.vacancyCard {
-    border-radius: 15px;
-    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-    margin: 2px;
-    background-color: #ffffff;
-  }
-  .Job:active{
-    background-color: #fdcb6e3E;
-  }
-  .Event:active{
-    background-color: #6C5CE73E;
-    opacity: 0.25;
-  }
-  .Specialization:active{
-    background-color: #B2BEC33E;
-    opacity: 0.25;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    padding: 0px 10px 0px 10px;
-    width: 100%;
-    }
-    .vacancy-icon{
-      width: 54px;
-      height: auto;
-      margin-top: 22px;
-      margin-left: 20px;
-      border-radius: 5px;
-      align-items: center;
-    }
-    .color-Event{
-      background: #6C5CE7;
-    }
-    .color-Job{
-      background: #FDCB6E;
-    }
-    .color-Specialization{
-      background: #B2BEC3;
-    }
-    .icon-vacancy-Event{
-      max-width:38px;
-      max-height:37px;
-      width: auto;
-      height: auto;
-      margin-top: 8px;
-      margin-left: 8px;
-      filter: invert(100%) sepia(11%) saturate(7495%) hue-rotate(289deg) brightness(119%) contrast(108%);
-      /* filter: invert(88%) sepia(4%) saturate(6285%) hue-rotate(329deg) brightness(104%) contrast(98%); */
-      }
-    .icon-vacancy-Job{
-      max-width:38px;
-      max-height:37px;
-      width: auto;
-      height: auto;
-      margin-top: 8px;
-      margin-left: 8px;
-      filter: invert(100%) sepia(11%) saturate(7495%) hue-rotate(289deg) brightness(119%) contrast(108%);
-      }
-    .icon-vacancy-Specialization{
-        max-width:38px;
-        max-height:37px;
-        width: auto;
-        height: auto;
-        margin-top: 8px;
-        margin-left: 8px;
-        filter: invert(100%) sepia(11%) saturate(7495%) hue-rotate(289deg) brightness(119%) contrast(108%);
-        /* filter: invert(82%) sepia(6%) saturate(398%) hue-rotate(152deg) brightness(92%) contrast(90%); */
-        }
-    .vacancy{
-      display: flex;
-      align-items: center;
-    }
-      .title {
-        display: flex;
-        align-items: center;
-        padding-left: 20px;
-        padding-top: 22px;
-      }
-  .description {
-    margin-left: 22px;
-    padding: 16px 10px 16px 10px;
-  }
-    .description p {
-      height: auto;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-height: 71px;
-      margin: 0;
-      padding: 0;
-    }
+.container {
+  border-radius: 2vh;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+  margin: 2px;
+  background-color: #ffffff;
+}
 
+.body {
+  padding: 3vh;
+}
 
+.body:active {
+  background-color: #fdcb6e3e;
+}
 
+.Event:active {
+  background-color: #6c5ce73e;
+  opacity: 0.25;
+}
 
+.Specialization:active {
+  background-color: #b2bec33e;
+  opacity: 0.25;
+}
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 1vh;
+}
+
+.fas,
+.far {
+  font-size: 3vh;
+  padding: 9px;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 1vh;
+}
+
+.vacancy {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 100%;
+}
+
+.description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  font-size: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 5vw;
+  }
+}
