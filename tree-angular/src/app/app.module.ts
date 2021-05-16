@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from "@angular/forms";
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
 import { AppComponent } from './app.component';
 import { VacancyCardComponent } from '../app/components/vacancy-card/vacancy-card.component';
 import { UserCardComponent } from "../app/components/userCard/userCard.component";
@@ -16,7 +18,6 @@ import { FooterComponent } from "../app/components/footer/footer.component";
 import { HomeComponent } from './pages/home/home.component';
 import { OpportunityRegisterComponent } from './pages/opportunity-register/opportunity-register.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-
 
 @NgModule({
   declarations: [
@@ -31,13 +32,15 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CommunityComponent,
     PaginationComponent,
     RegisterComponent,
-    DetailCardComponent
+    DetailCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    CurrencyMaskModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
