@@ -50,13 +50,19 @@
   -webkit-box-orient: vertical;
 }
 
-@media only screen and (max-width: 1050px) {
+@media (max-width: 1050px) {
+  .userCard {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 720px) {
   .userCard {
     width: 45vw;
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media (max-width: 375px) {
   .userCard {
     height: 35vw;
     padding: 15px;

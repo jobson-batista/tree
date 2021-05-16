@@ -21,7 +21,8 @@
 
 .logo {
   width: 15vh;
-  margin-left: 5vh;
+  margin-left: 40px;
+  cursor: pointer;
 }
 
 .register-person {
@@ -84,14 +85,14 @@
 
 .select-option i {
   padding: 2vh 2.5vh;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(42, 47, 67, 0.1);
   border-radius: 1vh;
   transition: all ease 0.25s;
   cursor: pointer;
 }
 
 .select-option i:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(42, 47, 67, 0.5);
   color: white;
 }
 

@@ -8,6 +8,7 @@
 .left-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   height: 100vh;
   width: 50vw;
@@ -18,10 +19,9 @@
   margin: 3vh;
 }
 
-.logo img {
+.logo {
   width: 15vh;
-  margin-left: 5vh;
-  transition: all ease 0.25s;
+  margin-left: 40px;
 }
 
 .register-person {
@@ -53,6 +53,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: scroll;
 }
 
 .header {
@@ -114,6 +115,29 @@
   color: #fc6681;
 }
 
+.text-danger {
+  color: #ff6961;
+  font-size: 15px;
+}
+
+.input-money {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-money p {
+  margin: 0;
+  margin-left: 20px;
+  font-size: 2vh;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.wage-input input,
+.bolsa-input input {
+  padding: 1vh 1vh 1vh 0.5vh;
+}
+
 .right-container h1 {
   margin: 0;
   font-size: 4vh;
@@ -148,17 +172,20 @@ form div {
   display: flex;
   flex-direction: row;
   width: 100%;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
 .third-line {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .title-input {
   display: flex;
   flex-direction: column;
+  width: 100%;
   margin-right: 10px;
 }
 
@@ -201,6 +228,12 @@ form div > .wage {
   flex-direction: column;
   margin-right: 10px;
   width: 100%;
+}
+
+.adress {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .email-input,
@@ -252,6 +285,7 @@ i {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+  justify-content: space-between;
 }
 
 .type-input .job-option,
@@ -270,56 +304,69 @@ i {
 input {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 1vh;
+  font-size: 2vh;
+  padding: 1vh;
 }
 
 textarea {
-  height: 10vh;
   width: 100%;
+  height: auto;
   resize: none;
   outline: none !important;
   background: rgba(42, 47, 67, 0.05);
   padding: 1vw;
   border-radius: 1vh;
   border-color: transparent;
-  font-size: 1.5vh;
+  font-size: 2vh;
   font-weight: 600;
 }
 
-textarea::placeholder {
+::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(42, 47, 67, 0.5);
   font-weight: 500;
   opacity: 1; /* Firefox */
 }
 
-textarea:-ms-input-placeholder {
+:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: rgba(42, 47, 67, 0.5);
   font-weight: 500;
 }
 
-textarea::-ms-input-placeholder {
+::-ms-input-placeholder {
   /* Microsoft Edge */
   color: rgba(42, 47, 67, 0.5);
   font-weight: 500;
 }
 
-input {
-  font-size: 2vh;
-  padding: 1vh;
+.buttons-option {
+  height: 100%;
 }
 
-.buttons-option button {
-  background: #05b967;
+.buttons-option a {
   text-align: center;
-  color: white;
+  color: #2a2f43;
   align-items: center;
   border: 1px solid transparent;
   font-weight: 500;
   font-size: 2vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 1vh;
-  height: 57.31px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 0 1vh;
+  cursor: pointer;
+  transition: all ease 0.25s;
+}
+
+.buttons-option a.actived {
+  background: #05b967;
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
 }
 
 .button {
@@ -327,13 +374,24 @@ input {
   text-align: center;
   color: white;
   font-size: 2.5vh;
-  font-weight: bold;
+  font-weight: 600;
   align-items: center;
   border: 1px solid transparent;
   border-radius: 1vh;
   padding: 1.5vh 3vh;
   margin: 20px 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all ease 0.25s;
+}
+
+.button:not([disabled]):hover {
+  background: #fc5775;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.button[disabled] {
+  background: #ee798e;
+  cursor: not-allowed;
 }
 
 @media only screen and (max-width: 1920px) {
@@ -341,12 +399,10 @@ input {
     width: 100%;
   }
 
-  .first-date input {
-    width: 100%;
-  }
-
-  .last-date input {
-    width: 100%;
+  .first-date,
+  .last-date {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -374,14 +430,6 @@ input {
   }
 
   .date-input {
-    width: 100%;
-  }
-
-  .first-date input {
-    width: 100%;
-  }
-
-  .last-date input {
     width: 100%;
   }
 }
@@ -421,5 +469,10 @@ input {
 
   .type-input {
     margin-left: 0px;
+  }
+
+  .buttons-option a {
+    height: 50px;
+    width: 35vw;
   }
 }

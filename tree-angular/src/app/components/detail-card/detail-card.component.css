@@ -122,8 +122,11 @@ h4 {
   align-items: center;
 }
 
-@media only screen and (max-width: 280px) {
+@media only screen and (max-width: 500px) {
   .container-body {
-    padding: 10px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid rgba(42, 47, 67, 0.15);
   }
 }
