@@ -25,7 +25,9 @@ export class NavbarComponent implements OnInit {
         case '/community':
           this.indexPage = 2;
           break;
-
+        case '/register':
+          this.indexPage = 7;
+          break
         default:
           break;
       }
