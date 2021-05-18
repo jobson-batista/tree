@@ -1,6 +1,6 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
   <meta charset="utf-8">
   <title>Tree - Sua oportunidade lhe espera</title>
@@ -10,8 +10,13 @@
 
   <!-- Font only -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Unicode -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
 </head>
+
 <body>
   <app-root></app-root>
 
@@ -21,10 +26,11 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <!-- script para alternar item ativo navbar -->
   <script>
-      $(document).on('click', 'ul li a', function(){
-        $("a.actived").removeClass('actived');
-        $(this).toggleClass('actived');
-      })
+    $(document).on('click', 'ul li a', function () {
+      $("a.actived").removeClass('actived');
+      $(this).toggleClass('actived');
+    });
   </script>
 </body>
+
 </html>

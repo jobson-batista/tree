@@ -16,8 +16,7 @@
       </div>
       <div class="clockIcon">
         <i class="far fa-clock"></i> &nbsp; &nbsp;
-        <h4 *ngIf="vacancy != null">Postado a {{ createdTo(vacancy.created_at) }} {{ createdTo(vacancy.created_at) == 1
-          ? 'dia' : 'dias' }} atrás</h4>
+        <!-- <h4 *ngIf="vacancy != null">Postado a {{ createdTo(vacancy.created_at) }} atrás</h4> -->
         <h4 *ngIf="user != null">{{ createdTo(user.created_at) }}</h4>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 declare const init: any;
 
 @Component({
@@ -8,10 +9,10 @@ declare const init: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
-    init();
+    if (this.location.isCurrentPathEqualTo('/')) init();
   }
 
 }

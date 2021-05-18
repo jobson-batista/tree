@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'page-register',
@@ -7,14 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  @Input() isLogin: Boolean = false;
+  isLogin: Boolean = false;
   textTop: String = 'Cadastrar-se';
   textBottom: String = 'Já possui uma conta?'
   textOption: String = 'Entrar';
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
+    this.setOption(this.location.getState()['isLogin'] || false);
   }
 
   setOption(value: Boolean):void {
@@ -22,6 +24,10 @@ export class RegisterComponent implements OnInit {
     this.textOption = this.textTop;
     this.textTop = value ? 'Entrar': 'Cadastrar-se';
     this.textBottom = value ? 'Ainda não possui uma conta?' : 'Já possui uma conta?';
+  }
+
+  backButton() {
+    this.location.back();
   }
 
 }
