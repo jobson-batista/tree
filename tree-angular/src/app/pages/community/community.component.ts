@@ -9,6 +9,7 @@ import { User } from 'src/app/models/User';
 })
 export class CommunityComponent implements OnInit {
 
+  totalUsers: number = 0;
   searchInput: string = '';
   users: User[];
   visibleUsers: User[];
@@ -24,13 +25,13 @@ export class CommunityComponent implements OnInit {
   ngOnInit(): void {
     this.users = this.serviceCommunity.getUsers();
     this.getQuantButtonPages();
-    this.setVisibleUsers();
+    this.setVisibleUsers(this.users);
   }
 
   changePage(index: number): void {
     this.currentPage = index;
     this.indexUser = 0;
-    this.setVisibleUsers();
+    this.setVisibleUsers(this.users);
 
     var targetScroll = document.getElementById("targetScroll");
 
@@ -41,11 +42,12 @@ export class CommunityComponent implements OnInit {
     });
   }
 
-  setVisibleUsers(): void {
+  setVisibleUsers(users: User[]): void {
+    this.totalUsers = users.length;
     this.visibleUsers = [];
-    for (let index = ((this.currentPage - 1) * 5); index < this.users.length; index++) {
+    for (let index = ((this.currentPage - 1) * 5); index < users.length; index++) {
       if (this.visibleUsers.length < 5) {
-        this.visibleUsers.push(this.users[index]);
+        this.visibleUsers.push(users[index]);
       }
     }
   }
@@ -76,7 +78,6 @@ export class CommunityComponent implements OnInit {
         searchUsers.push(user);
       }
     })
-    this.users = searchUsers;
-    this.visibleUsers = searchUsers;
+    this.setVisibleUsers(searchUsers);
   }
 }
