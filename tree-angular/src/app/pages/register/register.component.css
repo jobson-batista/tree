@@ -113,19 +113,22 @@
 }
 
 .signup-option.actived,
-.signin-option.actived {
+.signin-option.actived,
+.fa-eye.actived {
   color: #05b962;
   border-bottom: 5px solid #05b962;
 }
 
 .signup-option.not-actived,
-.signin-option.not-actived {
+.signin-option.not-actived,
+.fa-eye.not-actived {
   color: rgba(42, 47, 67, 0.5);
   border-bottom: 0px solid transparent;
 }
 
 .signup-option:hover,
-.signin-option:hover {
+.signin-option:hover,
+.fa-eye:hover {
   color: #05b962;
   border-bottom: 5px solid #05b962;
 }
@@ -215,6 +218,11 @@ i {
   cursor: pointer;
 }
 
+.text-danger {
+  color: #ff6961;
+  font-size: 15px;
+}
+
 .email-input input,
 .password-input input {
   border: transparent;
@@ -254,9 +262,14 @@ input:focus {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.button:hover {
-  background: #ee5e79;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+.button:not([disabled]):hover {
+  background: #fc5775;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.button[disabled] {
+  background: #ee798e;
+  cursor: not-allowed;
 }
 
 @media only screen and (max-width: 1200px) {

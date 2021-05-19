@@ -29,28 +29,32 @@
       </div>
     </div>
     <div class="columns">
-      <form>
+      <form [formGroup]="oppForm">
         <div class="name-container" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'">
           <div class="name-input">
-            <p>Nome</p> <input type="text" name="firstname" />
-          </div>
+            <p>Nome</p> <input formControlName="first-name" type="text" name="firstname" /> 
+            <small *ngIf="oppForm.get('first-name').invalid && oppForm.get('first-name').touched" class="text-danger">Informe o seu Nome</small>           
+          </div>          
           <div class="lastname-input">
-            <p>Sobrenome</p> <input type="text" name="lastname" />
-          </div>
+            <p>Sobrenome</p> <input formControlName="last-name" type="text" name="lastname" />    
+            <small *ngIf="oppForm.get('last-name').invalid && oppForm.get('last-name').touched" class="text-danger">Informe o seu Sobrenome</small>        
+          </div>          
         </div>
         <p>E-mail</p>
         <div class="email-input">
           <i class="far fa-envelope"></i>
-          <input type="email" name="email_user" />
+          <input formControlName="email" type="email" name="email_user" />          
         </div>
+        <small *ngIf="oppForm.get('email').invalid && oppForm.get('email').touched" class="text-danger">Informe o e-mail de contato</small>
         <p>Senha</p>
         <div class="password-input">
           <i class="fas fa-lock"></i>
-          <input type="text" name="password" />
-          <i class="far fa-eye"></i>
+          <input [type]="show ? 'text' : 'password'" formControlName="password" type="password" name="password" />          
+          <i (click)="password()" [ngClass]="this.show ? 'actived' : 'not-actived'" class="far fa-eye"></i>
         </div>
+        <small *ngIf="oppForm.get('password').invalid && oppForm.get('password').touched" class="text-danger">Informe sua Senha</small>
       </form>
-      <button class="button" type="submit">{{this.textTop}}</button>
+      <button (click)="subForm()" [disabled]="oppForm.invalid" class="button" type="submit">{{this.textTop}}</button>
     </div>
   </div>
 </div>
