@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'pagination',
@@ -6,7 +6,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./pagination.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnDestroy {
 
   @Input() changePageFunction: (args: number) => void;
   @Input() totalPages: number;
@@ -18,10 +18,21 @@ export class PaginationComponent implements OnInit {
     this.pagination(this.totalPages, this.currentPage);
   }
 
+  ngOnDestroy(): void {
+    const ulTag = document.querySelector('.pagination ul');
+    this.removeAllChildNodes(ulTag);
+  }
+
+  removeAllChildNodes(parent: Element): void {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+  }
+
   pagination(totalPages: number, page: number): void {
     const ulTag = document.querySelector('.pagination ul');
     let liTag = '';
-    let activeLi;
+    let activeLi = '';
     let beforePages = page - 1;
     let afterPages = page + 1;
     if (page > 1) {
@@ -75,7 +86,9 @@ export class PaginationComponent implements OnInit {
     if (page < totalPages) {
       liTag += `<li class="btn" id="btn-next"><span><i class="fas fa-angle-right"></i></span></li>`
     }
+
     ulTag.innerHTML = liTag;
+
     if(document.getElementById("btn-prev")) document.getElementById("btn-prev").addEventListener('click', () => {
       this.changePageFunction(page - 1);
       this.pagination(totalPages, page - 1);
