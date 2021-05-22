@@ -1,11 +1,7 @@
+import { VacancyTypes } from 'src/app/services/vacancy-utils.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
-enum Category {
-  EMPREGO = 1,
-  EVENTO = 2,
-  ESPECIALIZACAO = 3
-}
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'page-opp-register',
@@ -18,14 +14,15 @@ export class OpportunityRegisterComponent implements OnInit {
 
   @Input() name:string = "Joana";
   typeJob: string = 'emprego';
-  @Input() category: Category = Category.EMPREGO;
-  imagePath:string = "../../assets/images/pages/opp-register/job.svg";
-  vancacy:string = "emprego/estágio";
+  category: string = VacancyTypes.EMPREGO;
+  imagePath: string = "../../assets/images/pages/opp-register/job.svg";
+  vancacy: string = "emprego/estágio";
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
-    this.changeForm(this.category);
+    this.category = this.location.getState()['category'] || VacancyTypes.EMPREGO;
+    this.changeCategory(this.category);
   }
 
   changeTypeJob(type: string): void {
@@ -33,30 +30,30 @@ export class OpportunityRegisterComponent implements OnInit {
     console.log(this.typeJob);
   }
 
-  changeCategory(category:number): void{
+  changeCategory(category: string): void{
     this.changeForm(category);
     switch(category){
-      case 1:
-        this.category = Category.EMPREGO;
-        this.imagePath = "../../assets/images/pages/opp-register/job.svg"
-        this.vancacy = "emprego/estágio"
+      case VacancyTypes.EMPREGO:
+        this.category = VacancyTypes.EMPREGO;
+        this.imagePath = "../../assets/images/pages/opp-register/job.svg";
+        this.vancacy = "emprego/estágio";
         break;
-      case 2:
-        this.category = Category.EVENTO;
+      case VacancyTypes.EVENTO:
+        this.category = VacancyTypes.EVENTO;
         this.imagePath = "../../assets/images/pages/opp-register/event.svg";
-        this.vancacy = "evento"
+        this.vancacy = "evento";
         break;
-      case 3:
-        this.category = Category.ESPECIALIZACAO;
+      case VacancyTypes.ESPECIALIZACAO:
+        this.category = VacancyTypes.ESPECIALIZACAO;
         this.imagePath = "../../assets/images/pages/opp-register/specialization.svg";
-        this.vancacy = "especialização"
+        this.vancacy = "especialização";
         break;
     }
   }
 
-  changeForm(category: number): void {
+  changeForm(category: string): void {
     switch(category){
-      case 1:
+      case VacancyTypes.EMPREGO:
         this.oppForm = new FormGroup({
           'title': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
           'date': new FormControl(null, Validators.required),
@@ -65,7 +62,7 @@ export class OpportunityRegisterComponent implements OnInit {
           'description': new FormControl(null, Validators.required),
         });
         break;
-      case 2:
+      case VacancyTypes.EVENTO:
         this.oppForm = new FormGroup({
           'title': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
           'firstDate': new FormControl(null, Validators.required),
@@ -75,7 +72,7 @@ export class OpportunityRegisterComponent implements OnInit {
           'description': new FormControl(null, Validators.required),
         });
         break;
-      case 3:
+      case VacancyTypes.ESPECIALIZACAO:
         this.oppForm = new FormGroup({
           'title': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
           'especializationType': new FormControl(null, Validators.required),
@@ -88,7 +85,7 @@ export class OpportunityRegisterComponent implements OnInit {
     }
   }
 
-  checkInputAndType(nameInput: string, category: number): boolean {
+  checkInputAndType(nameInput: string, category: string): boolean {
     if(!this.oppForm.contains(nameInput)) return false;
     return this.oppForm.get(nameInput).invalid && this.oppForm.get(nameInput).touched && this.category == category;
   }
