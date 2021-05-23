@@ -18,6 +18,7 @@ import { FooterComponent } from "../app/components/footer/footer.component";
 import { HomeComponent } from './pages/home/home.component';
 import { OpportunityRegisterComponent } from './pages/opportunity-register/opportunity-register.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PaginationComponent,
     RegisterComponent,
     DetailCardComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
