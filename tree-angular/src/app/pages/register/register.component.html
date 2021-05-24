@@ -16,8 +16,8 @@
       <i (click)="backButton()" class="fas fa-chevron-left"></i>
       <div class="options">
         <p class="signup-option" (click)="setOption(false)" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'"
-          [ngStyle]="{'margin-right': '20px'}">Entrar</p>
-        <p class="signin-option" (click)="setOption(true)" [ngClass]="this.isLogin ? 'actived' : 'not-actived'">Cadastrar-se
+          [ngStyle]="{'margin-right': '20px'}">Cadastrar-se</p>
+        <p class="signin-option" (click)="setOption(true)" [ngClass]="this.isLogin ? 'actived' : 'not-actived'">Entrar
         </p>
       </div>
     </div>
@@ -33,11 +33,11 @@
         <div class="name-container" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'">
           <div class="name-input">
             <p>Nome</p> <input formControlName="first-name" type="text" name="firstname" /> 
-            <small *ngIf="oppForm.get('first-name').invalid && oppForm.get('first-name').touched" class="text-danger">Informe o seu Nome</small>           
+            <small *ngIf="oppForm.get('first-name').invalid && oppForm.get('first-name').touched && !this.isLogin" class="text-danger">Informe o seu Nome</small>           
           </div>          
           <div class="lastname-input">
             <p>Sobrenome</p> <input formControlName="last-name" type="text" name="lastname" />    
-            <small *ngIf="oppForm.get('last-name').invalid && oppForm.get('last-name').touched" class="text-danger">Informe o seu Sobrenome</small>        
+            <small *ngIf="oppForm.get('last-name').invalid && oppForm.get('last-name').touched && !this.isLogin" class="text-danger">Informe o seu Sobrenome</small>        
           </div>          
         </div>
         <p>E-mail</p>

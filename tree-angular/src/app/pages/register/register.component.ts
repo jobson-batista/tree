@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from "@angular/common";
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'page-register',
@@ -12,9 +12,9 @@ export class RegisterComponent implements OnInit {
   oppForm: FormGroup;
 
   isLogin: Boolean = false;
-  textTop: String = 'Cadastrar-se';
+  textTop: String = 'Entrar';
   textBottom: String = 'Já possui uma conta?'
-  textOption: String = 'Entrar';
+  textOption: String = 'Cadastrar-se';
   show: boolean;
 
   constructor(private location: Location) {
@@ -22,9 +22,8 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.setOption(this.location.getState()['isLogin'] || false);    
-    this.changeForm(this.isLogin);
-  }
+    this.setOption(this.location.getState()['isLogin'] || false); 
+    }
 
   password() {
     this.show = !this.show;
@@ -35,6 +34,7 @@ export class RegisterComponent implements OnInit {
     this.textOption = this.textTop;
     this.textTop = value ? 'Entrar': 'Cadastrar-se';
     this.textBottom = value ? 'Ainda não possui uma conta?' : 'Já possui uma conta?';
+    this.changeForm(this.isLogin);
   }
 
   backButton() {
