@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from "@angular/common";
+import { FormControl, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'page-register',
@@ -8,15 +9,24 @@ import { Location } from "@angular/common";
 })
 export class RegisterComponent implements OnInit {
 
-  isLogin: Boolean = false;
-  textTop: String = 'Cadastrar-se';
-  textBottom: String = 'Já possui uma conta?'
-  textOption: String = 'Entrar';
+  oppForm: FormGroup;
 
-  constructor(private location: Location) { }
+  isLogin: Boolean = false;
+  textTop: String = 'Entrar';
+  textBottom: String = 'Já possui uma conta?'
+  textOption: String = 'Cadastrar-se';
+  show: boolean;
+
+  constructor(private location: Location) {
+    this.show = false;
+   }
 
   ngOnInit(): void {
-    this.setOption(this.location.getState()['isLogin'] || false);
+    this.setOption(this.location.getState()['isLogin'] || false); 
+    }
+
+  password() {
+    this.show = !this.show;
   }
 
   setOption(value: Boolean):void {
@@ -24,10 +34,33 @@ export class RegisterComponent implements OnInit {
     this.textOption = this.textTop;
     this.textTop = value ? 'Entrar': 'Cadastrar-se';
     this.textBottom = value ? 'Ainda não possui uma conta?' : 'Já possui uma conta?';
+    this.changeForm(this.isLogin);
   }
 
   backButton() {
     this.location.back();
   }
 
+  changeForm(option: Boolean): void {
+    switch(option){
+      case false:
+        this.oppForm = new FormGroup({
+          'first-name': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
+          'last-name': new FormControl(null, Validators.required),
+          'email': new FormControl(null, [Validators.required, Validators.email]),
+          'password': new FormControl(null, Validators.required),
+        });
+        break;
+      case true:
+        this.oppForm = new FormGroup({
+          'email': new FormControl(null, [Validators.required, Validators.email]),
+          'password': new FormControl(null, Validators.required),
+        });
+        break;
+    }
+  }
+
+  subForm() {
+    console.log(this.oppForm.value);
+  }
 }
