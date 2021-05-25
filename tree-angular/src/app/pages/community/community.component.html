@@ -14,10 +14,14 @@
             <img src="../../../assets/images/pages/community/image-page-community.svg">
         </div>
     </section>
-    <div class="sort" *ngIf=" totalUsers>0">
+    <div class="sort" *ngIf=" totalUsers > 0">
         <h2 *ngIf="searchInput == ''">{{ totalUsers }} {{ (totalUsers<=1 ) ? 'resultado' : 'resultados' }}</h2>
     </div>
-    <h2 *ngIf="totalUsers == 0">Não encontramos o que você procura.</h2>
+    <div class="user-not-found" *ngIf="totalUsers == 0">
+        <img src="../../assets/images/pages/community/searchnotfound.svg">
+        <h2><p class="text-pink"> Nenhum </p> resultado</h2>
+        <h2>encontrado!</h2>
+    </div>    
     <div class="body" *ngIf=" totalUsers > 0">        
         <div class="body-container">
             <div class="left-container">
