@@ -77,7 +77,9 @@ export class CommunityComponent implements OnInit {
         || user.lastName.toLowerCase().includes(pesquisa.toLowerCase())) {
         searchUsers.push(user);
       }
-    })
-    this.setVisibleUsers(searchUsers);
+    })    
+    this.setVisibleUsers(pesquisa == '' ? this.users : searchUsers);
+    console.log(pesquisa);
+    
   }
 }

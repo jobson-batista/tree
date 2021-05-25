@@ -1,38 +1,24 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <div class="container" id="users-container">
     <section class="head">
         <div class="search-bar">
             <h1>Encontre as <span class="text-pink">pessoas</span><br>que compõe nossa equipe!</h1>
             <div>
                 <i class="fas fa-search"></i>
-                <input (keydown.enter)="searchUser()" id="search-content" class="search-input" type="text" placeholder="Quem você deseja procurar?">
+                <input (keyup)="searchUser()" id="search-content" class="search-input" type="text" placeholder="Quem você deseja procurar?">
                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
-                <!-- Trecho do html abaixo será aproveitado na tela de oportunidades -->
-                <!-- <select class="select1" style="color: #8f8f8f">
-          <option value="all" selected>&nbsp;&#xf009;&nbsp;&nbsp;Tipo</option>
-          <option value="job">&nbsp;&#xf0f2;&nbsp;&nbsp;Estágio/Emprego</option>
-          <option value="event">&nbsp;&#xf005;&nbsp;&nbsp;Evento</option>
-          <option value="specialization">&nbsp;&#xf518;&nbsp;&nbsp;Pós-Graduação</option>
-        </select>
-        <div class="space-select-button"></div> -->
                 <button type="button" id="targetScroll" (click)="searchUser()">Buscar</button>
             </div>
-            <!-- <select class="select2">
-        <option value="all" selected>&nbsp;&#xf009;&nbsp;&nbsp;Tipo</option>
-        <option value="job">&nbsp;&#xf0f2;&nbsp;&nbsp;Estágio/Emprego</option>
-        <option value="event">&nbsp;&#xf005;&nbsp;&nbsp;Evento</option>
-        <option value="specialization">&nbsp;&#xf518;&nbsp;&nbsp;Pós-Graduação</option>
-      </select> -->
         </div>
         <div class="image">
             <img src="../../../assets/images/pages/community/image-page-community.svg">
         </div>
     </section>
-    <div class="sort">
-        <h2 *ngIf="searchInput == ''">{{ totalUsers }} {{ (totalUsers
-            <=1 ) ? 'resultado' : 'resultados' }}</h2>
+    <div class="sort" *ngIf=" totalUsers>0">
+        <h2 *ngIf="searchInput == ''">{{ totalUsers }} {{ (totalUsers<=1 ) ? 'resultado' : 'resultados' }}</h2>
     </div>
-    <!--COMPONENTE DE LISTAGEM DE USUARIOS - Apagar div abaixo quando for implementar a listagem -->
-    <div class="body">
+    <h2 *ngIf="totalUsers == 0">Não encontramos o que você procura.</h2>
+    <div class="body" *ngIf=" totalUsers > 0">        
         <div class="body-container">
             <div class="left-container">
                 <div class="user-list">
