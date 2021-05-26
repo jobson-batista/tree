@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { User } from 'src/app/models/User';
 import { Vacancy } from 'src/app/models/Vacancy';
+import { VacancyUtilsService } from 'src/app/services/vacancy-utils.service';
 
 @Component({
   selector: 'detail-card',
@@ -10,14 +11,15 @@ import { Vacancy } from 'src/app/models/Vacancy';
 })
 export class DetailCardComponent implements OnInit {
 
-  @Input() user: User = null;
-  @Input() vacancy: Vacancy = null;
+  @Input() user: User;
+  @Input() vacancy: Vacancy;
   postDate: Date;
+  vacancyUtils: VacancyUtilsService = new VacancyUtilsService();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-
   }
 
   createdTo(startDate: Date): String {
@@ -26,13 +28,13 @@ export class DetailCardComponent implements OnInit {
     let days = moment.duration(diff).asDays();
     switch (Math.trunc(days)) {
       case 0:
-        return `Conta criada hoje`;
+        return this.user != null ? `Conta criada hoje` : `Postado hoje`;
       case 1:
-        return `Conta criada ontem`
+        return this.user != null ? `Conta criada ontem` : `Postado ontem`
       case 2:
-        return `Conta criada a 2 dias atrás`
+        return this.user != null ? `Conta criada a 2 dias atrás` : `Postado a 2 dias atrás`
       default:
-        return `Conta criada em ${moment(startDate).format('DD/MM/YYYY')}`
+        return `${this.user != null ? 'Conta criada' : 'Postado'} em ${moment(startDate).format('DD/MM/YYYY')}`
     }
   }
 

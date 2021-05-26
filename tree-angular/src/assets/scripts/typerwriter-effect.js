@@ -38,9 +38,9 @@ TyperWriter.prototype.type = function() {
   setTimeout(() => this.type(), typeSpeed);
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', typerWriterEffect);
 
-function init() {
+function typerWriterEffect() {
   const txtElement = document.querySelector('.txt-type');
   const words = JSON.parse(txtElement.getAttribute('data-words'));
   const wait = txtElement.getAttribute('data-wait');

@@ -27,6 +27,7 @@ h1 {
 
 .search-bar i {
   padding: 2.5vh;
+  font-size: 1vw;
 }
 
 .search-bar form {
@@ -50,18 +51,12 @@ h1 {
   outline: none;
   border: none;
   padding: 1vh 0px;
+  font-size: 1vw;
   padding-right: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(42, 47, 67, 0.25);
   border-left: transparent;
   border-right: transparent;
 }
-
-/* .space-select-button {
-  width: 2vh;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-left: transparent;
-  border-right: transparent;
-} */
 
 .search-bar button {
   cursor: pointer;
@@ -82,41 +77,6 @@ h1 {
   color: #f06380;
 }
 
-/* select,
-option {
-  font-family: "FontAwesome", "Second Font name", "Montserrat", sans-serif;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  font-size: 1.5vh;
-  cursor: pointer;
-} */
-
-/* select {
-  outline: none;
-  margin: 0;
-  padding: 1vw;
-  background-position-x: 244px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-right: transparent;
-} */
-
-/* .select2 {
-  color: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  max-width: 14vw;
-  padding: 2.5vh;
-  border-radius: 1vh;
-  display: none;
-}
-
-option {
-  outline: 0px;
-  border: 0px;
-  font-size: 1.5vh;
-  color: #8f8f8f;
-} */
-
 .image img {
   width: 20vw;
 }
@@ -125,7 +85,7 @@ option {
   display: grid;
 }
 
-.fa-search {
+.eva-search-outline {
   align-self: center;
   padding: 0.5em;
   color: rgba(0, 0, 0, 0.25);
@@ -186,6 +146,14 @@ h2 {
     margin: 0;
     width: 100%;
   }
+
+  .search-bar i {
+    font-size: 2vw;
+  }
+
+  .search-bar input {
+    font-size: 2vw;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -212,7 +180,7 @@ h2 {
   }
 
   .search-bar i {
-    padding: 2.5vw;
+    padding: 3vw;
   }
 
   .search-bar button {

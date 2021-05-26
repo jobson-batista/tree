@@ -18,6 +18,8 @@ import { FooterComponent } from "../app/components/footer/footer.component";
 import { HomeComponent } from './pages/home/home.component';
 import { OpportunityRegisterComponent } from './pages/opportunity-register/opportunity-register.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CommunityComponent,
     PaginationComponent,
     RegisterComponent,
-    DetailCardComponent,
+    OpportunitiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     BrowserAnimationsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    CurrencyMaskModule,
+    CurrencyMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

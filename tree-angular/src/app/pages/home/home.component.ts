@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from "@angular/common";
-declare const init: any;
+declare const typerWriterEffect: any;
 
 @Component({
   selector: 'page-home',
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private location: Location) { }
 
   ngOnInit(): void {
-    if (this.location.isCurrentPathEqualTo('/')) init();
+    if (this.location.isCurrentPathEqualTo('/')) typerWriterEffect();
   }
 
 }
