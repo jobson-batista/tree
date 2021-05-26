@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { findAddress, saveAddress, updateAddress, deleteAddress, findAddressById } from './controller/AddressController';
 import { findEvents, findEvent, saveEvent, updateEvent, deleteEvent } from './controller/EventController';
 import { deleteJob, findJob, findJobs, saveJob, updateJob } from './controller/JobController';
+import { login } from './controller/LoginController';
 import { findSpecializations, findSpecialization, deleteSpecialization, saveSpecialization, updateSpecialization } from './controller/SpecializationController';
 import { deleteUser, findUser, findUsers, saveUser, updateUser } from './controller/UserController';
 
@@ -41,5 +42,8 @@ routes.get('/address/:id', findAddressById);
 routes.post('/address', saveAddress);
 routes.put('/address/:id', updateAddress);
 routes.delete('/address/:id', deleteAddress);
+
+// Login
+routes.post('/login', login)
 
 export default routes;
