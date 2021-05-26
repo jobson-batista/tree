@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { OpportunityRegisterComponent } from './pages/opportunity-register/opportunity-register.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     CommunityComponent,
     PaginationComponent,
     RegisterComponent,
-    DetailCardComponent,
     CalendarComponent,
+    OpportunitiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    CurrencyMaskModule,
+    CurrencyMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
