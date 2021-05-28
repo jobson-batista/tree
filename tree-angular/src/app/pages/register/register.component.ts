@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   setOption(value: Boolean):void {
     this.isLogin = value;
-    this.textOption = this.textTop;
+    this.textOption = value ? 'Cadastrar-se' : 'Entrar';
     this.textTop = value ? 'Entrar': 'Cadastrar-se';
     this.textBottom = value ? 'Ainda não possui uma conta?' : 'Já possui uma conta?';
   }
