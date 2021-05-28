@@ -1,0 +1,198 @@
+.container-body {
+  border: rgba(42, 47, 67, 0.15) solid 1px;
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.firstLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.foto-name {
+  display: flex;
+  align-items: center;
+}
+
+.icoPerson {
+  width: 1.25em;
+  /* margin-right: 0.5em; */
+  border-radius: 2vh;
+  font-size: 4em;
+}
+
+.iconOpp {
+  border-radius: 10px;
+  display: flex;
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconOpp.emprego {
+  background: #fdcb6e;
+}
+.iconOpp.evento {
+  background: #6c5ce7;
+}
+.iconOpp.especializacao {
+  background: #1c5253;
+}
+
+.eva {
+  transform: none;
+}
+
+.iconOpp .eva {
+  line-height: 80px;
+  color: white;
+  font-size: 5vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4vh;
+  margin: 0;
+  margin-left: 0.5em;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.eva-email-outline,
+.options .eva {
+  border: rgba(42, 47, 67, 0.25) solid 1px;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 3vh;
+  color: rgba(42, 47, 67, 0.5);
+  cursor: pointer;
+  transition: all ease 0.25s;
+}
+
+.eva.eva-email-outline:hover {
+  background: #40496e;
+  border-color: #40496e;
+  color: white;
+}
+
+.eva-email-outline:hover,
+.edit-option:hover,
+.delete-option:hover {
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.eva.edit-option:hover {
+  background: #a7b8be;
+  border-color: #a7b8be;
+  color: white;
+}
+
+.eva.delete-option:hover {
+  background: #ff6961;
+  border-color: #ff6961;
+  color: white;
+}
+
+.secondLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+h4 {
+  font-weight: 500;
+  color: rgba(42, 47, 67, 0.5);
+}
+
+.fa-clock {
+  color: rgba(42, 47, 67, 0.25);
+}
+
+.ico2 {
+  margin-left: 0.5em;
+  color: #c5c7cd;
+}
+
+.description {
+  display: block;
+}
+
+.address {
+  color: #2a3043;
+}
+
+.clockIcon {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 3vw;
+    margin-left: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    font-size: 3vw;
+  }
+
+  .container-body {
+    padding: 20px;
+  }
+
+  .icoPerson,
+  .iconOpp {
+    width: 10vw;
+  }
+
+  .iconOpp i.eva {
+    line-height: 10vw;
+    font-size: 4vw;
+  }
+
+  .eva-email-outline,
+  .options .eva {
+    padding: 8px;
+    border-radius: 1vh;
+    font-size: 5vw;
+  }
+
+  .secondLine {
+    flex-direction: column;
+  }
+
+  h4 {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .container-body {
+    padding: 10px 0;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid rgba(42, 47, 67, 0.15);
+  }
+
+  .iconOpp,
+  .icoPerson {
+    border-radius: 1vh;
+  }
+
+  .firstLine,
+  .foto-name {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .secondLine {
+    margin-top: 10px;
+    align-items: center;
+  }
+}

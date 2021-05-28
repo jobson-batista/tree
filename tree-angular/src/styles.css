@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: "Montserrat", sans-serif;
+  color: #2a2f43;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.eva {
+  transform: none;
+}
+
+/* Custom Scrollbar */
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 15px;
+  background: rgba(42, 47, 67, 0.05);
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px 15px transparent;
+  border: solid 5px transparent;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 14px 14px #bbbbbe;
+  border: solid 4px transparent;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: inset 0 0 14px 14px #a3a3a7;
+}

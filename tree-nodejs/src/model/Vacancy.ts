@@ -1,4 +1,6 @@
-import { Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { CreateDateColumn, JoinColumn, OneToOne } from "typeorm";
+import { Address } from "./Address";
+import { Column, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export abstract class Vacancy {
     
@@ -11,25 +13,50 @@ export abstract class Vacancy {
     @Column()
     description: string;
 
-    /*@Column({
-        default: "Date"
+    @Column({
+        name: "start_date",
+        type: "timestamptz",
+        nullable: true,
+        default: new Date()
+
     })
     startDate: Date;
     
     @Column({
-        default: "Date"
+        name: "end_date",
+        type: 'timestamptz',
+        nullable: true,
+        default: addDays(30)
     })
-    endDate: Date; */
+    endDate: Date;
 
-    @Column()
+    @Column({
+        name: "contact_email"
+    })
     contactEmail: string;
 
     @Column()
     qty: number;
+
+    @OneToOne(()=> Address,{
+        cascade: true,
+        eager: true,
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+        nullable: true,
+        orphanedRowAction: "delete"
+    })
+    @JoinColumn()
+    address: Address;
 
     @CreateDateColumn()
     created_at: Date;
 
     @UpdateDateColumn()
     updated_at: Date;
+}
+
+function addDays(days: number){
+    let now = new Date();
+    return new Date(now.setDate(now.getDate() + days));
 }

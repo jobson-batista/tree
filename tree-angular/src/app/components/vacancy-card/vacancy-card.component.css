@@ -1,0 +1,94 @@
+.container {
+  border-radius: 15px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 20px;
+  transition: all ease 0.25s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.eva {
+  transform: none;
+}
+
+.container.active {
+  box-shadow: none;
+}
+
+.container.active.emprego,
+.container.emprego:hover {
+  background: rgba(253, 203, 110, 0.25);
+}
+.container.active.evento,
+.container.evento:hover {
+  background: rgba(108, 92, 231, 0.25);
+}
+.container.active.especializacao,
+.container.especializacao:hover {
+  background: rgba(28, 82, 83, 0.25);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 1vh;
+}
+
+.eva {
+  font-size: 3vh;
+  padding: 9px;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 1vh;
+}
+
+.vacancy {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  padding-left: 10px;
+  font-size: 100%;
+}
+
+.description {
+  padding: 10px 0;
+}
+
+.description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  font-size: 100%;
+}
+
+@media (max-width: 1050px) {
+  .container {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: 45vw;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    height: 35vw;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 3.5vw;
+  }
+}

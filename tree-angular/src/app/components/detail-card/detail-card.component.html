@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="container-body">
+    <div class="firstLine">
+      <div class="foto-name">
+        <img *ngIf="user != null" class="icoPerson" src="{{ user.imageUrl }}">
+        <h1 *ngIf="user != null">{{ user.firstName }} {{user.lastName}}</h1>
+        <div *ngIf="vacancy != null" class="iconOpp {{this.vacancy.type}}">
+          <i class="{{this.vacancyUtils.getColorOrIconFromVacancy(this.vacancy).icon}}"></i>
+        </div>
+        <h1 *ngIf="vacancy != null">{{ vacancy.title }}</h1>
+      </div>
+      <div class="options">
+        <i class="eva eva-email-outline"></i>
+        <i *ngIf="vacancy != null" class="eva eva-edit-2-outline edit-option"></i>
+        <i *ngIf="vacancy != null" class="eva eva-trash-2-outline delete-option"></i>
+      </div>
+    </div>
+    <div class="secondLine">
+      <!-- <div *ngIf="vacancy != null" style="display: inline-flex;">
+        <h4 class="address">{{ vacancy.promoter }} &nbsp; • &nbsp;</h4>
+        <h4>{{ vacancy.address.city }}, {{ vacancy.address.state }}</h4>
+      </div> -->
+      <div class="clockIcon">
+        <i class="far fa-clock"></i> &nbsp; &nbsp;
+        <h4 *ngIf="vacancy != null">{{ createdTo(vacancy.created_at) }}</h4>
+        <h4 *ngIf="user != null">{{ createdTo(user.created_at) }}</h4>
+      </div>
+    </div>
+    <div>
+      <h2>Descrição</h2>
+      <p class="description">
+        {{ user == null ? vacancy.description : user.description }}
+      </p>
+      <!-- <div *ngIf="vacancy != null && vacancy.qty != undefined && vacancy.qty != 0">
+        <h2>Sobre a oportunidade</h2>
+        <ul>
+          <li>{{ vacancy.qty }} {{ vacancy.qty == 1 ? ' vaga.' : ' vagas.'}}</li>
+          <li>Validade {{ vacancy.qty == 1 ? 'da vaga' : 'das vagas' }} : {{ vacancy.endDate.split(" ")[0] }}</li>
+        </ul>
+      </div>
+      <h2 *ngIf="user != null">Sobre mim</h2> -->
+    </div>
+  </div>
+</div>

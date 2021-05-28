@@ -1,0 +1,13 @@
+<div class="container {{this.vacancy.type}}" [ngClass]="isSelected ? 'active': 'not-active'">
+  <div class="body">
+    <div class="header">
+      <i class="{{this.icon}}" [ngStyle]="{'background': this.color}"></i>
+      <div class="vacancy">
+        <h1 class="title">{{vacancy.title}}</h1>
+      </div>
+    </div>
+    <div class="description">
+      <p>{{vacancy.description}}</p>
+    </div>
+  </div>
+</div>
