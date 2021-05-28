@@ -1,6 +1,4 @@
-name: CI
-
-
+name: Action
 on:
   pull_request:
     branches: [ master ]
