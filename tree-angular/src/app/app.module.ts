@@ -20,6 +20,8 @@ import { OpportunityRegisterComponent } from './pages/opportunity-register/oppor
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import { ConfirmLogoutComponent } from './components/confirm-logout/confirm-logout.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { OpportunitiesComponent } from './pages/opportunities/opportunities.comp
     RegisterComponent,
     CalendarComponent,
     OpportunitiesComponent,
+    ConfirmDeleteComponent,
+    ConfirmLogoutComponent,
   ],
   imports: [
     BrowserModule,
