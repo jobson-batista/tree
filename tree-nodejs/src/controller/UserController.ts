@@ -1,6 +1,8 @@
 import { getRepository } from 'typeorm';
 import { User } from '../model/User';
 import { Request, Response } from 'express';
+import * as bcrypt from 'bcrypt';
+
 
 export const findUsers = async (req: Request, res: Response) => {
     try {
@@ -19,7 +21,7 @@ export const findUser = async (req: Request, res: Response) => {
         const { id } = req.params;
         const user = await getRepository(User).findOne(id);
         if(!user) {
-            return res.status(404).json({message: "Usuário não encontrado."})
+            return res.status(500).json({message: "Erro ao obter um usuário."})
         }  
         return res.status(200).send(user);
     } catch (error) {
@@ -29,15 +31,20 @@ export const findUser = async (req: Request, res: Response) => {
 
 export const saveUser = async (req: Request, res: Response) => {
     try {
-        const { firstName, lastName, email, password, phoneNumber } = req.body
+        const { firstName, lastName, email, password } = req.body
         for (const user of await getRepository(User).find()) {
             if (user.email == email){
                 return res.status(400).json({message: "Email já cadastrado."});
             }
         }
-        if (firstName && lastName && email && password && phoneNumber){
-            const user = await getRepository(User).save(req.body);
-            return res.status(201).json(user);
+        if (firstName && lastName && email && password){
+
+            bcrypt.hash(password, 10, async (errorBcrypt, hash) => {                 
+                if(errorBcrypt) { return res.status(500).send({error: errorBcrypt})}
+                req.body.password = hash;
+                await getRepository(User).save(req.body);
+            })
+            return res.status(201).send({message: "Cadastrado com sucesso!"});
         }
         return res.status(400).json({message: "Algum campo está faltando."})
     } catch (error) {
@@ -49,16 +56,17 @@ export const updateUser = async (req: Request, res: Response) => {
 
     try {
         const { id } = req.params;
-        const {firstName, lastName, email, password, phoneNumber} = req.body
-        if (firstName && lastName && email && password && phoneNumber) {
-            const user = await getRepository(User).update(id, req.body);
-            if(user.affected === 1) {
-                const userUpdated = await getRepository(User).findOne(id);
-                return res.status(200).send(userUpdated);
-            }
-            return res.status(404).json({
-                message: "Usuário não encontrado."
+        const {firstName, lastName, email, password} = req.body
+        if (firstName && lastName && email && password) {
+
+            bcrypt.hash(password, 10, async (error, hash) => {
+                if(error) { 
+                    return res.status(500).send({error: error})
+                }
+                req.body.password = hash;
+                await getRepository(User).update(id, req.body);
             })
+            return res.status(200).send(await getRepository(User).findOne(id));
         }
         return res.status(400).json({message: "Algum campo está faltando."})
     } catch (error) {

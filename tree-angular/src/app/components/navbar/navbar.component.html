@@ -1,25 +1,22 @@
-<nav>
+<nav *ngIf="this.indexPage != -1">
   <div class="nav-container">
     <input type="checkbox" id="check">
     <div class="left-container">
-      <img (click)="changePage(0)" routerLink="" class="logo" src="../../../assets/images/logo.svg" />
+      <img routerLink="" class="logo" src="../../../assets/images/logo.svg" />
       <ul>
-        <li><a [ngClass]="this.indexPage == 0 ? 'actived' : 'not-actived'" (click)="changePage(0)"
-            routerLink="">Início</a></li>
-        <li><a [ngClass]="this.indexPage == 1 ? 'actived' : 'not-actived'" (click)="changePage(1)"
-            routerLink="">Oportunidades</a></li>
-        <li><a [ngClass]="this.indexPage == 2 ? 'actived' : 'not-actived'" (click)="changePage(2)"
-            routerLink="community">Comunidade</a></li>
-        <li><a [ngClass]="this.indexPage == 4 ? 'actived' : 'not-actived'" (click)="changePage(4)" routerLink="">Como
+        <li><a [ngClass]="this.indexPage == 0 ? 'actived' : 'not-actived'" routerLink="">Início</a></li>
+        <li><a [ngClass]="this.indexPage == 1 ? 'actived' : 'not-actived'" routerLink="opportunities">Oportunidades</a>
+        </li>
+        <li><a [ngClass]="this.indexPage == 2 ? 'actived' : 'not-actived'" routerLink="community">Comunidade</a></li>
+        <li><a [ngClass]="this.indexPage == 4 ? 'actived' : 'not-actived'" routerLink="">Como
             fuciona</a></li>
-        <li><a [ngClass]="this.indexPage == 5 ? 'actived' : 'not-actived'" (click)="changePage(5)"
-            routerLink="">Sobre</a></li>
+        <li><a [ngClass]="this.indexPage == 5 ? 'actived' : 'not-actived'" routerLink="">Sobre</a></li>
       </ul>
     </div>
     <div class="right-container">
       <div class="row">
-        <a href="#">Entrar</a>
-        <button class="signup-button">Cadastrar-se</button>
+        <a routerLink='register' [state]="{ isLogin: true }">Entrar</a>
+        <button routerLink='register' class="signup-button">Cadastrar-se</button>
       </div>
     </div>
     <label for="check" class="checkbtn">
@@ -28,3 +25,5 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </nav>
+<router-outlet></router-outlet>
+<footer *ngIf="this.indexPage != -1"></footer>

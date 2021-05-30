@@ -22,18 +22,22 @@ export class NavbarComponent implements OnInit {
         case '/':
           this.indexPage = 0;
           break;
+        case '/opportunities':
+          this.indexPage = 1;
+          break;
         case '/community':
           this.indexPage = 2;
           break;
-
+        case '/register':
+          this.indexPage = -1;
+          break
+        case '/opportunities/opp-register':
+          this.indexPage = -1;
+          break
         default:
           break;
       }
     });
-  }
-
-  changePage(index: number): void {
-    this.indexPage = index;
   }
 
   actionDrawer(): void {

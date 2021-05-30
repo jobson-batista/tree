@@ -57,15 +57,24 @@
 
 form {
   display: flex;
+  justify-items: space-between;
+}
+
+form div {
+  display: flex;
+  width: 100%;
+  border-radius: 1vh 0 0 1vh;
+  align-items: center;
+  border: 1px solid rgba(42, 47, 67, 0.25);
+  border-right: transparent;
 }
 
 i {
   background: white;
   color: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.25);
   border-right: transparent;
-  padding: 1vw;
   border-radius: 1vh 0 0 1vh;
+  padding: 1vw;
   font-size: 1vw;
 }
 
@@ -73,7 +82,7 @@ input[type="text"] {
   flex: 1;
   width: 100%;
   height: auto;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: transparent;
   border-left: transparent;
   border-right: transparent;
   padding: 1vw 0px;
@@ -125,7 +134,7 @@ img {
 
 .go-button:hover {
   background: #05ca6b;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px rgba(42, 47, 67, 0.25);
 }
 
 @media only screen and (max-width: 1025px) {

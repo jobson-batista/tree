@@ -1,55 +1,56 @@
 <div class="register">
-    <div class="left-container">
-        <div class="left-container-body">
-            <img class="logo" src="../../assets/images/logo.svg"/>
-            <div class=register-person>
-                <img src="../../assets/images/register.svg">
-                <div class="phrase-text">
-                    <h1>Inicie de graça e obtenha</h1>
-                    <h1>várias oportunidades</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="right-container">
-      <div class="select-option">
-        <i class="fas fa-chevron-left"></i>
-        <div class="options">
-          <p class="signup-option" (click)="setOption(false)" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'"
-          [ngStyle]="{'margin-right': '20px'}">Cadastrar-se</p>
-          <p class="signin-option" (click)="setOption(true)" [ngClass]="this.isLogin ? 'actived' : 'not-actived'">Entrar</p>
+  <div class="left-container">
+    <div class="left-container-body">
+      <img routerLink="" class="logo" src="../../assets/images/logo.svg" />
+      <div class=register-person>
+        <img src="../../assets/images/register.svg">
+        <div class="phrase-text">
+          <h1>Inicie de graça e obtenha</h1>
+          <h1>várias oportunidades</h1>
         </div>
       </div>
-        <div class="text-top">
-          <h1>{{this.textTop}}</h1>
-          <div class=header-register>
-            <h2 class="text-grey">{{this.textBottom}} &nbsp;</h2>
-            <h2 class="text-pink" (click)="setOption(this.textOption == 'Entrar')">{{this.textOption}}</h2>
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="select-option">
+      <i (click)="backButton()" class="fas fa-chevron-left"></i>
+      <div class="options">
+        <p class="signup-option" (click)="setOption(false)" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'"
+          [ngStyle]="{'margin-right': '20px'}">Cadastrar-se</p>
+        <p class="signin-option" (click)="setOption(true)" [ngClass]="this.isLogin ? 'actived' : 'not-actived'">Entrar
+        </p>
+      </div>
+    </div>
+    <div class="text-top">
+      <h1>{{this.textTop}}</h1>
+      <div class=header-register>
+        <h2 class="text-grey">{{this.textBottom}} &nbsp;</h2>
+        <h2 class="text-pink" (click)="setOption(this.textOption == 'Entrar')">{{this.textOption}}</h2>
+      </div>
+    </div>
+    <div class="columns">
+      <form>
+        <div class="name-container" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'">
+          <div class="name-input">
+            <p>Nome</p> <input type="text" name="firstname" />
+          </div>
+          <div class="lastname-input">
+            <p>Sobrenome</p> <input type="text" name="lastname" />
           </div>
         </div>
-        <div class="columns">
-            <form>
-                <div class="name-container" [ngClass]="!this.isLogin ? 'actived' : 'not-actived'">
-                  <div class="name-input">
-                      <p>Nome</p> <input type="text" name="firstname"/>
-                  </div>
-                  <div class="lastname-input">
-                      <p>Sobrenome</p> <input type="text" name="lastname"/>
-                  </div>
-                </div>
-                <p>E-mail</p>
-                <div class="email-input">
-                  <i class="far fa-envelope"></i>
-                  <input type="email" name="email_user"/>
-                </div>
-                <p>Senha</p>
-                <div class="password-input">
-                  <i class="fas fa-lock"></i>
-                  <input type="text" name="password"/>
-                  <i class="far fa-eye"></i>
-                </div>
-            </form>
-            <button class="button" type="submit">{{this.textTop}}</button>
+        <p>E-mail</p>
+        <div class="email-input">
+          <i class="eva eva-email-outline"></i>
+          <input type="email" name="email_user" />
         </div>
+        <p>Senha</p>
+        <div class="password-input">
+          <i class="eva eva-lock-outline"></i>
+          <input type="text" name="password" />
+          <i class="eva eva-eye-outline"></i>
+        </div>
+      </form>
+      <button class="button" type="submit">{{this.textTop}}</button>
     </div>
+  </div>
 </div>
