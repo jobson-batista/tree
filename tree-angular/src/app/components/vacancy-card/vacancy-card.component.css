@@ -19,16 +19,16 @@
   box-shadow: none;
 }
 
-.container.active.emprego,
-.container.emprego:hover {
+.container.active.EMPREGO,
+.container.EMPREGO:hover {
   background: rgba(253, 203, 110, 0.25);
 }
-.container.active.evento,
-.container.evento:hover {
+.container.active.EVENTO,
+.container.EVENTO:hover {
   background: rgba(108, 92, 231, 0.25);
 }
-.container.active.especializacao,
-.container.especializacao:hover {
+.container.active.ESPECIALIZACAO,
+.container.ESPECIALIZACAO:hover {
   background: rgba(28, 82, 83, 0.25);
 }
 

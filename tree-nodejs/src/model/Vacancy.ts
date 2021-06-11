@@ -13,6 +13,9 @@ export abstract class Vacancy {
     @Column()
     description: string;
 
+    @Column()
+    type: string;
+
     @Column({
         name: "start_date",
         type: "timestamptz",
