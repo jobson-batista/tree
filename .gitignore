@@ -10,3 +10,4 @@ tree-nodejs/tmp/
 tree-nodejs/temp/
 tree-nodejs/package-lock.json
 .vscode/
+.idea/

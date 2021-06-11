@@ -15,4 +15,8 @@ export class Specialization extends Vacancy {
         nullable: true
     })
     scholarship: number;
+
+    @Column()
+    subType: string;
+
 }

@@ -11,7 +11,12 @@ const routes: Routes = [
   { path: 'opportunities', component: OpportunitiesComponent},
   { path: 'community', component: CommunityComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'opportunities/opp-register', component: OpportunityRegisterComponent }
+  { path: 'opportunities/opp-register', component: OpportunityRegisterComponent },
+  {
+    path: 'opp-register',
+    redirectTo: '/tabs/opportunities/opp-register',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

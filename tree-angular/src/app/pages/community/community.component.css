@@ -30,7 +30,7 @@ h1 {
   font-size: 1vw;
 }
 
-.search-bar form {
+.search-bar div {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
@@ -38,11 +38,11 @@ h1 {
   transition: all ease 0.25s;
 }
 
-.search-bar form:focus-within {
+.search-bar div:focus-within {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.search-bar form .search-input {
+.search-bar div .search-input {
   width: 100%;
   justify-content: start;
 }
@@ -73,8 +73,35 @@ h1 {
 
 .search-bar span {
   font-size: 3.5vw;
+  font-weight: 700;
   margin: 0;
   color: #f06380;
+}
+
+.user-not-found {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-not-found h2 {
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: rgba(42, 47, 67, 0.5);
+}
+
+.user-not-found img {
+  margin: 40px 0;
+  width: 30vw;
+}
+
+.user-not-found p {
+  color: #ff6961;
+  margin: 0 10px;
 }
 
 .image img {
@@ -117,11 +144,9 @@ h2 {
   .body-container {
     flex-direction: column;
   }
-
   .left-container {
     width: 100%;
   }
-
   .user-list {
     display: flex;
     align-items: center;
@@ -129,19 +154,15 @@ h2 {
     padding-left: 2px;
     overflow-x: auto;
   }
-
   user-card:not(:last-child) {
     margin-right: 20px;
   }
-
   user-card:last-child {
     padding-right: 2px;
   }
-
   .user-list::-webkit-scrollbar {
     height: 10px;
   }
-
   .right-container {
     margin: 0;
     width: 100%;
@@ -160,43 +181,34 @@ h2 {
   .image {
     display: none;
   }
-
   .sort {
     display: block;
   }
-
   h1 {
     font-size: 3.5vh;
     text-align: center;
   }
-
   .search-bar span {
     font-size: 3.5vh;
   }
-
   .head {
     display: block;
     align-content: center;
   }
-
   .search-bar i {
     padding: 3vw;
   }
-
   .search-bar button {
     font-size: 3vw;
   }
-
   .select2 {
     display: block;
     max-width: 100%;
     margin-top: 1vh;
   }
-
   .select1 {
     display: none;
   }
-
   h2 {
     font-size: 5vw;
   }

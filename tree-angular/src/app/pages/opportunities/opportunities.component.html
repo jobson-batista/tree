@@ -4,7 +4,8 @@
       <h1>Encontre <span class="text-pink">oportunidades</span><br>facilmente!</h1>
       <form>
         <i class="eva eva-search-outline"></i>
-        <input class="search-input" type="text" placeholder="Procurar empregos, estágios, eventos...">
+        <input (keyup)="searchOpp()" class="search-input" id="search-content" type="text"
+          placeholder="Procurar empregos, estágios, eventos...">
         <div class="dropdown">
           <div class="dropdown-select">
             <span class="select"><i class="{{this.typeIconOpp}}"></i>{{this.typeNameOpp}}</span>
@@ -18,20 +19,27 @@
             <div class="dropdown-list-item"><i class="eva eva-book-open-outline"></i><label>Especialização</label></div>
           </div>
         </div>
-        <button id="targetScroll">Buscar</button>
+        <button id="targetScroll" (click)="searchOpp()">Buscar</button>
       </form>
     </div>
     <div class="image">
       <img src="../../../assets/images/pages/community/image-page-community.svg">
     </div>
   </section>
-  <div class="sort">
+  <div class="sort" *ngIf="this.opps.length > 0">
     <h2 *ngIf="searchInput == ''">{{this.opps.length}} resultados</h2>
     <h2 *ngIf="totalResults == 0 && searchInput != ''">0 resultados</h2>
     <h2 class="text-results" *ngIf="totalResults != 0">{{ totalResults }} {{
       (totalResults <= 1) ? 'resultado' : 'resultados' }}</h2>
   </div>
-  <div class="body">
+  <div class="user-not-found" *ngIf="this.visibleOpps.length == 0">
+    <img src="../../assets/images/pages/community/searchnotfound.svg">
+    <h2>
+      <p class="text-pink"> Nenhum </p> resultado
+    </h2>
+    <h2>encontrado!</h2>
+  </div>
+  <div class="body" *ngIf="this.opps.length > 0">
     <div class="body-container">
       <div class="left-container">
         <div class="vacancy-list">
@@ -51,16 +59,15 @@
   <div class="action-button" (click)=actionToggle()>
     <i class="eva eva-plus"></i>
     <ul>
-      <li routerLink='opp-register' [state]="{ category: 'emprego' }"><i class="eva eva-briefcase-outline"></i>
+      <li routerLink='opp-register' [state]="{ category: 'EMPREGO' }"><i class="eva eva-briefcase-outline"></i>
         <p>Adicionar Emprego/Estágio</p>
       </li>
-      <li routerLink="opp-register" [state]="{ category: 'evento' }"><i class="eva eva-star-outline"></i>
+      <li routerLink="opp-register" [state]="{ category: 'EVENTO' }"><i class="eva eva-star-outline"></i>
         <p>Adicionar Evento</p>
       </li>
-      <li routerLink="opp-register" [state]="{ category: 'especializacao' }"><i class="eva eva-book-open-outline"></i>
+      <li routerLink="opp-register" [state]="{ category: 'ESPECIALIZACAO' }"><i class="eva eva-book-open-outline"></i>
         <p>Adicionar Especialização</p>
       </li>
     </ul>
   </div>
 </div>
-<router-outlet></router-outlet>

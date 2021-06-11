@@ -24,7 +24,7 @@ export class DetailCardComponent implements OnInit {
 
   createdTo(startDate: Date): String {
     moment.locale('pt-br');
-    let diff = moment(startDate.getDate(), "DD/MM/YYYY HH:mm:ss").diff(moment(new Date(), "DD/MM/YYYY HH:mm:ss"));
+    let diff = moment(new Date(startDate), "DD/MM/YYYY HH:mm:ss").diff(moment(new Date(), "DD/MM/YYYY HH:mm:ss"));
     let days = moment.duration(diff).asDays();
     switch (Math.trunc(days)) {
       case 0:

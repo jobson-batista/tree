@@ -1,6 +1,7 @@
+import { VacancyTypes } from 'src/app/services/vacancy-utils.service';
 import { Vacancy } from './../../models/Vacancy';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { CommunityService } from '../community/community.service';
+import { OpportunitiesService } from './opportunities.service';
 
 @Component({
   selector: 'page-opportunities',
@@ -12,7 +13,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
   totalResults: number = 0;
   searchInput: string = '';
   opps: Vacancy[];
-  visibleOpps: Vacancy[];
+  visibleOpps: Vacancy[] = [];
   indexOpp: number = 0;
   currentPage: number = 1;
   @Input() indexTypeOpp: number = 0;
@@ -23,18 +24,21 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     this.changePage(args)
   };
 
-  constructor(private serviceCommunity: CommunityService) { }
+  constructor(private serviceOpportunity: OpportunitiesService) { }
 
   ngOnInit(): void {
-    this.opps = this.serviceCommunity.getOpps();
+    this.getOpps();
     this.getQuantButtonPages();
-    this.setVisibleOpps();
+    // this.setVisibleOpps();
     this.toogleTypeOpp();
+    // this.getOpps('Event');
+    // this.getOppById('Event', 2);
+    // this.saveOpp('Event', this.eventTest);
   }
 
   ngOnDestroy(): void {
     const pagination = document.querySelector('.pagination');
-    pagination.innerHTML = '';
+    if(pagination != null) pagination.innerHTML = '';
   }
 
   actionToggle(): void {
@@ -56,6 +60,10 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     optionsList.forEach(o => {
       o.addEventListener("click", () => {
         this.typeNameOpp = o.querySelector(".dropdown-list-item label").innerHTML;
+        if(this.typeNameOpp == 'Estágio/Emprego') this.getOpps(VacancyTypes.EMPREGO);
+        else if(this.typeNameOpp == 'Eventos') this.getOpps(VacancyTypes.EVENTO);
+        else if(this.typeNameOpp == 'Especialização') this.getOpps(VacancyTypes.ESPECIALIZACAO);
+        else this.getOpps();
         this.typeIconOpp = o.querySelector(".dropdown-list-item i").className;
         optionsContainer.classList.remove("actived");
         arrowSelect.classList.remove("up");
@@ -66,7 +74,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
   changePage(index: number): void {
     this.currentPage = index;
     this.indexOpp = 0;
-    this.setVisibleOpps();
+    this.setVisibleOpps(this.opps);
 
     var targetScroll = document.getElementById("targetScroll");
 
@@ -77,9 +85,9 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     });
   }
 
-  setVisibleOpps(): void {
+  setVisibleOpps(opportunities: Vacancy[]): void {
     this.visibleOpps = [];
-    for (let index = ((this.currentPage - 1) * 5); index < this.opps.length; index++) {
+    for (let index = ((this.currentPage - 1) * 5); index < opportunities.length; index++) {
       if (this.visibleOpps.length < 5) {
         this.visibleOpps.push(this.opps[index]);
       }
@@ -103,9 +111,77 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     return quant;
   }
 
-  searchOpp(name: string) {
-    // Lógica para nome pesquisa em this.opps
+  searchOpp(): any {
+    // let searchOpps: Vacancy[] = [];
+    // let pesquisa = (<HTMLInputElement>document.getElementById('search-content')).value;
+    // this.opps.forEach( (opp) => {
+    //   if(opp.title.toLowerCase().includes(pesquisa.toLowerCase())) {
+    //     searchOpps.push(opp);
+    //     console.log(opp.title);
+    //   }
+    // });
+    // this.setVisibleOpps(pesquisa == '' ? this.opps : searchOpps);
   }
 
+  /* O atributo type é opcional,
+   * se ele não for passado o método retorna
+   * todas as oportunidades (Events, Opportunities e Jobs)
+   */
+  getOpps(type?: string) {
+    this.opps = [];
+
+    if (type) {
+      this.serviceOpportunity.getOppsByType(type).subscribe({
+        next: (vacancy: Vacancy[]) => {
+          this.opps = vacancy.sort((a, b) => (a.created_at < b.created_at) ? 1 : -1);
+        },
+        complete: () => {
+          this.setVisibleOpps(this.opps);
+        },
+        error: () => { this.opps = [] }
+      }
+      );
+    } else {
+      this.serviceOpportunity.getOpps().subscribe({
+          next: (vacancy: Vacancy[]) => {
+            this.opps = vacancy.sort((a, b) => (a.created_at < b.created_at) ? 1 : -1);
+          },
+          complete: () => {
+            this.setVisibleOpps(this.opps);
+          },
+          error: () => { this.opps = [] }
+        }
+        );
+    }
+  }
+
+  getOppById(type: string, id: number) {
+    this.serviceOpportunity.getOppById(type, id).subscribe((opp) => {
+      console.log(opp);
+      return opp;
+    });
+  }
+
+  saveOpp(type: string, opp: any) {
+    // Verifica se a oportunidade será criada ou atualizada.
+    // console.log("É UNDEFINED");
+    if (opp.id === undefined) {
+      console.log("É UNDEFINED");
+      this.serviceOpportunity.saveOpp(type, opp).subscribe(() => {
+        console.log("Salvou!");
+      })
+    } else {
+      console.log("É UNDEFINED 2");
+      this.serviceOpportunity.updateOpp(type, opp).subscribe(() => {
+        console.log("Editou!");
+      });
+    }
+  }
+
+  deleteOpp(type:string, id: number) {
+    this.serviceOpportunity.deleteOpp(type, id).subscribe(() => {
+      console.log("Deletou!");
+    });
+  }
 }
 
