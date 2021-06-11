@@ -10,7 +10,7 @@ import * as cors from 'cors';
 
 const app = express();
 const corsOptions = {
-    origin: 'http://127.0.0.1:4200',
+    origin: 'http://localhost:4200',
     optionsSuccessStatus: 200
 }
 
