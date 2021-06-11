@@ -1,6 +1,6 @@
 import { Vacancy } from './../../models/Vacancy';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { OpportunitiesService } from './opportunities.service';
+import { CommunityService } from '../community/community.service';
 
 @Component({
   selector: 'page-opportunities',
@@ -12,7 +12,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
   totalResults: number = 0;
   searchInput: string = '';
   opps: Vacancy[];
-  visibleOpps: Vacancy[] = [];
+  visibleOpps: Vacancy[];
   indexOpp: number = 0;
   currentPage: number = 1;
   @Input() indexTypeOpp: number = 0;
@@ -23,16 +23,13 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     this.changePage(args)
   };
 
-  constructor(private serviceOpportunity: OpportunitiesService) { }
+  constructor(private serviceCommunity: CommunityService) { }
 
   ngOnInit(): void {
-    this.getOpps();
+    this.opps = this.serviceCommunity.getOpps();
     this.getQuantButtonPages();
-    // this.setVisibleOpps();
+    this.setVisibleOpps();
     this.toogleTypeOpp();
-    // this.getOpps('Event');
-    // this.getOppById('Event', 2);
-    // this.saveOpp('Event', this.eventTest);
   }
 
   ngOnDestroy(): void {
@@ -82,7 +79,6 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
 
   setVisibleOpps(): void {
     this.visibleOpps = [];
-    console.log(this.opps);
     for (let index = ((this.currentPage - 1) * 5); index < this.opps.length; index++) {
       if (this.visibleOpps.length < 5) {
         this.visibleOpps.push(this.opps[index]);
@@ -111,60 +107,5 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     // Lógica para nome pesquisa em this.opps
   }
 
-  /* O atributo type é opcional,
-   * se ele não for passado o método retorna
-   * todas as oportunidades (Events, Opportunities e Jobs)
-   */
-  getOpps(type?: string) {
-    this.opps = [];
-
-    if (type) {
-      this.serviceOpportunity.getOppsByType(type).subscribe({
-        next: (res: Vacancy[]) => {
-          this.opps = res;
-        }
-      }
-      );
-    } else {
-      this.serviceOpportunity.getOpps().subscribe({
-          next: (vacancy: Vacancy[]) => {
-            vacancy.forEach((opp) => {
-              this.opps.push(opp);
-            })
-          },
-          complete: () => this.setVisibleOpps()
-        }
-        );
-    }
-  }
-
-  getOppById(type: string, id: number) {
-    this.serviceOpportunity.getOppById(type, id).subscribe((opp) => {
-      console.log(opp);
-      return opp;
-    });
-  }
-
-  saveOpp(type: string, opp: any) {
-    // Verifica se a oportunidade será criada ou atualizada.
-    // console.log("É UNDEFINED");
-    if (opp.id === undefined) {
-      console.log("É UNDEFINED");
-      this.serviceOpportunity.saveOpp(type, opp).subscribe(() => {
-        console.log("Salvou!");
-      })
-    } else {
-      console.log("É UNDEFINED 2");
-      this.serviceOpportunity.updateOpp(type, opp).subscribe(() => {
-        console.log("Editou!");
-      });
-    }
-  }
-
-  deleteOpp(type:string, id: number) {
-    this.serviceOpportunity.deleteOpp(type, id).subscribe(() => {
-      console.log("Deletou!");
-    });
-  }
 }
 

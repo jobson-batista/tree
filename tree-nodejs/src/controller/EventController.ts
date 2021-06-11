@@ -16,7 +16,7 @@ export const findEvent = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     const event = await getRepository(Event).findOne(id);
-    if(event){
+    if(!event){
         return res.status(200).send(event);
     }
     return res.status(404).json({message:"Event not found"})

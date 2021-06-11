@@ -67,8 +67,6 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "sourceMap": false,
-            "optimization": false,
             "browserTarget": "tree-angular:build"
           },
           "configurations": {
