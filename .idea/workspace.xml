@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6359b6a3-fce2-4bc5-b827-9a75f1a3c500" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tree-angular/src/app/models/Event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tree-angular/src/app/models/Job.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tree-angular/src/app/models/Specialization.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-angular/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tree-angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/components/navbar/navbar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/components/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/screens/community/community.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/screens/community/community.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/screens/community/community.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/screens/community/community.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/screens/users/users.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/screens/users/users.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/screens/users/users.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/pages/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/pages/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-angular/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/components/detail-card/detail-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/components/detail-card/detail-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/models/Vacancy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/models/Vacancy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/pages/community/community.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/pages/community/community.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-angular/src/app/pages/opportunities/opportunities.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tree-angular/src/app/pages/opportunities/opportunities.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-nodejs/src/controller/EventController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tree-nodejs/src/controller/EventController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree-nodejs/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tree-nodejs/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="70887a24-1ab6-4fca-ae0d-18d8751d5c56" />
+        <option name="url" value="https://github.com/jobson-batista/tree.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1rtK2KaWnuyEcuRfVNAfAOjNDXs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,6 +46,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -49,6 +61,10 @@
       <workItem from="1619789749773" duration="603000" />
       <workItem from="1619790761210" duration="25000" />
       <workItem from="1619878488172" duration="79000" />
+      <workItem from="1623113509984" duration="1145000" />
+      <workItem from="1623163210881" duration="3443000" />
+      <workItem from="1623237382948" duration="16009000" />
+      <workItem from="1623273244488" duration="8706000" />
     </task>
     <servers />
   </component>
