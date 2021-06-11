@@ -95,6 +95,7 @@ h1 {
   position: absolute;
   transition: all ease 0.15s;
   border-radius: 1vh;
+  visibility: hidden;
   box-shadow: 0 0 10px rgba(42, 47, 67, 0.25);
   font-size: 1.35vh;
 }
@@ -102,6 +103,7 @@ h1 {
 .dropdown-list.actived {
   max-height: 100%;
   opacity: 1;
+  visibility: visible;
 }
 
 .dropdown-select .eva.up {

@@ -24,8 +24,9 @@ export class DetailCardComponent implements OnInit {
 
   createdTo(startDate: Date): String {
     moment.locale('pt-br');
-    let diff = moment(startDate, "DD/MM/YYYY HH:mm:ss").diff(moment(new Date(), "DD/MM/YYYY HH:mm:ss"));
+    let diff = moment(new Date(startDate), "DD/MM/YYYY HH:mm:ss").diff(moment(new Date(), "DD/MM/YYYY HH:mm:ss"));
     let days = moment.duration(diff).asDays();
+    console.log(Math.trunc(days));
     switch (Math.trunc(days)) {
       case 0:
         return this.user != null ? `Conta criada hoje` : `Postado hoje`;

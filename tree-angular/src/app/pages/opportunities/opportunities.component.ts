@@ -1,3 +1,4 @@
+import { VacancyTypes } from 'src/app/services/vacancy-utils.service';
 import { Vacancy } from './../../models/Vacancy';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { OpportunitiesService } from './opportunities.service';
@@ -59,6 +60,10 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     optionsList.forEach(o => {
       o.addEventListener("click", () => {
         this.typeNameOpp = o.querySelector(".dropdown-list-item label").innerHTML;
+        if(this.typeNameOpp == 'Estágio/Emprego') this.getOpps(VacancyTypes.EMPREGO);
+        else if(this.typeNameOpp == 'Eventos') this.getOpps(VacancyTypes.EVENTO);
+        else if(this.typeNameOpp == 'Especialização') this.getOpps(VacancyTypes.ESPECIALIZACAO);
+        else this.getOpps();
         this.typeIconOpp = o.querySelector(".dropdown-list-item i").className;
         optionsContainer.classList.remove("actived");
         arrowSelect.classList.remove("up");
@@ -120,19 +125,22 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
 
     if (type) {
       this.serviceOpportunity.getOppsByType(type).subscribe({
-        next: (res: Vacancy[]) => {
-          this.opps = res;
-        }
+        next: (vacancy: Vacancy[]) => {
+          this.opps = vacancy.sort((a, b) => (a.created_at < b.created_at) ? 1 : -1);
+        },
+        complete: () => {
+          this.setVisibleOpps();
+        },
       }
       );
     } else {
       this.serviceOpportunity.getOpps().subscribe({
           next: (vacancy: Vacancy[]) => {
-            vacancy.forEach((opp) => {
-              this.opps.push(opp);
-            })
+            this.opps = vacancy.sort((a, b) => (a.created_at < b.created_at) ? 1 : -1);
           },
-          complete: () => this.setVisibleOpps()
+          complete: () => {
+            this.setVisibleOpps();
+          },
         }
         );
     }

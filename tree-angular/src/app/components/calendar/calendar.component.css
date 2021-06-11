@@ -1,4 +1,4 @@
-.body {
+.calendar-container {
   --light-body: #f3f8fe;
   --light-main: #fdfdfd;
   --light-second: #c3c2c8;
@@ -17,50 +17,22 @@
   --color-txt: var(--light-text);
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.body {
-  height: 100vh;
+.calendar-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: var(--bg-main);
-  transition: all 0.2s ease-in-out;
-}
-
-.body.active {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-button {
-  background-color: var(--green);
-  border: none;
-  padding: 20px;
-  border-radius: 1vh;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-button div {
-  color: white;
-  display: flex;
   align-items: center;
-  gap: 20px;
-  font-weight: 500;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
 }
 
-button:hover {
-  background-color: #05c96a;
-}
-
-button .eva {
-  font-size: 3vh;
-  color: white;
+.calendar-container.active {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .calendar {
@@ -83,7 +55,7 @@ button .eva {
   visibility: visible;
 }
 
-.body .calendar {
+.calendar-container .calendar {
   box-shadow: var(--shadow);
 }
 
@@ -239,7 +211,6 @@ button .eva {
   top: 0;
   left: 0;
   background-color: var(--bg-main);
-  padding: 20px;
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 5px;
@@ -263,9 +234,8 @@ button .eva {
 }
 
 .month-list > div > div {
-  width: 100%;
   font-weight: 600;
-  padding: 20px;
+  padding: 10px 10px;
   border-radius: 1vh;
   text-align: center;
   cursor: pointer;
@@ -287,12 +257,8 @@ button .eva {
 }
 
 @media (max-width: 500px) {
-  .calendar {
-    padding: 10px;
-  }
-
   .calendar-header {
-    font-size: 90%;
+    font-size: 100%;
     padding: 5px;
   }
 
@@ -321,12 +287,17 @@ button .eva {
     margin: 0 5px;
   }
 
-  .month-list {
-    padding: 20px;
+  .month-list > div > div {
+    font-size: 80%;
+  }
+}
+
+@media (max-width: 280px) {
+  .calendar {
+    padding: 10px;
   }
 
   .month-list > div > div {
-    padding: 5px;
-    font-size: 70%;
+    font-size: 60%;
   }
 }

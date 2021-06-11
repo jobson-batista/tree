@@ -10,7 +10,9 @@ import * as moment from 'moment';
 export class CalendarComponent implements OnInit {
 
   @Input() currentDate: Date = new Date();
-  firstOpenCalendar: boolean = true;
+  @Input() isActive: boolean = false;
+  @Input() isFirst: boolean = true;
+  @Input() changeDateFunction: (args: Date, isFirst: boolean) => void;
 
   constructor() { }
 
@@ -75,9 +77,8 @@ export class CalendarComponent implements OnInit {
             console.log(this.currentDate);
             generateCalendar(month, year);
             setTimeout(() => {
-              calendar.classList.remove('active');
-              document.querySelector('#shadow').classList.remove('active');
-              if (this.firstOpenCalendar) this.firstOpenCalendar = false;
+              this.changeDateFunction(this.currentDate, this.isFirst);
+              this.isActive = false;
             }, 250);
           }
         }
@@ -111,12 +112,6 @@ export class CalendarComponent implements OnInit {
 
     let curr_month = { value: this.currentDate.getMonth() };
     let curr_year = { value: this.currentDate.getFullYear() };
-
-    var btn_active: HTMLElement = document.querySelector('#btn-active');
-    btn_active.onclick = () => {
-      calendar.classList.add('active');
-      document.querySelector('#shadow').classList.add('active');
-    }
 
     generateCalendar(curr_month.value, curr_year.value)
   }

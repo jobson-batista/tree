@@ -51,16 +51,15 @@
   <div class="action-button" (click)=actionToggle()>
     <i class="eva eva-plus"></i>
     <ul>
-      <li routerLink='opp-register' [state]="{ category: 'emprego' }"><i class="eva eva-briefcase-outline"></i>
+      <li routerLink='opp-register' [state]="{ category: 'EMPREGO' }"><i class="eva eva-briefcase-outline"></i>
         <p>Adicionar Emprego/Estágio</p>
       </li>
-      <li routerLink="opp-register" [state]="{ category: 'evento' }"><i class="eva eva-star-outline"></i>
+      <li routerLink="opp-register" [state]="{ category: 'EVENTO' }"><i class="eva eva-star-outline"></i>
         <p>Adicionar Evento</p>
       </li>
-      <li routerLink="opp-register" [state]="{ category: 'especializacao' }"><i class="eva eva-book-open-outline"></i>
+      <li routerLink="opp-register" [state]="{ category: 'ESPECIALIZACAO' }"><i class="eva eva-book-open-outline"></i>
         <p>Adicionar Especialização</p>
       </li>
     </ul>
   </div>
 </div>
-<router-outlet></router-outlet>

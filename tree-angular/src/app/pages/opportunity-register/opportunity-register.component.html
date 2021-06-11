@@ -1,4 +1,9 @@
 <div class="opp-register">
+  <div *ngIf="this.calendarIsActive || this.secondCalendarIsActive">
+    <calendar [isFirst]="this.calendarIsActive ? true : false"
+      [isActive]="this.calendarIsActive || this.secondCalendarIsActive" [changeDateFunction]="changeDateFunction"
+      [currentDate]="this.calendarIsActive ? this.currentDate : this.secondDate"></calendar>
+  </div>
   <div class="left-container" fxFlex="50">
     <div class="left-container-body">
       <img class="logo" src="../../assets/images/logo.svg" />
@@ -21,59 +26,61 @@
       <div class="header-right">
         <div>
           <i class="eva eva-briefcase-outline icons"
-            [ngClass]="this.category == 'emprego' ? 'actived category-one' : 'not-actived'"
-            (click)="this.changeCategory('emprego')"></i>
+            [ngClass]="this.category == 'EMPREGO' ? 'actived category-one' : 'not-actived'"
+            (click)="this.changeCategory('EMPREGO')"></i>
         </div>
         <div>
           <i class="eva eva-star-outline icons"
-            [ngClass]="this.category == 'evento' ? 'actived category-two' : 'not-actived'"
-            (click)="this.changeCategory('evento')"></i>
+            [ngClass]="this.category == 'EVENTO' ? 'actived category-two' : 'not-actived'"
+            (click)="this.changeCategory('EVENTO')"></i>
         </div>
         <div>
           <i class="eva eva-book-open-outline icons"
-            [ngClass]="this.category == 'especializacao' ? 'actived category-three' : 'not-actived'"
-            (click)="this.changeCategory('especializacao')"></i>
+            [ngClass]="this.category == 'ESPECIALIZACAO' ? 'actived category-three' : 'not-actived'"
+            (click)="this.changeCategory('ESPECIALIZACAO')"></i>
         </div>
       </div>
     </div>
     <div class="columns">
       <form [formGroup]="oppForm">
         <div class="first-row" fxLayout="row" fxLayout.md='column'
-          fxLayout.lg='{{this.category == "evento" ? "column": "row"}}'
-          fxLayout.sm='{{this.category == "evento" ? "column": "row"}}' fxLayout.xs="column">
-          <div class="title-input" fxFlex='{{this.category == "evento" ? "40" : "100"}}'>
+          fxLayout.lg='{{this.category == "EVENTO" ? "column": "row"}}'
+          fxLayout.sm='{{this.category == "EVENTO" ? "column": "row"}}' fxLayout.xs="column">
+          <!-- <div class="title-input" fxFlex='{{this.category == "EVENTO" ? "40" : "100"}}'> -->
+          <div class="title-input" fxFlex='100'>
             <p>Título</p>
-            <input formControlName="title" type="text" name="title" />
-            <small *ngIf="oppForm.get('title').invalid && oppForm.get('title').touched" class="text-danger">Informe o
-              título</small>
-          </div>
-          <div class="date-input" fxFlex='{{this.category == "evento" ? "60" : "100"}}'>
-            <p *ngIf="this.category == 'emprego'">Data</p>
-            <p *ngIf=" this.category == 'especializacao'">Tipo</p>
-            <input formControlName="date" id="date" type="date" *ngIf="this.category == 'emprego'">
-            <small *ngIf="checkInputAndType('date', 'emprego')" class="text-danger">Informe a
-              data</small>
-            <input formControlName="especializationType" id="type" type="text" *ngIf="this.category == 'especializacao'"
-              placeholder="Ex: Pós-graduação">
-            <small *ngIf="checkInputAndType('especializationType','especializacao')" class="text-danger">Informe o tipo
-              de
-              especialização</small>
-            <div class="date" *ngIf="this.category == 'evento'">
-              <div class="dates" fxFlex="100">
-                <div class="first-date" fxFlex="49">
-                  <p>Início</p>
-                  <input formControlName="firstDate" id="date" type="date" *ngIf="this.category == 'evento'">
-                  <small *ngIf="checkInputAndType('firstDate', 'evento')" class="text-danger">Informe a data de
-                    início</small>
+            <div class="first-line" fxLayout="row" fxLayout.md="{{this.category == 'EVENTO' ? 'column' : 'row'}}"
+              fxLayout.sm="{{this.category == 'EVENTO' ? 'column' : 'row'}}" fxLayout.xs="column">
+              <input formControlName="title" type="text" name="title" fxFlex="100"
+                fxFlex.lg="{{this.category == 'EVENTO' ? '40' : '100'}}" />
+              <div class="select-date" fxFlex="{{this.category == 'EMPREGO' ? '25' : '60'}}"
+                *ngIf="this.category == 'EMPREGO' || this.category == 'EVENTO'">
+                <div class="btn-first-date" fxFlex="100">
+                  <button class="btn-active-calendar" (click)="this.setCalendarActive(true)">
+                    <div><i class="eva eva-calendar-outline"></i>{{firstOpenCalendar ? 'Data Início' :
+                      getDateFormated(true)}}
+                    </div>
+                  </button>
                 </div>
-                <div class="last-date" fxFlex="49">
-                  <p>Fim</p>
-                  <input formControlName="lastDate" id="date" type="date" *ngIf="this.category == 'evento'">
-                  <small *ngIf="checkInputAndType('lastDate', 'evento')" class="text-danger">Informe a data de
-                    término</small>
+                <div *ngIf="this.category == 'EVENTO'" class="btn-second-date" fxFlex="100">
+                  <button class="btn-active-second-calendar" (click)="this.setCalendarActive(false)">
+                    <div><i class="eva eva-calendar-outline"></i>{{firstOpenSecondCalendar ? 'Data Fim' :
+                      getDateFormated(false)}}
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
+            <small *ngIf="oppForm.get('title').invalid && oppForm.get('title').touched" class="text-danger">Informe o
+              título</small>
+          </div>
+          <div class="type-input" *ngIf=" this.category == 'ESPECIALIZACAO'" fxFlex="40">
+            <p>Tipo</p>
+            <input formControlName="especializationType" id="type" type="text" *ngIf="this.category == 'ESPECIALIZACAO'"
+              placeholder="Ex: Pós-graduação">
+            <small *ngIf="checkInputAndType('especializationType','ESPECIALIZACAO')" class="text-danger">Informe o tipo
+              de
+              especialização</small>
           </div>
         </div>
         <p>Email de contato</p>
@@ -85,23 +92,23 @@
           email
           de contato</small>
         <div class="adress">
-          <div fxFlex=' {{this.category == "especializacao" ? "49" : "100" }}' fxLayout="column wrap">
-            <p *ngIf="this.category == 'evento'">Endereço</p>
-            <p *ngIf="this.category =='especializacao'">Instituição</p>
-            <div class="adress-input" *ngIf="this.category == 'evento' || this.category =='especializacao'">
-              <i class="far fa-building" *ngIf="this.category =='especializacao'"></i>
-              <i class="eva eva-compass-outline" *ngIf="this.category == 'evento'"></i>
+          <div fxFlex=' {{this.category == "ESPECIALIZACAO" ? "49" : "100" }}' fxLayout="column wrap">
+            <p *ngIf="this.category == 'EVENTO'">Endereço</p>
+            <p *ngIf="this.category =='ESPECIALIZACAO'">Instituição</p>
+            <div class="adress-input" *ngIf="this.category == 'EVENTO' || this.category =='ESPECIALIZACAO'">
+              <i class="far fa-building" *ngIf="this.category =='ESPECIALIZACAO'"></i>
+              <i class="eva eva-compass-outline" *ngIf="this.category == 'EVENTO'"></i>
               <input formControlName="adressOrInstitution" type="text" name="adress" fxFlex="100" />
             </div>
-            <small *ngIf="checkInputAndType('adressOrInstitution', 'evento')" class="text-danger">Informe o
+            <small *ngIf="checkInputAndType('adressOrInstitution', 'EVENTO')" class="text-danger">Informe o
               endereço</small>
-            <small *ngIf="checkInputAndType('adressOrInstitution','especializacao')" class="text-danger">Informe o nome
+            <small *ngIf="checkInputAndType('adressOrInstitution','ESPECIALIZACAO')" class="text-danger">Informe o nome
               da
               Instituição</small>
           </div>
-          <div *ngIf="this.category =='especializacao'" fxFlex="49" fxLayout="column wrap">
+          <div *ngIf="this.category =='ESPECIALIZACAO'" fxFlex="49" fxLayout="column wrap">
             <p>Bolsa</p>
-            <div class="bolsa-input" *ngIf="this.category =='especializacao'">
+            <div class="bolsa-input" *ngIf="this.category =='ESPECIALIZACAO'">
               <div class="input-money">
                 <i class="fa fa-money"></i>
                 <p>R$</p>
@@ -109,12 +116,12 @@
               <input formControlName="scholarship" currencyMask
                 [options]="{ prefix: ' ', thousands: '.', decimal: ',', align: 'left' }" type="text" name="bolsa" />
             </div>
-            <small *ngIf="checkInputAndType('scholarship','especializacao')" class="text-danger">Informe o valor da
+            <small *ngIf="checkInputAndType('scholarship','ESPECIALIZACAO')" class="text-danger">Informe o valor da
               bolsa</small>
           </div>
         </div>
-        <div class="third-line">
-          <div class="wage" *ngIf="this.category == 'emprego'">
+        <div class="third-line" fxLayout.xs="column" fxLayout="row">
+          <div class="wage" *ngIf="this.category == 'EMPREGO'">
             <p>Salário</p>
             <div class="wage-input">
               <div class="input-money">
@@ -124,23 +131,23 @@
               <input formControlName="salary" currencyMask
                 [options]="{ prefix: ' ', thousands: '.', decimal: ',', align: 'left' }" type="text" name="wage" />
             </div>
-            <small *ngIf="checkInputAndType('salary', 'emprego')" class="text-danger">Informe o
-              valor do salário</small>
           </div>
-          <div class="type-input" *ngIf="this.category == 'emprego'">
+          <div class="type-input" *ngIf="this.category == 'EMPREGO'" fxFlex="100">
             <p>Tipo</p>
-            <div class="buttons-option">
-              <div class="job-option">
-                <a class="job" [ngClass]='this.typeJob == "emprego" ? "actived" : "not-actived" '
-                  (click)="changeTypeJob('emprego')">Emprego</a>
+            <div class="buttons-option" fxFlex="100">
+              <div class="job-option" fxFlex="100">
+                <a class="job" [ngClass]='this.typeJob == "emprego" ? "actived" : "not-actived"'
+                  (click)="changeTypeJob('emprego')" fxFlex="100">Emprego</a>
               </div>
-              <div class="work-ex-option">
-                <a class="work-experience" [ngClass]='this.typeJob == "estágio" ? "actived" : "not-actived" '
-                  (click)="changeTypeJob('estágio')">Estágio</a>
+              <div class="work-ex-option" fxFlex="100">
+                <a class="work-experience" [ngClass]='this.typeJob == "estagio" ? "actived" : "not-actived" '
+                  (click)="changeTypeJob('estagio')" fxFlex="100">Estágio</a>
               </div>
             </div>
           </div>
         </div>
+        <small *ngIf="checkInputAndType('salary', 'EMPREGO')" class="text-danger">Informe o
+          valor do salário</small>
         <p>Descrição</p>
         <div class="desc-input">
           <textarea rows="3" oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight - 30 +'px'"
@@ -149,7 +156,7 @@
         <small *ngIf="oppForm.get('description').invalid && oppForm.get('description').touched"
           class="text-danger">Informe a descrição da oportunidade</small>
       </form>
-      <button (click)="subForm()" [disabled]="oppForm.invalid" class="button" type="button">Cadastrar</button>
+      <button (click)="subForm()" [disabled]="this.checkData()" class="button" type="button">Cadastrar</button>
     </div>
   </div>
 </div>

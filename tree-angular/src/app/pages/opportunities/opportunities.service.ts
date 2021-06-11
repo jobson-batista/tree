@@ -1,3 +1,4 @@
+import { VacancyTypes } from 'src/app/services/vacancy-utils.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -35,13 +36,13 @@ export class OpportunitiesService {
   }
 
   getOppsByType(type: string): Observable<Vacancy[]> {
-    if (type === 'Event') {
+    if (type === VacancyTypes.EVENTO) {
       return this.http.get<Event[]>(this.urlBaseApi + 'events').pipe(retry(2),
       catchError(this.handleError));
-    } else if (type === 'Job') {
+    } else if (type === VacancyTypes.EMPREGO) {
       return this.http.get<Job[]>(this.urlBaseApi + 'jobs').pipe(retry(2),
       catchError(this.handleError));
-    } else if (type === 'Specialization') {
+    } else if (type === VacancyTypes.ESPECIALIZACAO) {
       return this.http.get<Specialization[]>(this.urlBaseApi + 'specializations').pipe(retry(2),
       catchError(this.handleError));
     }
@@ -64,15 +65,15 @@ export class OpportunitiesService {
   }
 
   saveOpp(type: string, opp: any): Observable<any> {
-    if (type === 'Event') {
+    if (type === VacancyTypes.EVENTO) {
       return this.http.post<Event>(this.urlBaseApi + 'events', JSON.stringify(opp), this.httpOptions)
         .pipe(retry(2),
           catchError(this.handleError));
-    } else if (type === 'Job') {
+    } else if (type === VacancyTypes.EMPREGO) {
       return this.http.post<Job>(this.urlBaseApi + 'jobs', JSON.stringify(opp), this.httpOptions)
         .pipe(retry(2),
           catchError(this.handleError));
-    } else if (type === 'Specialization') {
+    } else if (type === VacancyTypes.ESPECIALIZACAO) {
       return this.http.post<Specialization>(this.urlBaseApi + 'specializations', JSON.stringify(opp), this.httpOptions)
         .pipe(retry(2),
           catchError(this.handleError));

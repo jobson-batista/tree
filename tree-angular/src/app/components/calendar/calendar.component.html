@@ -1,10 +1,6 @@
-<div class="body" id="shadow">
-  <button id="btn-active">
-    <div><i class="eva eva-calendar-outline"></i>{{firstOpenCalendar ? 'Data de Início' : getDateFormated()}}
-    </div>
-  </button>
-  <div class="calendar">
-    <div class="calendar-header">
+<div class="calendar-container" id="calendar-shadow" [ngClass]="this.isActive ? 'active' : ''">
+  <div class="calendar" [ngClass]="this.isActive ? 'active' : ''">
+    <div class=" calendar-header">
       <span class="month-picker" id="month-picker">
         Maio
       </span>
