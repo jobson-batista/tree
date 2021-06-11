@@ -20,8 +20,6 @@ import { OpportunityRegisterComponent } from './pages/opportunity-register/oppor
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
-import { HttpClientModule } from '@angular/common/http';
-import { OpportunitiesService } from './pages/opportunities/opportunities.service';
 
 @NgModule({
   declarations: [
@@ -45,12 +43,9 @@ import { OpportunitiesService } from './pages/opportunities/opportunities.servic
     BrowserAnimationsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    CurrencyMaskModule,
-    HttpClientModule
+    CurrencyMaskModule
   ],
-  providers: [
-    OpportunitiesService,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

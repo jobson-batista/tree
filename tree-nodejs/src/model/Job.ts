@@ -11,7 +11,4 @@ export class Job extends Vacancy {
         type: "float"
     })
     salary: number;
-
-    @Column()
-    subType: string;
 }
