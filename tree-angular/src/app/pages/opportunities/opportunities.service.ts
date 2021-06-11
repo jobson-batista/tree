@@ -25,18 +25,25 @@ export class OpportunitiesService {
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
-      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
+      errorMessage = `Código do erro: ${error.status}, ` + `mensagem: ${error.message}`;
     }
     return throwError(errorMessage);
   };
 
-  getOpps(type: string): Observable<Vacancy[]> {
+  getOpps(): Observable<Vacancy[]> {
+    return this.http.get<Vacancy[]>(this.urlBaseApi + 'opportunities').pipe(retry(2), catchError(this.handleError));
+  }
+
+  getOppsByType(type: string): Observable<Vacancy[]> {
     if (type === 'Event') {
-      return this.http.get<Event[]>(this.urlBaseApi + 'events');
+      return this.http.get<Event[]>(this.urlBaseApi + 'events').pipe(retry(2),
+      catchError(this.handleError));
     } else if (type === 'Job') {
-      return this.http.get<Job[]>(this.urlBaseApi + 'jobs');
+      return this.http.get<Job[]>(this.urlBaseApi + 'jobs').pipe(retry(2),
+      catchError(this.handleError));
     } else if (type === 'Specialization') {
-      return this.http.get<Specialization[]>(this.urlBaseApi + 'specializations');
+      return this.http.get<Specialization[]>(this.urlBaseApi + 'specializations').pipe(retry(2),
+      catchError(this.handleError));
     }
   }
 

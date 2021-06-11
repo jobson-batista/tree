@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Vacancy } from '../models/Vacancy';
 
 export const enum VacancyTypes {
-  EMPREGO = "emprego",
-  EVENTO = "evento",
-  ESPECIALIZACAO = "especializacao"
+  EMPREGO = "EMPREGO",
+  EVENTO = "EVENTO",
+  ESPECIALIZACAO = "ESPECIALIZACAO"
 }
 
 @Injectable({

@@ -1,7 +1,5 @@
 import { Vacancy } from './../../models/Vacancy';
-import { Event } from '../../models/Event';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { CommunityService } from '../community/community.service';
 import { OpportunitiesService } from './opportunities.service';
 
 @Component({
@@ -13,7 +11,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
 
   totalResults: number = 0;
   searchInput: string = '';
-  opps: Vacancy[] = [];
+  opps: Vacancy[];
   visibleOpps: Vacancy[] = [];
   indexOpp: number = 0;
   currentPage: number = 1;
@@ -25,27 +23,12 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     this.changePage(args)
   };
 
-  constructor(private serviceCommunity: CommunityService,
-              private serviceOpportunity: OpportunitiesService) { }
-
-  eventTest: any = {
-    id: 11,
-    type: "evento",
-    title: "EVENTO TESTE 2 - Fundamentos LGPD",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    contactEmail: "contato@gmail.com",
-    place: "Auditorio UFPB Campus IV",
-    organizer: "Juliana Saraiva",
-    qty: 2,
-    startDate: new Date(),
-    endDate: new Date(),
-  }
+  constructor(private serviceOpportunity: OpportunitiesService) { }
 
   ngOnInit(): void {
     this.getOpps();
-    console.log(this.opps);
     this.getQuantButtonPages();
-    this.setVisibleOpps();
+    // this.setVisibleOpps();
     this.toogleTypeOpp();
     // this.getOpps('Event');
     // this.getOppById('Event', 2);
@@ -99,6 +82,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
 
   setVisibleOpps(): void {
     this.visibleOpps = [];
+    console.log(this.opps);
     for (let index = ((this.currentPage - 1) * 5); index < this.opps.length; index++) {
       if (this.visibleOpps.length < 5) {
         this.visibleOpps.push(this.opps[index]);
@@ -132,42 +116,26 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
    * todas as oportunidades (Events, Opportunities e Jobs)
    */
   getOpps(type?: string) {
-    let opps: Vacancy[] = [];
-    let types = ['Event', 'Job', 'Specialization'];
+    this.opps = [];
 
-    this.serviceOpportunity.getOpps('Job').subscribe(
-      res => {
-        this.opps = res;
-        console.log(this.opps);
-      }, error => {
-        console.log("ERROR!")
-      }
-    )
-    /*
     if (type) {
-      this.serviceOpportunity.getOpps(type).subscribe(
-        res => {
-          opps = res;
-        },
-        error => {
-          console.log("FAIL!");
+      this.serviceOpportunity.getOppsByType(type).subscribe({
+        next: (res: Vacancy[]) => {
+          this.opps = res;
         }
+      }
       );
     } else {
-      types.forEach((t) => {
-        this.serviceOpportunity.getOpps(t).subscribe(
-          res => {
-            res.forEach((opp) => {
-              opps.push(opp);
+      this.serviceOpportunity.getOpps().subscribe({
+          next: (vacancy: Vacancy[]) => {
+            vacancy.forEach((opp) => {
+              this.opps.push(opp);
             })
           },
-          error => {
-            console.log("FAIL!");
-          }
+          complete: () => this.setVisibleOpps()
+        }
         );
-      });
     }
-    this.opps = opps;*/
   }
 
   getOppById(type: string, id: number) {
