@@ -9,7 +9,7 @@ import { User } from 'src/app/models/User';
 })
 export class CommunityComponent implements OnInit, OnDestroy {
 
-  totalResults: number = 0;
+  totalUsers: number = 0;
   searchInput: string = '';
   users: User[];
   visibleUsers: User[];
@@ -25,7 +25,7 @@ export class CommunityComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.users = this.serviceCommunity.getUsers();
     this.getQuantButtonPages();
-    this.setVisibleUsers();
+    this.setVisibleUsers(this.users);
   }
 
   ngOnDestroy(): void {
@@ -36,7 +36,7 @@ export class CommunityComponent implements OnInit, OnDestroy {
   changePage(index: number): void {
     this.currentPage = index;
     this.indexUser = 0;
-    this.setVisibleUsers();
+    this.setVisibleUsers(this.users);
 
     var targetScroll = document.getElementById("targetScroll");
 
@@ -47,11 +47,12 @@ export class CommunityComponent implements OnInit, OnDestroy {
     });
   }
 
-  setVisibleUsers(): void {
+  setVisibleUsers(users: User[]): void {
+    this.totalUsers = users.length;
     this.visibleUsers = [];
-    for (let index = ((this.currentPage - 1) * 5); index < this.users.length; index++) {
+    for (let index = ((this.currentPage - 1) * 5); index < users.length; index++) {
       if (this.visibleUsers.length < 5) {
-        this.visibleUsers.push(this.users[index]);
+        this.visibleUsers.push(users[index]);
       }
     }
   }
@@ -73,8 +74,17 @@ export class CommunityComponent implements OnInit, OnDestroy {
     return quant;
   }
 
-  searchUser(name: string) {
-    // Lógica para nome pesquisa em this.users
+  searchUser(): any {
+    let searchUsers = [];
+    let pesquisa = (<HTMLInputElement>document.getElementById('search-content')).value;
+    this.users.forEach( (user) => {
+      if(user.firstName.toLowerCase().includes(pesquisa.toLowerCase()) 
+        || user.lastName.toLowerCase().includes(pesquisa.toLowerCase())) {
+        searchUsers.push(user);
+      }
+    })    
+    this.setVisibleUsers(pesquisa == '' ? this.users : searchUsers);
+    console.log(pesquisa);
+    
   }
-
 }
