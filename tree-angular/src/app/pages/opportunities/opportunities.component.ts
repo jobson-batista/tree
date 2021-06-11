@@ -38,7 +38,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     const pagination = document.querySelector('.pagination');
-    pagination.innerHTML = '';
+    if(pagination != null) pagination.innerHTML = '';
   }
 
   actionToggle(): void {
@@ -74,7 +74,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
   changePage(index: number): void {
     this.currentPage = index;
     this.indexOpp = 0;
-    this.setVisibleOpps();
+    this.setVisibleOpps(this.opps);
 
     var targetScroll = document.getElementById("targetScroll");
 
@@ -85,10 +85,9 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     });
   }
 
-  setVisibleOpps(): void {
+  setVisibleOpps(opportunities: Vacancy[]): void {
     this.visibleOpps = [];
-    console.log(this.opps);
-    for (let index = ((this.currentPage - 1) * 5); index < this.opps.length; index++) {
+    for (let index = ((this.currentPage - 1) * 5); index < opportunities.length; index++) {
       if (this.visibleOpps.length < 5) {
         this.visibleOpps.push(this.opps[index]);
       }
@@ -112,8 +111,16 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     return quant;
   }
 
-  searchOpp(name: string) {
-    // Lógica para nome pesquisa em this.opps
+  searchOpp(): any {
+    // let searchOpps: Vacancy[] = [];
+    // let pesquisa = (<HTMLInputElement>document.getElementById('search-content')).value;
+    // this.opps.forEach( (opp) => {
+    //   if(opp.title.toLowerCase().includes(pesquisa.toLowerCase())) {
+    //     searchOpps.push(opp);
+    //     console.log(opp.title);
+    //   }
+    // });
+    // this.setVisibleOpps(pesquisa == '' ? this.opps : searchOpps);
   }
 
   /* O atributo type é opcional,
@@ -129,8 +136,9 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
           this.opps = vacancy.sort((a, b) => (a.created_at < b.created_at) ? 1 : -1);
         },
         complete: () => {
-          this.setVisibleOpps();
+          this.setVisibleOpps(this.opps);
         },
+        error: () => { this.opps = [] }
       }
       );
     } else {
@@ -139,8 +147,9 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
             this.opps = vacancy.sort((a, b) => (a.created_at < b.created_at) ? 1 : -1);
           },
           complete: () => {
-            this.setVisibleOpps();
+            this.setVisibleOpps(this.opps);
           },
+          error: () => { this.opps = [] }
         }
         );
     }

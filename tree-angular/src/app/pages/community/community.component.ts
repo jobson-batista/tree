@@ -30,7 +30,7 @@ export class CommunityComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     const pagination = document.querySelector('.pagination');
-    pagination.innerHTML = '';
+    if(pagination != null) pagination.innerHTML = '';
   }
 
   changePage(index: number): void {
@@ -78,13 +78,11 @@ export class CommunityComponent implements OnInit, OnDestroy {
     let searchUsers = [];
     let pesquisa = (<HTMLInputElement>document.getElementById('search-content')).value;
     this.users.forEach( (user) => {
-      if(user.firstName.toLowerCase().includes(pesquisa.toLowerCase()) 
+      if(user.firstName.toLowerCase().includes(pesquisa.toLowerCase())
         || user.lastName.toLowerCase().includes(pesquisa.toLowerCase())) {
         searchUsers.push(user);
       }
-    })    
+    })
     this.setVisibleUsers(pesquisa == '' ? this.users : searchUsers);
-    console.log(pesquisa);
-    
   }
 }

@@ -80,6 +80,8 @@ h1 {
 
 .user-not-found {
   display: flex;
+  margin-top: 40px;
+  margin-bottom: 80px;
   flex-direction: column;
   align-items: center;
 }
