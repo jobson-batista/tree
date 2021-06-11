@@ -18,6 +18,10 @@ import { FooterComponent } from "../app/components/footer/footer.component";
 import { HomeComponent } from './pages/home/home.component';
 import { OpportunityRegisterComponent } from './pages/opportunity-register/opportunity-register.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OpportunitiesService } from './pages/opportunities/opportunities.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CommunityComponent,
     PaginationComponent,
     RegisterComponent,
-    DetailCardComponent,
+    CalendarComponent,
+    OpportunitiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +46,11 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     FlexLayoutModule,
     ReactiveFormsModule,
     CurrencyMaskModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    OpportunitiesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

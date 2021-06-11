@@ -27,6 +27,7 @@ h1 {
 
 .search-bar i {
   padding: 2.5vh;
+  font-size: 1vw;
 }
 
 .search-bar div {
@@ -50,8 +51,9 @@ h1 {
   outline: none;
   border: none;
   padding: 1vh 0px;
+  font-size: 1vw;
   padding-right: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(42, 47, 67, 0.25);
   border-left: transparent;
   border-right: transparent;
 }
@@ -108,7 +110,7 @@ h1 {
   display: grid;
 }
 
-.fa-search {
+.eva-search-outline {
   align-self: center;
   padding: 0.5em;
   color: rgba(0, 0, 0, 0.25);
@@ -163,6 +165,14 @@ h2 {
     margin: 0;
     width: 100%;
   }
+
+  .search-bar i {
+    font-size: 2vw;
+  }
+
+  .search-bar input {
+    font-size: 2vw;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -184,7 +194,7 @@ h2 {
     align-content: center;
   }
   .search-bar i {
-    padding: 2.5vw;
+    padding: 3vw;
   }
   .search-bar button {
     font-size: 3vw;

@@ -1,40 +1,45 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <div class="container" id="users-container">
-    <section class="head">
-        <div class="search-bar">
-            <h1>Encontre as <span class="text-pink">pessoas</span><br>que compõe nossa equipe!</h1>
-            <div>
-                <i class="fas fa-search"></i>
-                <input (keyup)="searchUser()" id="search-content" class="search-input" type="text" placeholder="Quem você deseja procurar?">
-                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
-                <button type="button" id="targetScroll" (click)="searchUser()">Buscar</button>
-            </div>
-        </div>
-        <div class="image">
-            <img src="../../../assets/images/pages/community/image-page-community.svg">
-        </div>
-    </section>
-    <div class="sort" *ngIf=" totalUsers > 0">
-        <h2 *ngIf="searchInput == ''">{{ totalUsers }} {{ (totalUsers<=1 ) ? 'resultado' : 'resultados' }}</h2>
+  <section class="head">
+    <div class="search-bar">
+      <h1>Encontre as <span class="text-pink">pessoas</span><br>que compõe nossa equipe!</h1>
+      <div>
+        <i class="fas fa-search"></i>
+        <input (keyup)="searchUser()" id="search-content" class="search-input" type="text"
+          placeholder="Quem você deseja procurar?">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+        <button type="button" id="targetScroll" (click)="searchUser()">Buscar</button>
+      </div>
     </div>
-    <div class="user-not-found" *ngIf="totalUsers == 0">
-        <img src="../../assets/images/pages/community/searchnotfound.svg">
-        <h2><p class="text-pink"> Nenhum </p> resultado</h2>
-        <h2>encontrado!</h2>
-    </div>    
-    <div class="body" *ngIf=" totalUsers > 0">        
-        <div class="body-container">
-            <div class="left-container">
-                <div class="user-list">
-                    <user-card *ngFor="let user of visibleUsers" [user]=user [isSelected]=checkUserSelected(user) (click)=changeUserSelected(user)></user-card>
-                </div>
-                <div class="pagination">
-                    <pagination [changePageFunction]="changePageFunction" [totalPages]="getQuantButtonPages()" [currentPage]="this.currentPage"></pagination>
-                </div>
-            </div>
-            <div class="right-container">
-                <detail-card [user]=getUserSelected()></detail-card>
-            </div>
-        </div>
+    <div class="image">
+      <img src="../../../assets/images/pages/community/image-page-community.svg">
     </div>
+  </section>
+  <div class="sort" *ngIf=" totalUsers > 0">
+    <h2 *ngIf="searchInput == ''">{{ totalUsers }} {{ (totalUsers<=1 ) ? 'resultado' : 'resultados' }}</h2>
+  </div>
+  <div class="user-not-found" *ngIf="totalUsers == 0">
+    <img src="../../assets/images/pages/community/searchnotfound.svg">
+    <h2>
+      <p class="text-pink"> Nenhum </p> resultado
+    </h2>
+    <h2>encontrado!</h2>
+  </div>
+  <div class="body" *ngIf=" totalUsers > 0">
+    <div class="body-container">
+      <div class="left-container">
+        <div class="user-list">
+          <user-card *ngFor="let user of visibleUsers" [user]=user [isSelected]=checkUserSelected(user)
+            (click)=changeUserSelected(user)></user-card>
+        </div>
+        <div class="pagination">
+          <pagination [changePageFunction]="changePageFunction" [totalPages]="getQuantButtonPages()"
+            [currentPage]="this.currentPage"></pagination>
+        </div>
+      </div>
+      <div class="right-container">
+        <detail-card [user]=getUserSelected()></detail-card>
+      </div>
+    </div>
+  </div>
 </div>

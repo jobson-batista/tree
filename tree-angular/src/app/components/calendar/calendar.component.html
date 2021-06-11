@@ -1,0 +1,52 @@
+<div class="calendar-container" id="calendar-shadow" [ngClass]="this.isActive ? 'active' : ''">
+  <div class="calendar" [ngClass]="this.isActive ? 'active' : ''">
+    <div class=" calendar-header">
+      <span class="month-picker" id="month-picker">
+        Maio
+      </span>
+      <div class="year-picker">
+        <span class="year-change" id="prev-year">
+          <i class="eva eva-arrow-ios-back-outline"></i>
+        </span>
+        <span id="year">2021</span>
+        <span class="year-change" id="next-year">
+          <i class="eva eva-arrow-ios-forward-outline"></i>
+        </span>
+      </div>
+    </div>
+    <div class="calendar-body">
+      <div class="calendar-week-day">
+        <div>Dom</div>
+        <div>Seg</div>
+        <div>Ter</div>
+        <div>Qua</div>
+        <div>Qui</div>
+        <div>Sex</div>
+        <div>Sab</div>
+      </div>
+      <div class="calendar-days">
+        <div>
+          1
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+      </div>
+      <div class="month-list"></div>
+    </div>
+  </div>
+</div>

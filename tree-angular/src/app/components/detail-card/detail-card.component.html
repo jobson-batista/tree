@@ -4,26 +4,35 @@
       <div class="foto-name">
         <img *ngIf="user != null" class="icoPerson" src="{{ user.imageUrl }}">
         <h1 *ngIf="user != null">{{ user.firstName }} {{user.lastName}}</h1>
+        <div *ngIf="vacancy != null" class="iconOpp {{this.vacancy.type}}">
+          <i class="{{this.vacancyUtils.getColorOrIconFromVacancy(this.vacancy).icon}}"></i>
+        </div>
+        <h1 *ngIf="vacancy != null">{{ vacancy.title }}</h1>
       </div>
-      <i *ngIf="vacancy != null" class="fa fa-suitcase ico1 fa-4x"></i>
-      <h1 *ngIf="vacancy != null">{{ vacancy.description }}</h1>
-      <i class="far fa-envelope"></i>
+      <div class="options">
+        <i class="eva eva-email-outline"></i>
+        <i *ngIf="vacancy != null" class="eva eva-edit-2-outline edit-option"></i>
+        <i *ngIf="vacancy != null" class="eva eva-trash-2-outline delete-option"></i>
+      </div>
     </div>
     <div class="secondLine">
-      <div *ngIf="vacancy != null" style="display: inline-flex;">
+      <!-- <div *ngIf="vacancy != null" style="display: inline-flex;">
         <h4 class="address">{{ vacancy.promoter }} &nbsp; • &nbsp;</h4>
         <h4>{{ vacancy.address.city }}, {{ vacancy.address.state }}</h4>
-      </div>
+      </div> -->
       <div class="clockIcon">
         <i class="far fa-clock"></i> &nbsp; &nbsp;
-        <!-- <h4 *ngIf="vacancy != null">Postado a {{ createdTo(vacancy.created_at) }} atrás</h4> -->
+        <h4 *ngIf="vacancy != null">{{ createdTo(this.vacancy.created_at) }}</h4>
         <h4 *ngIf="user != null">{{ createdTo(user.created_at) }}</h4>
       </div>
     </div>
     <div>
       <h2>Descrição</h2>
-      <p class="description">
-        {{ user == null ? vacancy.description : user.description }}
+      <p class="description" *ngIf="user != null">
+        {{ user.description }}
+      </p>
+      <p class="description" *ngIf="vacancy != null">
+        {{ vacancy.description }}
       </p>
       <!-- <div *ngIf="vacancy != null && vacancy.qty != undefined && vacancy.qty != 0">
         <h2>Sobre a oportunidade</h2>

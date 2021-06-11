@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommunityService } from './community.service';
 import { User } from 'src/app/models/User';
 
@@ -7,7 +7,7 @@ import { User } from 'src/app/models/User';
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.css']
 })
-export class CommunityComponent implements OnInit {
+export class CommunityComponent implements OnInit, OnDestroy {
 
   totalUsers: number = 0;
   searchInput: string = '';
@@ -26,6 +26,11 @@ export class CommunityComponent implements OnInit {
     this.users = this.serviceCommunity.getUsers();
     this.getQuantButtonPages();
     this.setVisibleUsers(this.users);
+  }
+
+  ngOnDestroy(): void {
+    const pagination = document.querySelector('.pagination');
+    pagination.innerHTML = '';
   }
 
   changePage(index: number): void {
