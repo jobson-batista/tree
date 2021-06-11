@@ -22,14 +22,17 @@
       </div> -->
       <div class="clockIcon">
         <i class="far fa-clock"></i> &nbsp; &nbsp;
-        <h4 *ngIf="vacancy != null">{{ createdTo(vacancy.created_at) }}</h4>
+        <h4 *ngIf="vacancy != null">{{ createdTo(this.vacancy.created_at) }}</h4>
         <h4 *ngIf="user != null">{{ createdTo(user.created_at) }}</h4>
       </div>
     </div>
     <div>
       <h2>Descrição</h2>
-      <p class="description">
-        {{ user == null ? vacancy.description : user.description }}
+      <p class="description" *ngIf="user != null">
+        {{ user.description }}
+      </p>
+      <p class="description" *ngIf="vacancy != null">
+        {{ vacancy.description }}
       </p>
       <!-- <div *ngIf="vacancy != null && vacancy.qty != undefined && vacancy.qty != 0">
         <h2>Sobre a oportunidade</h2>

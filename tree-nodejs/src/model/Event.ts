@@ -9,4 +9,7 @@ export class Event extends Vacancy {
 
     @Column()
     organizer: string;
+
+    @Column()
+    subType: string;
 }
