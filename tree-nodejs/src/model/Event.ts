@@ -4,9 +4,12 @@ import { Vacancy } from "./Vacancy";
 @Entity()
 export class Event extends Vacancy {
 
-    @Column()
+    @Column({nullable: true})
     place: string;
 
-    @Column()
+    @Column({nullable: true})
     organizer: string;
+
+    // @Column()
+    // subType: string;
 }

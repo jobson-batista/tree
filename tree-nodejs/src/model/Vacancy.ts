@@ -13,6 +13,9 @@ export abstract class Vacancy {
     @Column()
     description: string;
 
+    @Column()
+    type: string;
+
     @Column({
         name: "start_date",
         type: "timestamptz",
@@ -36,20 +39,13 @@ export abstract class Vacancy {
     contactEmail: string;
 
     @Column({
-        default: 0
+        default: 0,
+        nullable: true
     })
     qty: number;
 
-    @OneToOne(()=> Address,{
-        cascade: true,
-        eager: true,
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-        nullable: true,
-        orphanedRowAction: "delete"
-    })
-    @JoinColumn()
-    address: Address;
+    @Column({nullable: true})
+    address: string;
 
     @CreateDateColumn()
     created_at: Date;
