@@ -36,12 +36,11 @@
   display: flex;
   align-items: center;
   justify-items: center;
-  padding-bottom: 1vh;
 }
 
 .eva {
-  font-size: 3vh;
-  padding: 9px;
+  font-size: 4vh;
+  padding: 10px;
   color: rgba(255, 255, 255, 0.75);
   border-radius: 1vh;
 }
@@ -54,10 +53,16 @@
 .title {
   padding-left: 10px;
   font-size: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .description {
-  padding: 10px 0;
+  padding-top: 10px;
 }
 
 .description p {
@@ -67,12 +72,16 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   margin: 0;
-  font-size: 100%;
+  font-size: 90%;
 }
 
 @media (max-width: 1050px) {
   .container {
     width: 30vw;
+  }
+
+  .title {
+    -webkit-line-clamp: 1;
   }
 }
 
@@ -80,12 +89,20 @@
   .container {
     width: 45vw;
   }
+
+  .eva {
+    font-size: 3.5vh;
+  }
 }
 
 @media (max-width: 375px) {
   .container {
     height: 35vw;
     padding: 15px;
+  }
+
+  .eva {
+    font-size: 3vh;
   }
 
   .title {
