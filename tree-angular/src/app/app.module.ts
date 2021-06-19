@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,8 @@ import { OpportunitiesComponent } from './pages/opportunities/opportunities.comp
 import { HttpClientModule } from '@angular/common/http';
 import { OpportunitiesService } from './pages/opportunities/opportunities.service';
 
+import { OppFilterPipe } from './pipes/opp-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +41,7 @@ import { OpportunitiesService } from './pages/opportunities/opportunities.servic
     RegisterComponent,
     CalendarComponent,
     OpportunitiesComponent,
+    OppFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import { OpportunitiesService } from './pages/opportunities/opportunities.servic
     FlexLayoutModule,
     ReactiveFormsModule,
     CurrencyMaskModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     OpportunitiesService,
