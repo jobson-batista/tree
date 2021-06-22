@@ -104,11 +104,15 @@
 
 .icons.not-actived {
   padding: 10px;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(42, 47, 67, 0.15);
   color: white;
   border-radius: 1vh;
   border-right: transparent;
   font-size: 2.5vh;
+}
+
+.icons.not-actived:hover {
+  background: rgba(42, 47, 67, 0.25);
 }
 
 .text-pink {
@@ -182,14 +186,59 @@ form div {
   justify-content: space-between;
 }
 
+.first-line,
+.select-date {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .title-input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-right: 10px;
 }
 
-.date-input {
+.btn-first-date,
+.btn-second-date {
+  display: flex;
+}
+
+.btn-active-calendar,
+.btn-active-second-calendar {
+  background-color: #05b962;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 15px;
+  border-radius: 1vh;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-active-calendar div,
+.btn-active-second-calendar div {
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.8vh;
+}
+
+.btn-active-calendar:hover,
+.btn-active-second-calendar:hover {
+  background-color: #05c96a;
+}
+
+.btn-active-calendar .eva,
+.btn-active-second-calendar .eva {
+  padding: 0;
+  font-size: 3vh;
+  color: white;
+}
+
+.type-input {
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -202,11 +251,11 @@ form div {
 }
 
 .title-input input,
-.date-input input {
+.type-input input {
   padding: 2vh;
 }
 
-.date-input input {
+.type-input input {
   max-height: 23px;
 }
 
@@ -214,7 +263,7 @@ form div {
   max-height: 23px;
 }
 
-.date-input input::-webkit-calendar-picker-indicator {
+.type-input input::-webkit-calendar-picker-indicator {
   padding: 0;
 }
 
@@ -350,14 +399,14 @@ textarea {
   align-items: center;
   border: 1px solid transparent;
   font-weight: 500;
-  font-size: 2vh;
+  font-size: 1.8vh;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 1vh;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  padding: 0 1vh;
+  border: 1px solid rgba(42, 47, 67, 0.25);
+  padding: 15px 20px;
   cursor: pointer;
   transition: all ease 0.25s;
 }
@@ -366,7 +415,12 @@ textarea {
   background: #05b967;
   color: white;
   border-color: transparent;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 4px rgba(42, 47, 67, 0.15);
+}
+
+.buttons-option a.not-actived:hover {
+  border: transparent;
+  background: rgba(42, 47, 67, 0.15);
 }
 
 .button {
@@ -386,7 +440,7 @@ textarea {
 
 .button:not([disabled]):hover {
   background: #fc5775;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(42, 47, 67, 0.15);
 }
 
 .button[disabled] {
@@ -395,7 +449,7 @@ textarea {
 }
 
 @media only screen and (max-width: 1920px) {
-  .date-input {
+  .type-input {
     width: 100%;
   }
 
@@ -429,12 +483,18 @@ textarea {
     font-size: 3vh;
   }
 
-  .date-input {
+  .btn-active-calendar,
+  .btn-active-second-calendar,
+  .buttons-option a {
+    font-size: 1.5vh;
+  }
+
+  .type-input {
     width: 100%;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .header {
     flex-direction: column;
   }

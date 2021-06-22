@@ -95,6 +95,7 @@ h1 {
   position: absolute;
   transition: all ease 0.15s;
   border-radius: 1vh;
+  visibility: hidden;
   box-shadow: 0 0 10px rgba(42, 47, 67, 0.25);
   font-size: 1.35vh;
 }
@@ -102,6 +103,7 @@ h1 {
 .dropdown-list.actived {
   max-height: 100%;
   opacity: 1;
+  visibility: visible;
 }
 
 .dropdown-select .eva.up {
@@ -161,6 +163,33 @@ h1 {
   margin: 0;
   color: #f06380;
 }
+
+.opp-not-found {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.opp-not-found h2 {
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: rgba(42, 47, 67, 0.5);
+}
+
+.opp-not-found img {
+  margin: 40px 0;
+  width: 30vw;
+}
+
+.opp-not-found p {
+  color: #ff6961;
+  margin: 0 10px;
+}
+
 .image img {
   width: 20vw;
 }

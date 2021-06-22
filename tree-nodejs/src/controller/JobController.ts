@@ -54,8 +54,8 @@ export const deleteJob = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     if(getRepository(Job).findOne(id)){
-        const job = await getRepository(Job).findOne(id);
-        await getRepository(Address).delete(job.address.id);
+        // const job = await getRepository(Job).findOne(id);
+        // await getRepository(Address).delete(job.address.id);
         await getRepository(Job).delete(id);
         return res.status(200).json({ message: "Job deleted" });
     }

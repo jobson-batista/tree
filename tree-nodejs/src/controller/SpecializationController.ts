@@ -61,8 +61,8 @@ export const deleteSpecialization = async (req: Request, res: Response) => {
 
     const { id } = req.params;
     if(getRepository(Specialization).findOne(id)){
-        const job = await getRepository(Specialization).findOne(id);
-        await getRepository(Address).delete(job.address.id);
+        // const job = await getRepository(Specialization).findOne(id);
+        // await getRepository(Address).delete(job.address.id);
         const specialization = await getRepository(Specialization).delete(id);
         return res.status(200).json({ message: "Specialization deleted" });
     }

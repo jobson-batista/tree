@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,10 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 import { ConfirmLogoutComponent } from './components/confirm-logout/confirm-logout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OpportunitiesService } from './pages/opportunities/opportunities.service';
+
+import { OppFilterPipe } from './pipes/opp-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,7 @@ import { ConfirmLogoutComponent } from './components/confirm-logout/confirm-logo
     OpportunitiesComponent,
     ConfirmDeleteComponent,
     ConfirmLogoutComponent,
+    OppFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -47,9 +53,13 @@ import { ConfirmLogoutComponent } from './components/confirm-logout/confirm-logo
     BrowserAnimationsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    OpportunitiesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
