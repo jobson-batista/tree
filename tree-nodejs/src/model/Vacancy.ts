@@ -38,10 +38,7 @@ export abstract class Vacancy {
     })
     contactEmail: string;
 
-    @Column({
-        default: 0,
-        nullable: true
-    })
+    @Column({nullable: true})
     qty: number;
 
     @Column({nullable: true})
