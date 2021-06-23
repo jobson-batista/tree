@@ -12,11 +12,11 @@ export class ConfirmDeleteComponent implements OnInit {
   @Input() vacancy: Vacancy;
   service: CommunityService = new CommunityService();
   @Input() isActive: boolean = false;
+  @Input() setContextRemoveActiveFunction: (isActive: boolean) => void;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.vacancy = this.service.getOpps()[0];
   }
 
 }

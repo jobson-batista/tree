@@ -13,13 +13,21 @@ export class DetailCardComponent implements OnInit {
 
   @Input() user: User;
   @Input() vacancy: Vacancy;
+  contextRemoveActive: boolean = false;
   postDate: Date;
   vacancyUtils: VacancyUtilsService = new VacancyUtilsService();
+  setContextRemoveActiveFunction = (args: boolean) => {
+    this.setContextRemoveActive(args)
+  };
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  setContextRemoveActive(isActive: boolean): void {
+    this.contextRemoveActive = isActive;
   }
 
   createdTo(startDate: Date): String {

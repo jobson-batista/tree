@@ -7,7 +7,7 @@
       <vacancy-card [vacancy]="this.vacancy"></vacancy-card>
     </div>
     <div class="footer">
-      <button class="btn-cancel">Cancelar</button>
+      <button class="btn-cancel" (click)="this.setContextRemoveActiveFunction(false)">Cancelar</button>
       <button class="btn-confirm">Remover</button>
     </div>
   </div>
