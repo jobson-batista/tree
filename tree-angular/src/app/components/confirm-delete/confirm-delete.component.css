@@ -1,0 +1,115 @@
+.shadow {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+.shadow.active {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: flex;
+  background: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2vh;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 30px;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.99);
+  transition: all 0.2s ease-in-out;
+}
+
+.shadow.active .container {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.container .header h2 {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.container .body {
+  margin-top: 20px;
+  width: 20vw;
+}
+
+.container .footer {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .footer button {
+  border-radius: 1vh;
+  width: 100%;
+  height: 100%;
+  padding: 1.5vh 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all ease-in-out 0.15s;
+}
+
+.container .footer .btn-cancel {
+  background: white;
+  border: 2px solid rgba(42, 47, 67, 0.25);
+}
+.container .footer .btn-cancel:hover {
+  background: rgba(42, 47, 67, 0.5);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.container .footer .btn-confirm {
+  border: 2px solid #ff6961;
+  color: white;
+  background: #ff6961;
+  box-shadow: none;
+}
+.container .footer .btn-confirm:hover {
+  border: 2px solid #fa5b53;
+  color: white;
+  background: #fa5b53;
+  box-shadow: 0 0 4px rgba(42, 47, 67, 0.5);
+}
+
+@media (max-width: 1395px) {
+  .container .body {
+    width: 25vw;
+  }
+}
+
+@media (max-width: 1050px) {
+  .container .body {
+    width: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .container .header h2 {
+    font-size: 100%;
+    margin-bottom: 10px;
+  }
+
+  .container .footer {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 280px) {
+  .container .footer button {
+    font-size: 70%;
+  }
+}
