@@ -9,6 +9,7 @@
 nav {
   position: fixed;
   top: 0;
+  z-index: 1;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -190,6 +191,7 @@ nav div ul li a.actived {
     justify-content: center;
     align-items: center;
     position: fixed;
+    z-index: -1;
     bottom: 0;
     left: -100%;
     text-align: center;

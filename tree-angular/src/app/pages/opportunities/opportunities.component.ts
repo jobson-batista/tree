@@ -137,7 +137,10 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
           this.setVisibleOpps(this.opps);
           this.searchOpp();
         },
-        error: () => { this.opps = [] }
+        error: (err) => {
+          this.opps = [];
+          this.totalResults = 0;
+        }
       }
       );
     } else {
