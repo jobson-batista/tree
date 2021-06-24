@@ -1,6 +1,7 @@
 import { CommunityService } from './../../pages/community/community.service';
 import { Vacancy } from './../../models/Vacancy';
 import { Component, Input, OnInit } from '@angular/core';
+import { OpportunitiesService } from 'src/app/pages/opportunities/opportunities.service';
 
 @Component({
   selector: 'confirm-delete',
@@ -14,9 +15,20 @@ export class ConfirmDeleteComponent implements OnInit {
   @Input() isActive: boolean = false;
   @Input() setContextRemoveActiveFunction: (isActive: boolean) => void;
 
-  constructor() { }
+
+  constructor(private oppService: OpportunitiesService) { }
 
   ngOnInit(): void {
   }
 
+  oppDelete() {
+    console.log(this.vacancy.id);
+    this.oppService.deleteOpp(this.vacancy.type, this.vacancy.id).subscribe(
+      {
+        next: () => {
+          window.location.reload();
+        }
+      }
+    );
+  }
 }
