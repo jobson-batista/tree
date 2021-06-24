@@ -26,6 +26,14 @@ export class DetailCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sendEmailVacancy() {
+    window.location.href = "mailto:" + this.vacancy.contactEmail;
+  }
+
+  sendEmailUsers() {
+    window.location.href = "mailto:" + this.user.email;
+  }
+
   setContextRemoveActive(isActive: boolean): void {
     this.contextRemoveActive = isActive;
   }

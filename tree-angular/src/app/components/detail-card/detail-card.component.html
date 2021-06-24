@@ -12,7 +12,7 @@
         <h1 *ngIf="vacancy != null">{{ vacancy.title }}</h1>
       </div>
       <div class="options">
-        <i class="eva eva-email-outline"></i>
+        <i class="eva eva-email-outline" (click)="vacancy!= null ? sendEmailVacancy() : sendEmailUsers()"></i>
         <i *ngIf="vacancy != null" class="eva eva-edit-2-outline edit-option"></i>
         <i *ngIf="vacancy != null" class="eva eva-trash-2-outline delete-option"
           (click)="this.setContextRemoveActive(true)"></i>
