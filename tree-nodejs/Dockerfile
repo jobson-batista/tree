@@ -1,12 +1,12 @@
-FROM node:latest
+FROM node:alpine #Versao mais leve, só com o necessario
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY . ./
+COPY . .
 
 RUN npm install
 
-EXPOSE 5432
+EXPOSE 3333 #Porta para o front consultar o back
 
 CMD npm start
 
