@@ -2,10 +2,10 @@
   <section class="head">
     <div class="search-bar">
       <h1>Encontre <span class="text-pink">oportunidades</span><br>facilmente!</h1>
-      <form>
+      <form class="form-control">
         <i class="eva eva-search-outline"></i>
-        <input (keyup)="searchOpp()" class="search-input" id="search-content" type="text"
-          placeholder="Procurar empregos, estágios, eventos...">
+        <input (keyup)="searchOpp()" class="search-input" id="search-content" type="text" name="searchOpp"
+          [(ngModel)]="searchText" placeholder="Procurar empregos, estágios, eventos...">
         <div class="dropdown">
           <div class="dropdown-select">
             <span class="select"><i class="{{this.typeIconOpp}}"></i>{{this.typeNameOpp}}</span>
@@ -26,25 +26,22 @@
       <img src="../../../assets/images/pages/community/image-page-community.svg">
     </div>
   </section>
-  <div class="sort" *ngIf="this.opps.length > 0">
-    <h2 *ngIf="searchInput == ''">{{this.opps.length}} resultados</h2>
-    <h2 *ngIf="totalResults == 0 && searchInput != ''">0 resultados</h2>
-    <h2 class="text-results" *ngIf="totalResults != 0">{{ totalResults }} {{
-      (totalResults <= 1) ? 'resultado' : 'resultados' }}</h2>
+  <div class="sort" *ngIf="this.totalResults > 0">
+    <h2>{{ totalResults }} {{ (totalResults <=1 ) ? 'resultado' : 'resultados' }}</h2>
   </div>
-  <div class="user-not-found" *ngIf="this.visibleOpps.length == 0 || this.opps.length == 0">
+  <div class="opp-not-found" *ngIf="this.totalResults == 0">
     <img src="../../assets/images/pages/community/searchnotfound.svg">
     <h2>
       <p class="text-pink"> Nenhum </p> resultado
     </h2>
     <h2>encontrado!</h2>
   </div>
-  <div class="body" *ngIf="this.opps.length > 0">
+  <div class="body" *ngIf="this.totalResults > 0">
     <div class="body-container">
       <div class="left-container">
         <div class="vacancy-list">
-          <vacancy-card *ngFor="let opp of visibleOpps" [vacancy]=opp [isSelected]=checkOppSelected(opp)
-            (click)=changeOppSelected(opp)></vacancy-card>
+          <vacancy-card *ngFor="let opp of visibleOpps | oppFilter: searchText" [vacancy]=opp
+            [isSelected]=checkOppSelected(opp) (click)=changeOppSelected(opp)></vacancy-card>
         </div>
         <div class="pagination">
           <pagination [changePageFunction]="changePageFunction" [totalPages]="getQuantButtonPages()"
