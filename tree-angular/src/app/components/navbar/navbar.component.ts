@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   @ViewChild('drawer') drawer: ElementRef;
   @Input() indexPage: number;
+  userCurrent = JSON.parse(localStorage.getItem('userCurrent'));
 
   constructor(private router: Router) { }
 
@@ -44,4 +45,11 @@ export class NavbarComponent implements OnInit {
     this.drawer.nativeElement.classList.toggle('active');
   }
 
+  isLogged(): boolean {
+    if(localStorage.getItem('userCurrent')){
+      return true;
+    }
+    return false;
+  }
+  
 }

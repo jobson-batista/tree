@@ -12,7 +12,7 @@ export const login = async (req: Request, res: Response) => {
                 return res.status(500).send({error: error})
             }
             if(result) { 
-                return res.status(200).send({message: "Autenticado com sucesso!"}); 
+                return res.status(200).send(user[0]); 
             }
             return res.status(401).send({message: "Erro de autenticação."});
         }) 

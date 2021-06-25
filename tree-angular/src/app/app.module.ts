@@ -55,6 +55,7 @@ import { OppFilterPipe } from './pipes/opp-filter.pipe';
     ReactiveFormsModule,
     CurrencyMaskModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [
