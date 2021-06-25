@@ -41,17 +41,32 @@ export class DetailCardComponent implements OnInit {
   createdTo(startDate: Date): String {
     moment.locale('pt-br');
     let diff = moment(new Date(startDate), "DD/MM/YYYY HH:mm:ss").diff(moment(new Date(), "DD/MM/YYYY HH:mm:ss"));
-    let days = moment.duration(diff).asDays();
-    switch (Math.trunc(days)) {
-      case 0:
-        return this.user != null ? `Conta criada hoje` : `Postado hoje`;
-      case 1:
-        return this.user != null ? `Conta criada ontem` : `Postado ontem`
-      case 2:
-        return this.user != null ? `Conta criada a 2 dias atrás` : `Postado a 2 dias atrás`
-      default:
-        return `${this.user != null ? 'Conta criada' : 'Postado'} em ${moment(startDate).format('DD/MM/YYYY')}`
-    }
-  }
+    let abs = Math.abs(diff)
+    let days = moment.duration(abs).asDays();
+    let hours = moment.duration(abs).asHours();
+    let minutes = moment.duration(abs).asMinutes();
+    let seconds = moment.duration(abs).asSeconds();
+    let ms = moment.duration(abs).asMilliseconds();
+    console.log(ms, Math.trunc(ms));
 
+    while (hours < 24 && hours >= 1) {
+      return this.user != null ? 'Conta criada há ' + Math.trunc(hours) + ' horas' : 'Postado há ' + Math.trunc(hours) + ' horas'
+    }
+
+    while (seconds < 1) {
+      return this.user != null ? 'Conta criada agora' : 'Postado agora'
+    }
+
+    while (seconds >= 1 && seconds < 60) {
+      return this.user != null ? 'Conta criada há ' + Math.trunc(seconds) + ' segundos' : 'Postado há ' + Math.trunc(seconds) + ' segundos'
+    }
+
+    while (minutes >= 1 && minutes < 60) {
+      return this.user != null ? 'Conta criada há ' + Math.trunc(minutes) + 'minutos ' : 'Postado há ' + Math.trunc(minutes) + ' minutos'
+    }
+
+    while (hours >= 24)
+      return this.user != null ? 'Conta criada há ' + Math.trunc(days) + ' dias' : 'Postado há ' + Math.trunc(days) + ' dias'
+
+  }
 }
