@@ -230,6 +230,7 @@ h2 {
 
 .action-button {
   position: fixed;
+  z-index: 0;
   bottom: 40px;
   left: 40px;
   width: 5vw;
