@@ -31,6 +31,12 @@
 .title {
   padding-left: 10px;
   font-size: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .profile-photo {
   width: 6vh;
@@ -38,7 +44,7 @@
   background-size: cover;
 }
 .description {
-  padding: 10px 0;
+  padding-top: 10px;
 }
 .description p {
   margin: 0;
@@ -54,6 +60,10 @@
   .userCard {
     width: 30vw;
   }
+
+  .title {
+    -webkit-line-clamp: 1;
+  }
 }
 
 @media (max-width: 720px) {
@@ -64,7 +74,6 @@
 
 @media (max-width: 375px) {
   .userCard {
-    height: 35vw;
     padding: 15px;
   }
 

@@ -1,8 +1,9 @@
 // import { Address } from './Address';
 
 export interface Vacancy {
+    id?: number;
     type: string;
-    title:string;
+    title: string;
     description: string;
     startDate?: Date;
     endDate?: Date;

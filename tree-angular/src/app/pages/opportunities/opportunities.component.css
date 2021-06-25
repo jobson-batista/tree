@@ -164,7 +164,7 @@ h1 {
   color: #f06380;
 }
 
-.user-not-found {
+.opp-not-found {
   display: flex;
   margin-top: 40px;
   margin-bottom: 80px;
@@ -172,7 +172,7 @@ h1 {
   align-items: center;
 }
 
-.user-not-found h2 {
+.opp-not-found h2 {
   margin: 0;
   font-weight: 600;
   display: flex;
@@ -180,12 +180,12 @@ h1 {
   color: rgba(42, 47, 67, 0.5);
 }
 
-.user-not-found img {
+.opp-not-found img {
   margin: 40px 0;
   width: 30vw;
 }
 
-.user-not-found p {
+.opp-not-found p {
   color: #ff6961;
   margin: 0 10px;
 }
@@ -230,6 +230,7 @@ h2 {
 
 .action-button {
   position: fixed;
+  z-index: 0;
   bottom: 40px;
   left: 40px;
   width: 5vw;

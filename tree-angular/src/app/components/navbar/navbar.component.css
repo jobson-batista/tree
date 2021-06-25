@@ -1,252 +1,267 @@
 * {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-container {
-    border-radius: 20px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-    background: #2a2f43;
-    display: flex;
-    align-items: center;
-    align-content: flex-start;
-    width: 100%;
-    justify-content: space-between;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  background: #2a2f43;
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .left-container {
-    display: flex;
-    flex: 1;
-    align-items: center;
+  display: flex;
+  flex: 1;
+  align-items: center;
 }
 
 .left-container img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .logo {
-    margin: 20px 40px;
-    width: 10vh;
+  margin: 20px 40px;
+  width: 10vh;
 }
 
 ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .left-container li:not(:last-child) {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 40px;
-    font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 40px;
+  font-size: 1rem;
 }
 
 nav div ul li a.not-actived {
-    color: white;
-    transition: 0.1s;
+  color: white;
+  transition: 0.1s;
 }
 
 nav div ul li a.actived {
-    color: #05b962;
-    font-weight: bold;
-    border-bottom: 4px solid #05b962;
+  color: #05b962;
+  font-weight: bold;
+  border-bottom: 4px solid #05b962;
 }
 
 .left-container a:hover {
-    border-bottom: 4px solid #05b962;
+  border-bottom: 4px solid #05b962;
 }
 
 .right-container {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .user_image {
-    border-radius: 20%;
+  border-radius: 20%;
 }
 
 .user_name {
-    color: #B3B3B3 !important;
-    margin: 20px 20px;
+  color: #b3b3b3 !important;
+  margin: 20px 20px;
 }
 
 .row {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .row a {
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    transition: all 0.15s;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: all 0.15s;
 }
 
 .row a:hover {
-    background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .row .signup-button {
-    all: unset;
-    color: white;
-    font-weight: bold;
-    background: #05b962;
-    padding: 15px 25px;
-    margin: 20px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.25s ease-out;
+  all: unset;
+  color: white;
+  font-weight: bold;
+  background: #05b962;
+  padding: 15px 25px;
+  margin: 20px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
 }
 
 .row .signup-button:hover {
-    background: #05ca6b;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background: #05ca6b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 #toggle {
-    margin-right: 15px;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background: #05b962;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    display: none;
+  margin-right: 15px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #05b962;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: none;
 }
 
 #toggle::before {
-    content: "";
-    position: absolute;
-    width: 28px;
-    height: 2px;
-    background: white;
-    transform: translateY(-5px);
-    transition: 0.2s;
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: white;
+  transform: translateY(-5px);
+  transition: 0.2s;
 }
 
 #toggle::after {
-    content: "";
-    position: absolute;
-    width: 28px;
-    height: 2px;
-    background: white;
-    transform: translateY(5px);
-    transition: 0.2s;
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: white;
+  transform: translateY(5px);
+  transition: 0.2s;
 }
 
 #toggle.active::before {
-    transform: translateY(0px) rotate(45deg);
+  transform: translateY(0px) rotate(45deg);
 }
 
 #toggle.active::after {
-    transform: translateY(0px) rotate(-45deg);
+  transform: translateY(0px) rotate(-45deg);
 }
 
 #check {
-    display: none;
+  display: none;
 }
 
 @media only screen and (max-width: 1150px) {
-    .left-container li:not(:last-child) {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-right: 20px;
-        font-size: 1rem;
-    }
-    .row .signup-button {
-        margin: 20px 0px;
-        margin-right: 20px;
-        margin-left: 10px;
-    }
+  .left-container li:not(:last-child) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    font-size: 1rem;
+  }
+  .row .signup-button {
+    margin: 20px 0px;
+    margin-right: 20px;
+    margin-left: 10px;
+  }
 }
 
 @media only screen and (max-width: 950px) {
-    nav {
-        padding: 10px;
-        justify-content: space-between;
-        align-content: center;
-        border-radius: 20px;
-    }
-    .left-container {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-    .logo {
-        margin: 20px 20px;
-    }
-    ul {
-        padding: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        left: -100%;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        background: #2a2f43;
-        transition: all 0.5s;
-    }
-    .left-container li:not(:last-child) {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-right: 0px;
-    }
-    li {
-        margin: 20px 0;
-        font-size: 1.1rem;
-    }
-    nav div ul li a.actived {
-        color: #05b962;
-        font-weight: bold;
-        font-size: 1.1rem;
-        border-bottom: 4px solid #05b962;
-    }
-    nav div ul li a.actived {
-        font-weight: bold;
-        border-radius: 0px;
-    }
-    a:hover {
-        border-bottom: 4px solid #05b962;
-    }
-    .row a {
-        margin: 0 20px;
-        font-size: 0.9rem;
-        display: none;
-    }
-    .row .signup-button {
-        background: transparent;
-        font-weight: normal;
-        border: 2px solid #05b962;
-        font-size: 0.6rem;
-        padding: 13.5px 5px;
-        margin: 0 10px;
-    }
-    .user_image {
-        display: none;
-    }
-    #check:checked+div ul {
-        left: 0vh;
-    }
-    #toggle {
-        display: flex;
-    }
+  nav {
+    padding: 10px;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 20px;
+  }
+
+  .left-container {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .logo {
+    margin: 20px 20px;
+  }
+
+  ul {
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+    left: -100%;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #2a2f43;
+    transition: all 0.5s;
+  }
+
+  .left-container li:not(:last-child) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 0px;
+  }
+
+  li {
+    margin: 20px 0;
+    font-size: 1.1rem;
+  }
+
+  nav div ul li a.actived {
+    color: #05b962;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-bottom: 4px solid #05b962;
+  }
+
+  nav div ul li a.actived {
+    font-weight: bold;
+    border-radius: 0px;
+  }
+
+  a:hover {
+    border-bottom: 4px solid #05b962;
+  }
+
+  .row a {
+    margin: 0 20px;
+    font-size: 0.9rem;
+    display: none;
+  }
+
+  .row .signup-button {
+    background: transparent;
+    font-weight: normal;
+    border: 2px solid #05b962;
+    font-size: 0.6rem;
+    padding: 13.5px 5px;
+    margin: 0 10px;
+  }
+
+  .user_image {
+    display: none;
+  }
+
+  #check:checked + div ul {
+    left: 0vh;
+  }
+
+  #toggle {
+    display: flex;
+  }
 }

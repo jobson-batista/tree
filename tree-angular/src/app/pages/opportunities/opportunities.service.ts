@@ -20,7 +20,7 @@ export class OpportunitiesService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
@@ -39,13 +39,13 @@ export class OpportunitiesService {
   getOppsByType(type: string): Observable<Vacancy[]> {
     if (type === VacancyTypes.EVENTO) {
       return this.http.get<Event[]>(this.urlBaseApi + 'events').pipe(retry(2),
-      catchError(this.handleError));
+        catchError(this.handleError));
     } else if (type === VacancyTypes.EMPREGO) {
       return this.http.get<Job[]>(this.urlBaseApi + 'jobs').pipe(retry(2),
-      catchError(this.handleError));
+        catchError(this.handleError));
     } else if (type === VacancyTypes.ESPECIALIZACAO) {
       return this.http.get<Specialization[]>(this.urlBaseApi + 'specializations').pipe(retry(2),
-      catchError(this.handleError));
+        catchError(this.handleError));
     }
   }
 
@@ -83,36 +83,36 @@ export class OpportunitiesService {
 
   updateOpp(type: string, opp: any): Observable<any> {
     if (type === 'Event') {
-      return this.http.put<Event>(this.urlBaseApi+ 'events/' + opp.id, JSON.stringify(event), this.httpOptions)
+      return this.http.put<Event>(this.urlBaseApi + 'events/' + opp.id, JSON.stringify(event), this.httpOptions)
         .pipe(
           retry(1),
           catchError(this.handleError));
     } else if (type === 'Job') {
-      return this.http.put<Job>(this.urlBaseApi+ 'jobs/' + opp.id, JSON.stringify(event), this.httpOptions)
+      return this.http.put<Job>(this.urlBaseApi + 'jobs/' + opp.id, JSON.stringify(event), this.httpOptions)
         .pipe(
           retry(1),
           catchError(this.handleError));
     } else {
-      return this.http.put<Specialization>(this.urlBaseApi+ 'specializations/' + opp.id, JSON.stringify(event), this.httpOptions)
+      return this.http.put<Specialization>(this.urlBaseApi + 'specializations/' + opp.id, JSON.stringify(event), this.httpOptions)
         .pipe(
           retry(1),
           catchError(this.handleError));
     }
   }
 
-  deleteOpp(type: string, opp: any): Observable<any> {
-    if (type === 'Event') {
-      return this.http.delete<Event>(this.urlBaseApi+ 'events/' + opp.id, this.httpOptions)
+  deleteOpp(type: string, id: number): Observable<any> {
+    if (type === VacancyTypes.EVENTO) {
+      return this.http.delete<Event>(this.urlBaseApi + 'events/' + id, this.httpOptions)
         .pipe(
           retry(1),
           catchError(this.handleError));
-    } else if (type === 'Job') {
-      return this.http.delete<Job>(this.urlBaseApi+ 'jobs/' + opp.id, this.httpOptions)
+    } else if (type === VacancyTypes.EMPREGO) {
+      return this.http.delete<Job>(this.urlBaseApi + 'jobs/' + id, this.httpOptions)
         .pipe(
           retry(1),
           catchError(this.handleError));
     } else {
-      return this.http.delete<Specialization>(this.urlBaseApi+ 'specializations/' + opp.id, this.httpOptions)
+      return this.http.delete<Specialization>(this.urlBaseApi + 'specializations/' + id, this.httpOptions)
         .pipe(
           retry(1),
           catchError(this.handleError));
