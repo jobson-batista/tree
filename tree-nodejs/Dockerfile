@@ -1,12 +1,12 @@
-FROM node:latest
+FROM node:alpine
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY . ./
+COPY . .
 
 RUN npm install
 
-EXPOSE 5432
+EXPOSE 3333
 
 CMD npm start
 
