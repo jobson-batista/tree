@@ -1,0 +1,14 @@
+<div class="shadow" [ngClass]="isActive ? 'active' : ''">
+  <div class="container">
+    <div class="header">
+      <h2>Tem certeza?</h2>
+    </div>
+    <div class="body">
+      <vacancy-card [vacancy]="this.vacancy"></vacancy-card>
+    </div>
+    <div class="footer">
+      <button class="btn-cancel" (click)="this.setContextRemoveActiveFunction(false)">Cancelar</button>
+      <button class="btn-confirm" (click)="this.oppDelete()">Remover</button>
+    </div>
+  </div>
+</div>

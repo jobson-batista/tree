@@ -9,6 +9,7 @@
 nav {
   position: fixed;
   top: 0;
+  z-index: 1;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -72,6 +73,16 @@ nav div ul li a.actived {
 .right-container {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.user_image {
+  border-radius: 20%;
+}
+
+.user_name {
+  color: #b3b3b3 !important;
+  margin: 20px 20px;
 }
 
 .row {
@@ -144,6 +155,7 @@ nav div ul li a.actived {
 #toggle.active::before {
   transform: translateY(0px) rotate(45deg);
 }
+
 #toggle.active::after {
   transform: translateY(0px) rotate(-45deg);
 }
@@ -159,7 +171,6 @@ nav div ul li a.actived {
     margin-right: 20px;
     font-size: 1rem;
   }
-
   .row .signup-button {
     margin: 20px 0px;
     margin-right: 20px;
@@ -190,6 +201,7 @@ nav div ul li a.actived {
     justify-content: center;
     align-items: center;
     position: fixed;
+    z-index: -1;
     bottom: 0;
     left: -100%;
     text-align: center;
@@ -239,6 +251,10 @@ nav div ul li a.actived {
     font-size: 0.6rem;
     padding: 13.5px 5px;
     margin: 0 10px;
+  }
+
+  .user_image {
+    display: none;
   }
 
   #check:checked + div ul {

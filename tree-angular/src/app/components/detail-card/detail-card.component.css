@@ -18,7 +18,7 @@
 .icoPerson {
   width: 1.25em;
   /* margin-right: 0.5em; */
-  border-radius: 2vh;
+  border-radius: 10px;
   font-size: 4em;
 }
 
@@ -26,6 +26,7 @@
   border-radius: 10px;
   display: flex;
   width: 80px;
+  min-width: 80px;
   justify-content: center;
   align-items: center;
 }
@@ -52,9 +53,13 @@
 }
 
 h1 {
-  font-size: 4vh;
-  margin: 0;
-  margin-left: 0.5em;
+  font-size: 2vw;
+  margin: 0 0.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .options {
@@ -149,6 +154,7 @@ h4 {
   .icoPerson,
   .iconOpp {
     width: 10vw;
+    min-width: 10vw;
   }
 
   .iconOpp i.eva {
@@ -182,7 +188,14 @@ h4 {
 
   .iconOpp,
   .icoPerson {
+    min-width: 7vh;
+    min-height: 7vh;
     border-radius: 1vh;
+  }
+
+  .iconOpp i.eva {
+    line-height: 6vh;
+    font-size: 4vh;
   }
 
   .firstLine,

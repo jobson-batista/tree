@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,8 +21,12 @@ import { OpportunityRegisterComponent } from './pages/opportunity-register/oppor
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { OpportunitiesComponent } from './pages/opportunities/opportunities.component';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import { ConfirmLogoutComponent } from './components/confirm-logout/confirm-logout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OpportunitiesService } from './pages/opportunities/opportunities.service';
+
+import { OppFilterPipe } from './pipes/opp-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,9 @@ import { OpportunitiesService } from './pages/opportunities/opportunities.servic
     RegisterComponent,
     CalendarComponent,
     OpportunitiesComponent,
+    ConfirmDeleteComponent,
+    ConfirmLogoutComponent,
+    OppFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,9 @@ import { OpportunitiesService } from './pages/opportunities/opportunities.servic
     FlexLayoutModule,
     ReactiveFormsModule,
     CurrencyMaskModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     OpportunitiesService,

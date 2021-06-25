@@ -2,7 +2,6 @@ import { VacancyTypes } from 'src/app/services/vacancy-utils.service';
 import { Vacancy } from './../../models/Vacancy';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { OpportunitiesService } from './opportunities.service';
-
 @Component({
   selector: 'page-opportunities',
   templateUrl: './opportunities.component.html',
@@ -11,7 +10,7 @@ import { OpportunitiesService } from './opportunities.service';
 export class OpportunitiesComponent implements OnInit, OnDestroy {
 
   totalResults: number = 0;
-  searchInput: string = '';
+  searchText: string;
   opps: Vacancy[];
   visibleOpps: Vacancy[] = [];
   indexOpp: number = 0;
@@ -29,11 +28,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getOpps();
     this.getQuantButtonPages();
-    // this.setVisibleOpps();
     this.toogleTypeOpp();
-    // this.getOpps('Event');
-    // this.getOppById('Event', 2);
-    // this.saveOpp('Event', this.eventTest);
   }
 
   ngOnDestroy(): void {
@@ -86,6 +81,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
   }
 
   setVisibleOpps(opportunities: Vacancy[]): void {
+    this.totalResults = opportunities.length;
     this.visibleOpps = [];
     for (let index = ((this.currentPage - 1) * 5); index < opportunities.length; index++) {
       if (this.visibleOpps.length < 5) {
@@ -112,15 +108,16 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
   }
 
   searchOpp(): any {
-    // let searchOpps: Vacancy[] = [];
-    // let pesquisa = (<HTMLInputElement>document.getElementById('search-content')).value;
-    // this.opps.forEach( (opp) => {
-    //   if(opp.title.toLowerCase().includes(pesquisa.toLowerCase())) {
-    //     searchOpps.push(opp);
-    //     console.log(opp.title);
-    //   }
-    // });
-    // this.setVisibleOpps(pesquisa == '' ? this.opps : searchOpps);
+    let searchOpps = [];
+    let pesquisa = (<HTMLInputElement>document.getElementById('search-content')).value;
+    this.opps.filter( opp => {
+      if(opp.title.toLowerCase().includes(pesquisa.toLowerCase())) {
+        searchOpps.push(opp);
+      }
+    });
+    console.log(searchOpps.length)
+    this.totalResults = searchOpps.length;
+    this.changeOppSelected(searchOpps[0]);
   }
 
   /* O atributo type é opcional,
@@ -137,8 +134,12 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
         },
         complete: () => {
           this.setVisibleOpps(this.opps);
+          this.searchOpp();
         },
-        error: () => { this.opps = [] }
+        error: (err) => {
+          this.opps = [];
+          this.totalResults = 0;
+        }
       }
       );
     } else {
@@ -148,6 +149,7 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
           },
           complete: () => {
             this.setVisibleOpps(this.opps);
+            this.searchOpp();
           },
           error: () => { this.opps = [] }
         }
@@ -182,6 +184,13 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     this.serviceOpportunity.deleteOpp(type, id).subscribe(() => {
       console.log("Deletou!");
     });
+  }
+
+  isAdmin(): boolean {
+    if(JSON.parse(localStorage.getItem('userCurrent')).is_admin == (true || null) ){
+      return true;
+    }
+    return false;
   }
 }
 
