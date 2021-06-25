@@ -7,13 +7,14 @@ import { Vacancy } from '../../models/Vacancy';
 import { Event } from '../../models/Event';
 import { Job } from 'src/app/models/Job';
 import { Specialization } from 'src/app/models/Specialization';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OpportunitiesService {
 
-  private urlBaseApi = 'http://localhost:3333/api/';
+  private urlBaseApi = environment.URL_BASE_API;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

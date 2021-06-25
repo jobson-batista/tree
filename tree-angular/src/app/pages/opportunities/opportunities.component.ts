@@ -2,7 +2,6 @@ import { VacancyTypes } from 'src/app/services/vacancy-utils.service';
 import { Vacancy } from './../../models/Vacancy';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { OpportunitiesService } from './opportunities.service';
-
 @Component({
   selector: 'page-opportunities',
   templateUrl: './opportunities.component.html',
@@ -182,6 +181,13 @@ export class OpportunitiesComponent implements OnInit, OnDestroy {
     this.serviceOpportunity.deleteOpp(type, id).subscribe(() => {
       console.log("Deletou!");
     });
+  }
+
+  isAdmin(): boolean {
+    if(JSON.parse(localStorage.getItem('userCurrent')).is_admin == (true || null) ){
+      return true;
+    }
+    return false;
   }
 }
 

@@ -46,7 +46,8 @@ import { OpportunitiesService } from './pages/opportunities/opportunities.servic
     FlexLayoutModule,
     ReactiveFormsModule,
     CurrencyMaskModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     OpportunitiesService,
