@@ -16,11 +16,15 @@
 .container-end{
     margin: 3vh;
 }
-.card-one, .card-two, .card-three, .card-four{
+
+.card{
     border-radius: 10px;
     background-color: white;
     text-align: center;
+    box-shadow: 0 4px 4px rgba(42, 62, 67, 0.25);
+    padding-bottom: 5vh;
 }
+
 h1 {
     font-size: 3.5vh;    
     margin-bottom: 2vh;
@@ -38,11 +42,6 @@ p{
     width: 15vw;
     height: 30vh;
  }
-
- .container-cards{
-    margin: 5vh;
- }
-
  .negrito{
     font-weight: bold;
  }
@@ -50,5 +49,6 @@ p{
  .cards{     
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5vh; 
  }
