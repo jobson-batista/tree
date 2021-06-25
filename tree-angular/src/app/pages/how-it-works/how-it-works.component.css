@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container-mean{
+    background-color: #F3F6F7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
+    width: 100vw;
+}
+
+.container-end{
+    margin: 3vh;
+}
+.card-one, .card-two, .card-three, .card-four{
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+}
+h1 {
+    font-size: 3.5vh;    
+    margin-bottom: 2vh;
+  }
+
+h3{
+    margin: 0;
+}
+p{
+    margin: 0;
+ }
+
+ img{
+    margin: 40px;
+    width: 15vw;
+    height: 30vh;
+ }
+
+ .container-cards{
+    margin: 5vh;
+ }
+
+ .negrito{
+    font-weight: bold;
+ }
+
+ .cards{     
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
