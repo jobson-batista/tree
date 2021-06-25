@@ -30,7 +30,8 @@ export class User {
 
     @Column({
         name: "phone_number",
-        nullable: true
+        nullable: true,
+        default: null
     })
     phoneNumber: string;
 

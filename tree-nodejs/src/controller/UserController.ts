@@ -23,13 +23,13 @@ export const findUser = async (req: Request, res: Response) => {
 }
 
 export const saveUser = async (req: Request, res: Response) => {
-    const { firstName, lastName, email, password, phoneNumber } = req.body;
+    const { firstName, lastName, email, password } = req.body;
     for (const user of await getRepository(User).find()) {
         if (user.email==email){
             return res.status(400).send({message: "Email registed"});
         }
     }
-    if (firstName && lastName && email && password && phoneNumber){
+    if (firstName && lastName && email && password){
         bcrypt.hash(password, 10, async (errorBcrypt, hash) => {                 
             if(errorBcrypt) { return res.status(500).send({error: errorBcrypt})}
             req.body.password = hash;
@@ -43,8 +43,8 @@ export const saveUser = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
 
     const { id } = req.params;
-    const {firstName, lastName, email, password, phoneNumber} = req.body
-    if (firstName && lastName && email && password && phoneNumber){
+    const {firstName, lastName, email, password } = req.body
+    if (firstName && lastName && email && password){
         bcrypt.hash(password, 10, async (error, hash) => {
             if(error) { 
                 return res.status(500).send({error: error})
