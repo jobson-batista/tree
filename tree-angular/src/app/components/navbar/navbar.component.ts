@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getCurrentPage(): void {
-    this.router.events.subscribe((url:any) => {
+    this.router.events.subscribe((url: any) => {
       switch (url.url) {
         case '/':
           this.indexPage = 0;
@@ -33,6 +33,9 @@ export class NavbarComponent implements OnInit {
           break
         case '/opportunities/opp-register':
           this.indexPage = -1;
+          break
+        case '/how-it-works':
+          this.indexPage = 3;
           break
         default:
           break;
