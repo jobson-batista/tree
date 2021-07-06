@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OpportunitiesService } from './pages/opportunities/opportunities.service';
 
 import { OppFilterPipe } from './pipes/opp-filter.pipe';
+import { UserOptionsNavbarComponent } from './components/user-options-navbar/user-options-navbar.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { OppFilterPipe } from './pipes/opp-filter.pipe';
     OpportunitiesComponent,
     ConfirmDeleteComponent,
     ConfirmLogoutComponent,
-    OppFilterPipe
+    OppFilterPipe,
+    UserOptionsNavbarComponent
   ],
   imports: [
     BrowserModule,

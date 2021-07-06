@@ -46,10 +46,7 @@ export class NavbarComponent implements OnInit {
   }
 
   isLogged(): boolean {
-    if(localStorage.getItem('userCurrent')){
-      return true;
-    }
-    return false;
+    return localStorage.getItem('userCurrent') ? true : false;
   }
-  
+
 }
