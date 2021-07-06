@@ -63,25 +63,27 @@ export class RegisterComponent implements OnInit {
       "email": email,
       "password": password
     }
-    this.registerService.loginPostApi(login).subscribe( response => {
-      this.isLogged = true;
-      delete response.password;
-      localStorage.setItem('userCurrent', JSON.stringify(response));
-      this.location.back();
-      return response;
-    }, err=>{
-      console.log(err.error);      
-      return err.error.message;
+    this.registerService.loginPostApi(login).subscribe({
+      next: (next) => {
+        this.isLogged = true;
+        delete next.password;
+        localStorage.setItem('userCurrent', JSON.stringify(next));
+        this.location.back();
+      },
+      error: (err) => {
+        console.log(err.error);
+      }
     });
   }
 
   registerUser(user: User) {
-    this.registerService.createUser(user).subscribe( response => {
-      console.log("Usuário criado!")
-      return response;
-    }, err => {
-      console.log(err.error);      
-      return err.error.message;
+    this.registerService.createUser(user).subscribe({
+      next: () => {
+        console.log("Usuário registrado!")
+      },
+      error: (err) => {
+        console.log(err.error);
+      }
     });
   }
 
@@ -92,10 +94,9 @@ export class RegisterComponent implements OnInit {
         this.formLogin.reset();
       }
     } else {
-      console.log(this.formLogin.value)
       this.registerUser(this.formLogin.value);
-      document.location.reload();
       this.formLogin.reset();
+      this.setOption(true);
     }
   }
 }

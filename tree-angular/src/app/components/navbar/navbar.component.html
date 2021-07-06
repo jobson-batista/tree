@@ -2,32 +2,38 @@
   <div class="nav-container">
     <input type="checkbox" id="check">
     <div class="left-container">
-      <img routerLink="" class="logo" src="../../../assets/images/logo.svg" />
+      <div class="drawer">
+        <label for="check" class="checkbtn">
+          <div id="toggle" #drawer (click)="actionDrawer()"></div>
+        </label>
+        <img routerLink="" class="logo" src="../../../assets/images/logo.svg" />
+      </div>
       <ul>
         <li><a [ngClass]="this.indexPage == 0 ? 'actived' : 'not-actived'" routerLink="">Início</a></li>
         <li><a [ngClass]="this.indexPage == 1 ? 'actived' : 'not-actived'" routerLink="opportunities">Oportunidades</a>
         </li>
         <li><a [ngClass]="this.indexPage == 2 ? 'actived' : 'not-actived'" routerLink="community">Comunidade</a></li>
-        <li><a [ngClass]="this.indexPage == 3 ? 'actived' : 'not-actived'" routerLink="how-it-works">Como
+        <li><a [ngClass]="this.indexPage == 4 ? 'actived' : 'not-actived'" routerLink="how-it-works">Como
             fuciona</a></li>
-                <li><a [ngClass]="this.indexPage == 5 ? 'actived' : 'not-actived'" routerLink="">Sobre</a></li>
-            </ul>
-        </div>
-        <div class="right-container">
-            <div class="row" *ngIf="!isLogged()">
-                <a routerLink='register' [state]="{ isLogin: true }">Entrar</a>
-                <button routerLink='register' class="signup-button">Cadastrar-se</button>
-            </div>
-            <div class="row" *ngIf="isLogged()">
-                <img class="user_image" height="50vh" src="https://thispersondoesnotexist.com/image">
-                <a class="user_name">{{ userCurrent.first_name }} &#9660;</a>
-            </div>
-        </div>
-        <label for="check" class="checkbtn">
-      <div id="toggle" #drawer (click)="actionDrawer()"></div>
-    </label>
+        <li><a [ngClass]="this.indexPage == 5 ? 'actived' : 'not-actived'" routerLink="">Sobre</a></li>
+      </ul>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <div class="right-container">
+      <div class="row" *ngIf="!isLogged()">
+        <a routerLink='register' [state]="{ isLogin: true }">Entrar</a>
+        <button routerLink='register' class="signup-button">Cadastrar-se</button>
+      </div>
+      <div class="row" *ngIf="isLogged()">
+        <!-- <img class="user_image" height="50vh" src="https://thispersondoesnotexist.com/image">
+                <a class="user_name">{{ userCurrent.first_name }} &#9660;</a> -->
+        <user-options-navbar></user-options-navbar>
+      </div>
+    </div>
+    <!-- <label for="check" class="checkbtn">
+      <div id="toggle" #drawer (click)="actionDrawer()"></div>
+    </label> -->
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </nav>
 <router-outlet></router-outlet>
 <footer *ngIf="this.indexPage != -1"></footer>
