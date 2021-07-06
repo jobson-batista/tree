@@ -57,6 +57,7 @@ import { HowItWorksComponent } from './pages/how-it-works/how-it-works.component
     ReactiveFormsModule,
     CurrencyMaskModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [
