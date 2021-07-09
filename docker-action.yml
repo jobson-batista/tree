@@ -1,0 +1,25 @@
+name: Docker
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: docker-compose
+        env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          DB_TYPE: ${{ secrets.DB_TYPE }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          API_PORT: ${{secrets.API_PORT}}
+        run: |
+          cd tree-nodejs/
+          docker-compose -f docker-compose.yml up
