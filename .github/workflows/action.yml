@@ -27,5 +27,7 @@ jobs:
       - run: |
           cd tree-angular/ 
           npm install
+      - name: Rodando build
       - run: npm run build --if-present
+      - name: Rodando teste
       - run: npm run test
