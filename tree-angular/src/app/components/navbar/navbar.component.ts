@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   @ViewChild('drawer') drawer: ElementRef;
   @Input() indexPage: number;
+  userCurrent = JSON.parse(localStorage.getItem('userCurrent'));
 
   constructor(private router: Router) { }
 
@@ -17,7 +18,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getCurrentPage(): void {
-    this.router.events.subscribe((url:any) => {
+    this.router.events.subscribe((url: any) => {
       switch (url.url) {
         case '/':
           this.indexPage = 0;
@@ -34,6 +35,9 @@ export class NavbarComponent implements OnInit {
         case '/opportunities/opp-register':
           this.indexPage = -1;
           break
+        case '/how-it-works':
+          this.indexPage = 3;
+          break
         default:
           break;
       }
@@ -42,6 +46,10 @@ export class NavbarComponent implements OnInit {
 
   actionDrawer(): void {
     this.drawer.nativeElement.classList.toggle('active');
+  }
+
+  isLogged(): boolean {
+    return localStorage.getItem('userCurrent') ? true : false;
   }
 
 }

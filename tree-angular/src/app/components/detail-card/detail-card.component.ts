@@ -43,30 +43,26 @@ export class DetailCardComponent implements OnInit {
     let diff = moment(new Date(startDate), "DD/MM/YYYY HH:mm:ss").diff(moment(new Date(), "DD/MM/YYYY HH:mm:ss"));
     let abs = Math.abs(diff)
     let days = moment.duration(abs).asDays();
-    let hours = moment.duration(abs).asHours();
+    let hours = moment.duration(abs).asHours(); 7
     let minutes = moment.duration(abs).asMinutes();
     let seconds = moment.duration(abs).asSeconds();
     let ms = moment.duration(abs).asMilliseconds();
     console.log(ms, Math.trunc(ms));
 
     while (hours < 24 && hours >= 1) {
-      return this.user != null ? 'Conta criada há ' + Math.trunc(hours) + ' horas' : 'Postado há ' + Math.trunc(hours) + ' horas'
+      return this.user != null ? 'Conta criada há ' + Math.trunc(hours) + ' hora(s)' : 'Postado há ' + Math.trunc(hours) + ' hora(s)'
     }
 
-    while (seconds < 1) {
+    while (minutes < 1) {
       return this.user != null ? 'Conta criada agora' : 'Postado agora'
     }
 
-    while (seconds >= 1 && seconds < 60) {
-      return this.user != null ? 'Conta criada há ' + Math.trunc(seconds) + ' segundos' : 'Postado há ' + Math.trunc(seconds) + ' segundos'
-    }
-
     while (minutes >= 1 && minutes < 60) {
-      return this.user != null ? 'Conta criada há ' + Math.trunc(minutes) + 'minutos ' : 'Postado há ' + Math.trunc(minutes) + ' minutos'
+      return this.user != null ? 'Conta criada há ' + Math.trunc(minutes) + 'minuto(s) ' : 'Postado há ' + Math.trunc(minutes) + ' minuto(s)'
     }
 
     while (hours >= 24)
-      return this.user != null ? 'Conta criada há ' + Math.trunc(days) + ' dias' : 'Postado há ' + Math.trunc(days) + ' dias'
+      return this.user != null ? 'Conta criada há ' + Math.trunc(days) + ' dias' : 'Postado há ' + Math.trunc(days) + ' dia(s)'
 
   }
 }
