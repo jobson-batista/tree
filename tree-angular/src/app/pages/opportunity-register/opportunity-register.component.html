@@ -27,17 +27,17 @@
         <div>
           <i class="eva eva-briefcase-outline icons"
             [ngClass]="this.category == 'EMPREGO' ? 'actived category-one' : 'not-actived'"
-            (click)="this.changeCategory('EMPREGO')"></i>
+            (click)="this.changeCategory('EMPREGO')" data-test="option-job"></i>
         </div>
         <div>
           <i class="eva eva-star-outline icons"
             [ngClass]="this.category == 'EVENTO' ? 'actived category-two' : 'not-actived'"
-            (click)="this.changeCategory('EVENTO')"></i>
+            (click)="this.changeCategory('EVENTO')" data-test="option-event"></i>
         </div>
         <div>
           <i class="eva eva-book-open-outline icons"
             [ngClass]="this.category == 'ESPECIALIZACAO' ? 'actived category-three' : 'not-actived'"
-            (click)="this.changeCategory('ESPECIALIZACAO')"></i>
+            (click)="this.changeCategory('ESPECIALIZACAO')" data-test="option-specialization"></i>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
             <div class="first-line" fxLayout="row" fxLayout.md="{{this.category == 'EVENTO' ? 'column' : 'row'}}"
               fxLayout.sm="{{this.category == 'EVENTO' ? 'column' : 'row'}}" fxLayout.xs="column">
               <input formControlName="title" type="text" name="title" fxFlex="100"
-                fxFlex.lg="{{this.category == 'EVENTO' ? '40' : '100'}}" />
+                fxFlex.lg="{{this.category == 'EVENTO' ? '40' : '100'}}" data-test="opp-title" />
               <div class="select-date" fxFlex="{{this.category == 'EMPREGO' ? '25' : '60'}}"
                 *ngIf="this.category == 'EMPREGO' || this.category == 'EVENTO'">
                 <div class="btn-first-date" fxFlex="100">
@@ -77,14 +77,14 @@
           <div class="type-input" *ngIf=" this.category == 'ESPECIALIZACAO'" fxFlex="40">
             <p>Tipo</p>
             <input formControlName="especializationType" id="type" type="text" *ngIf="this.category == 'ESPECIALIZACAO'"
-              placeholder="Ex: Pós-graduação">
+              placeholder="Ex: Pós-graduação" data-test="type-specialization">
             <small *ngIf="checkInputAndType('especializationType','ESPECIALIZACAO')" class="text-danger">Informe o tipo
               de
               especialização</small>
           </div>
         </div>
         <p>Email de contato</p>
-        <div class="email-input">
+        <div class="email-input" data-test="opp-email">
           <i class="eva eva-email-outline"></i>
           <input formControlName="email" type="email" name="email" placeholder="exemplo@email.com" />
         </div>
@@ -98,7 +98,8 @@
             <div class="adress-input" *ngIf="this.category == 'EVENTO' || this.category =='ESPECIALIZACAO'">
               <i class="far fa-building" *ngIf="this.category =='ESPECIALIZACAO'"></i>
               <i class="eva eva-compass-outline" *ngIf="this.category == 'EVENTO'"></i>
-              <input formControlName="adressOrInstitution" type="text" name="adress" fxFlex="100" />
+              <input formControlName="adressOrInstitution" type="text" name="adress" fxFlex="100"
+                data-test="opp-address" />
             </div>
             <small *ngIf="checkInputAndType('adressOrInstitution', 'EVENTO')" class="text-danger">Informe o
               endereço</small>
@@ -109,11 +110,11 @@
           <div *ngIf="this.category =='ESPECIALIZACAO'" fxFlex="49" fxLayout="column wrap">
             <p>Bolsa</p>
             <div class="bolsa-input" *ngIf="this.category =='ESPECIALIZACAO'">
-              <div class="input-money">
+              <div class="input-money" data-test="opp-scholarship">
                 <i class="fa fa-money"></i>
                 <p>R$</p>
               </div>
-              <input formControlName="scholarship" currencyMask
+              <input formControlName="scholarship" currencyMask data-test="opp-scholarship"
                 [options]="{ prefix: ' ', thousands: '.', decimal: ',', align: 'left' }" type="text" name="bolsa" />
             </div>
             <small *ngIf="checkInputAndType('scholarship','ESPECIALIZACAO')" class="text-danger">Informe o valor da
@@ -129,12 +130,13 @@
                 <p>R$</p>
               </div>
               <input formControlName="salary" currencyMask
-                [options]="{ prefix: ' ', thousands: '.', decimal: ',', align: 'left' }" type="text" name="wage" />
+                [options]="{ prefix: ' ', thousands: '.', decimal: ',', align: 'left' }" type="text" name="wage"
+                data-test="opp-salary" />
             </div>
           </div>
           <div class="type-input" *ngIf="this.category == 'EMPREGO'" fxFlex="100">
             <p>Tipo</p>
-            <div class="buttons-option" fxFlex="100">
+            <div class="buttons-option" fxFlex="100" data-test="type-vancancy">
               <div class="job-option" fxFlex="100">
                 <a class="job" [ngClass]='this.typeJob == "emprego" ? "actived" : "not-actived"'
                   (click)="changeTypeJob('emprego')" fxFlex="100">Emprego</a>
@@ -151,7 +153,8 @@
         <p>Descrição</p>
         <div class="desc-input">
           <textarea rows="3" oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight - 30 +'px'"
-            id="text-auto-expand" formControlName="description" placeholder="Adicionar descrição..."></textarea>
+            id="text-auto-expand" formControlName="description" placeholder="Adicionar descrição..."
+            data-test="opp-description"></textarea>
         </div>
         <small *ngIf="oppForm.get('description').invalid && oppForm.get('description').touched"
           class="text-danger">Informe a descrição da oportunidade</small>

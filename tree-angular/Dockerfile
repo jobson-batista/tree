@@ -1,7 +1,12 @@
-FROM node:12.7-alpine AS build
-WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
-RUN npm install
+FROM node:12.7-alpine as angular
+WORKDIR /app
+COPY package.json /app
+RUN npm install --silent
 COPY . .
 EXPOSE 4200
-CMD npm run build
+RUN npm run build
+
+FROM nginx:alpine
+VOLUME /var/cache/nginx
+COPY --from=angular app/dist/requests-http /usr/share/nginx/html
+COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf

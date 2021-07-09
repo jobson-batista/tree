@@ -31,7 +31,7 @@ export const saveSpecialization = async (req: Request, res: Response) => {
     }
     if (type && institution){
         const specialization = await getRepository(Specialization).save(req.body);
-        res.status(201).json(specialization);
+        return res.status(201).json(specialization);
     }
     return res.status(422).json({message: "Some of the fields have not been filled in!"})
 }

@@ -26,7 +26,7 @@ export const saveJob = async (req: Request, res: Response) => {
     const {type, salary} = req.body
     if (type && salary){
         const job = await getRepository(Job).save(req.body);
-        res.status(201).json(job);
+        return res.status(201).json(job);
     }
     return res.status(422).json({message: "Some of the fields have not been filled in!"})
 }

@@ -18,7 +18,7 @@ export const findAddressById = async (req: Request, res: Response) => {
 export const saveAddress = async (req: Request, res: Response) => {
 
     const address = await getRepository(Address).save(req.body);
-    res.status(201).json(address);
+    return res.status(201).json(address);
 }
 
 export const updateAddress = async (req: Request, res: Response) => {

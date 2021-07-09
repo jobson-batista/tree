@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getCurrentPage(): void {
-    this.router.events.subscribe((url:any) => {
+    this.router.events.subscribe((url: any) => {
       switch (url.url) {
         case '/':
           this.indexPage = 0;
@@ -35,6 +35,9 @@ export class NavbarComponent implements OnInit {
         case '/opportunities/opp-register':
           this.indexPage = -1;
           break
+        case '/how-it-works':
+          this.indexPage = 3;
+          break
         default:
           break;
       }
@@ -46,10 +49,7 @@ export class NavbarComponent implements OnInit {
   }
 
   isLogged(): boolean {
-    if(localStorage.getItem('userCurrent')){
-      return true;
-    }
-    return false;
+    return localStorage.getItem('userCurrent') ? true : false;
   }
-  
+
 }

@@ -5,13 +5,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommunityComponent } from './pages/community/community.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HowItWorksComponent } from './pages/how-it-works/how-it-works.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'opportunities', component: OpportunitiesComponent},
+  { path: 'opportunities', component: OpportunitiesComponent },
   { path: 'community', component: CommunityComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'opportunities/opp-register', component: OpportunityRegisterComponent },
+  { path: 'how-it-works', component: HowItWorksComponent },
   {
     path: 'opp-register',
     redirectTo: '/tabs/opportunities/opp-register',
