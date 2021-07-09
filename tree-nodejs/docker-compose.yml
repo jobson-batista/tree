@@ -8,14 +8,12 @@ services:
     depends_on:
       - db
   db:
-    image: postgres:10.16
+    image: postgres:13.3-alpine
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: tree
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
     ports:
       - 5432:5432
     volumes:
-      - ~/dbdata:/var/lib/postgresql/data
-volumes:
-  db-data:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
