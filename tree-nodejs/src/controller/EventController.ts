@@ -26,7 +26,7 @@ export const saveEvent = async (req: Request, res: Response) => {
     const {place, organizer} = req.body
     if(place && organizer){
         const event = await getRepository(Event).save(req.body);
-        res.status(201).json(event);
+        return res.status(201).json(event);
     }
     return res.status(422).json({message: "Some of the fields have not been filled in!"})
 }
