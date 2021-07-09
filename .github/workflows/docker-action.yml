@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: docker-compose
+      - name: Start Containers
         env:
           NODE_ENV: ${{ secrets.NODE_ENV }}
           DB_TYPE: ${{ secrets.DB_TYPE }}
@@ -22,4 +22,10 @@ jobs:
           API_PORT: ${{secrets.API_PORT}}
         run: |
           cd tree-nodejs/
-          docker-compose -f docker-compose.yml up
+          docker-compose -f "docker-compose.yml" up -d --build
+          
+      - name: Stop Containers
+        if: always()
+        run: |
+          cd tree-nodejs/
+          docker-compose -f "docker-compose.yml" down
