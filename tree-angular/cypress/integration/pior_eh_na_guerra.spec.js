@@ -7,7 +7,7 @@ describe('Testes De Integração', function() {
 
         it('Criado', () => {
             cy.request({
-                url: '/users',
+                url: 'http://localhost:3333/api/users',
                 body: {
                     email: email,
                     password: password,
@@ -20,7 +20,7 @@ describe('Testes De Integração', function() {
 
         it('Atualizar usuário com ID 1', () => {
             cy.request({
-                url: '/users/1',
+                url: 'http://localhost:3333/api/users/1',
                 body: {
                     email: email,
                     password: password,
@@ -33,14 +33,14 @@ describe('Testes De Integração', function() {
 
         it('Existe usuário(s) cadastrado(s)', () => {
             cy.request({
-                url: '/users',
+                url: 'http://localhost:3333/api/users',
                 method: 'GET',
             }).its('status').should('equal', 200)
         });
 
         it('Deletar usuário com ID 1', () => {
             cy.request({
-                url: '/users/1',
+                url: 'http://localhost:3333/api/users/1',
                 method: 'DELETE',
             }).its('status').should('equal', 200)
         });
@@ -50,7 +50,7 @@ describe('Testes De Integração', function() {
 
         it('Criado', () => {
             cy.request({
-                url: '/jobs',
+                url: 'http://localhost:3333/api/jobs',
                 body: {
                     title: 'Estágio em Desenvolvimento Web',
                     description: 'Trabalhar com Angular e NodeJS.',
@@ -65,7 +65,7 @@ describe('Testes De Integração', function() {
 
         it('Existe Job(s) cadastrado(s)', () => {
             cy.request({
-                url: '/jobs',
+                url: 'http://localhost:3333/api/jobs',
                 failOnStatusCode: false,
             }).its('status').should('equal', 200)
         });
@@ -75,7 +75,7 @@ describe('Testes De Integração', function() {
 
         it('Criado', () => {
             cy.request({
-                url: '/events',
+                url: 'http://localhost:3333/api/events',
                 body: {
                     title: 'Estágio em Desenvolvimento Web',
                     description: 'Trabalhar com Angular e NodeJS.',
@@ -90,7 +90,7 @@ describe('Testes De Integração', function() {
 
         it('Existe Evento(s) cadastrado(s)', () => {
             cy.request({
-                url: '/events',
+                url: 'http://localhost:3333/api/events',
                 failOnStatusCode: false,
             }).its('status').should('equal', 200)
         });
@@ -100,7 +100,7 @@ describe('Testes De Integração', function() {
 
         it('Criado', () => {
             cy.request({
-                url: '/specializations',
+                url: 'http://localhost:3333/api/specializations',
                 body: {
                     title: 'Mestrado em Eng. de Software',
                     description: 'Área de Eng. de Software',
@@ -116,7 +116,7 @@ describe('Testes De Integração', function() {
 
         it('Existe Pós-Graduação(ões) cadastrado(s) ', () => {
             cy.request({
-                url: '/specializations',
+                url: 'http://localhost:3333/api/specializations',
                 failOnStatusCode: false,
             }).its('status').should('equal', 200)
         });

@@ -10,18 +10,21 @@
       </div>
       <ul>
         <li><a [ngClass]="this.indexPage == 0 ? 'actived' : 'not-actived'" routerLink="">Início</a></li>
-        <li><a [ngClass]="this.indexPage == 1 ? 'actived' : 'not-actived'" routerLink="opportunities">Oportunidades</a>
+        <li><a [ngClass]="this.indexPage == 1 ? 'actived' : 'not-actived'" data-test="goOportunities"
+            routerLink="opportunities">Oportunidades</a>
         </li>
-        <li><a [ngClass]="this.indexPage == 2 ? 'actived' : 'not-actived'" routerLink="community">Comunidade</a></li>
-        <li><a [ngClass]="this.indexPage == 3 ? 'actived' : 'not-actived'" routerLink="how-it-works">Como
+        <li><a [ngClass]="this.indexPage == 2 ? 'actived' : 'not-actived'" data-test="goCommunity"
+            routerLink="community">Comunidade</a></li>
+        <li><a [ngClass]="this.indexPage == 3 ? 'actived' : 'not-actived'" data-test="goHowItWorks"
+            routerLink="how-it-works">Como
             fuciona</a></li>
         <li><a [ngClass]="this.indexPage == 4 ? 'actived' : 'not-actived'" routerLink="">Sobre</a></li>
       </ul>
     </div>
     <div class="right-container">
       <div class="row" *ngIf="!isLogged()">
-        <a routerLink='register' [state]="{ isLogin: true }">Entrar</a>
-        <button routerLink='register' class="signup-button">Cadastrar-se</button>
+        <a routerLink='register' [state]="{ isLogin: true }" data-test="goLogin">Entrar</a>
+        <button routerLink='register' class="signup-button" data-test="goRegister">Cadastrar-se</button>
       </div>
       <div class="row" *ngIf="isLogged()">
         <!-- <img class="user_image" height="50vh" src="https://thispersondoesnotexist.com/image">
