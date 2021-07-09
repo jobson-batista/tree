@@ -76,6 +76,8 @@ it('Tela de Registro de Oportunidades - Validação forms-Job', () => {
     cy.get('[data-test=opp-email]').first().click()
     cy.contains('Salário')
     cy.get('[data-test=opp-salary]').first().click()
+    cy.contains('Descrição')
+    cy.get('[data-test=opp-description]').first().click();
 
 });
 
@@ -94,6 +96,27 @@ it('Tela de Registro de Oportunidades - Event', () => {
     cy.get('[data-test=option-job]').first().click();
 });
 
+it('Tela de Registro de Oportunidades - Validação form-Event', () => {
+    cy.visit('/');
+    cy.get('[data-test=goOportunities]').first().click();
+    cy.contains('Encontre');
+    cy.contains('oportunidades');
+    cy.contains('facilmente!');
+    cy.url().should('contain', '/opportunities')
+    cy.get('[data-test=flat-button]').first().click();
+    cy.contains('Adicionar Evento');
+    cy.get('[data-test=event]').first().click();
+    cy.url().should('contain', '/opportunities/opp-register')
+    cy.contains('Título')
+    cy.get('[data-test=opp-title]').first().click()
+    cy.contains('Email de contato')
+    cy.get('[data-test=opp-email]').first().click()
+    cy.contains('Endereço')
+    cy.get('[data-test=opp-address]').first().click()
+    cy.contains('Descrição')
+    cy.get('[data-test=opp-description]').first().click();
+});
+
 it('Tela de Oportunidades - Specialization', () => {
     cy.visit('/');
     cy.get('[data-test=goOportunities]').first().click();
@@ -107,5 +130,30 @@ it('Tela de Oportunidades - Specialization', () => {
     cy.url().should('contain', '/opportunities/opp-register')
     cy.get('[data-test=option-job]').first().click();
     cy.get('[data-test=option-event]').first().click();
+});
+
+it('Tela de Oportunidades - Validação form-Specialization', () => {
+    cy.visit('/');
+    cy.get('[data-test=goOportunities]').first().click();
+    cy.contains('Encontre');
+    cy.contains('oportunidades');
+    cy.contains('facilmente!');
+    cy.url().should('contain', '/opportunities')
+    cy.get('[data-test=flat-button]').first().click();
+    cy.contains('Adicionar Especialização');
+    cy.get('[data-test=specialization]').first().click();
+    cy.url().should('contain', '/opportunities/opp-register')
+    cy.contains('Título')
+    cy.get('[data-test=opp-title]').first().click()
+    cy.contains('Tipo')
+    cy.get('[data-test=type-specialization]').first().click()
+    cy.contains('Email de contato')
+    cy.get('[data-test=opp-email]').first().click()
+    cy.contains('Instituição')
+    cy.get('[data-test=opp-address]').first().click()
+    cy.contains('Bolsa')
+    cy.get('[data-test=opp-scholarship]').first().click()
+    cy.contains('Descrição')
+    cy.get('[data-test=opp-description]').first().click();
 });
 

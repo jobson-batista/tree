@@ -84,10 +84,9 @@
           </div>
         </div>
         <p>Email de contato</p>
-        <div class="email-input">
+        <div class="email-input" data-test="opp-email">
           <i class="eva eva-email-outline"></i>
-          <input formControlName="email" type="email" name="email" placeholder="exemplo@email.com"
-            data-test="opp-email" />
+          <input formControlName="email" type="email" name="email" placeholder="exemplo@email.com" />
         </div>
         <small *ngIf="oppForm.get('email').invalid && oppForm.get('email').touched" class="text-danger">Informe o
           email
@@ -111,7 +110,7 @@
           <div *ngIf="this.category =='ESPECIALIZACAO'" fxFlex="49" fxLayout="column wrap">
             <p>Bolsa</p>
             <div class="bolsa-input" *ngIf="this.category =='ESPECIALIZACAO'">
-              <div class="input-money">
+              <div class="input-money" data-test="opp-scholarship">
                 <i class="fa fa-money"></i>
                 <p>R$</p>
               </div>
@@ -137,7 +136,7 @@
           </div>
           <div class="type-input" *ngIf="this.category == 'EMPREGO'" fxFlex="100">
             <p>Tipo</p>
-            <div class="buttons-option" fxFlex="100">
+            <div class="buttons-option" fxFlex="100" data-test="type-vancancy">
               <div class="job-option" fxFlex="100">
                 <a class="job" [ngClass]='this.typeJob == "emprego" ? "actived" : "not-actived"'
                   (click)="changeTypeJob('emprego')" fxFlex="100">Emprego</a>
