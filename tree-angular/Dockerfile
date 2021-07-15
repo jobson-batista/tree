@@ -1,12 +1,11 @@
-FROM node:12.7-alpine as angular
+FROM node:alpine as angular
 WORKDIR /app
 COPY package.json /app
-RUN npm install --silent
+RUN npm install --force
 COPY . .
-EXPOSE 4200
 RUN npm run build
 
 FROM nginx:alpine
 VOLUME /var/cache/nginx
-COPY --from=angular app/dist/requests-http /usr/share/nginx/html
+COPY --from=angular app/dist/tree-angular /usr/share/nginx/html
 COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
