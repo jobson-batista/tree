@@ -47,7 +47,7 @@
           fxLayout.lg='{{this.category == "EVENTO" ? "column": "row"}}'
           fxLayout.sm='{{this.category == "EVENTO" ? "column": "row"}}' fxLayout.xs="column">
           <!-- <div class="title-input" fxFlex='{{this.category == "EVENTO" ? "40" : "100"}}'> -->
-          <div class="title-input" fxFlex='100'>
+          <div class="title-input" fxFlex='100' id="titleId">
             <p>Título</p>
             <div class="first-line" fxLayout="row" fxLayout.md="{{this.category == 'EVENTO' ? 'column' : 'row'}}"
               fxLayout.sm="{{this.category == 'EVENTO' ? 'column' : 'row'}}" fxLayout.xs="column">
@@ -56,14 +56,14 @@
               <div class="select-date" fxFlex="{{this.category == 'EMPREGO' ? '25' : '60'}}"
                 *ngIf="this.category == 'EMPREGO' || this.category == 'EVENTO'">
                 <div class="btn-first-date" fxFlex="100">
-                  <button class="btn-active-calendar" (click)="this.setCalendarActive(true)">
+                  <button class="btn-active-calendar" (click)="this.setCalendarActive(true)" id="dateId">
                     <div><i class="eva eva-calendar-outline"></i>{{firstOpenCalendar ? 'Data Início' :
                       getDateFormated(true)}}
                     </div>
                   </button>
                 </div>
                 <div *ngIf="this.category == 'EVENTO'" class="btn-second-date" fxFlex="100">
-                  <button class="btn-active-second-calendar" (click)="this.setCalendarActive(false)">
+                  <button class="btn-active-second-calendar" (click)="this.setCalendarActive(false)" id="endDateId">
                     <div><i class="eva eva-calendar-outline"></i>{{firstOpenSecondCalendar ? 'Data Fim' :
                       getDateFormated(false)}}
                     </div>
@@ -74,7 +74,7 @@
             <small *ngIf="oppForm.get('title').invalid && oppForm.get('title').touched" class="text-danger">Informe o
               título</small>
           </div>
-          <div class="type-input" *ngIf=" this.category == 'ESPECIALIZACAO'" fxFlex="40">
+          <div class="type-input" *ngIf=" this.category == 'ESPECIALIZACAO'" fxFlex="40" id="typeId">
             <p>Tipo</p>
             <input formControlName="especializationType" id="type" type="text" *ngIf="this.category == 'ESPECIALIZACAO'"
               placeholder="Ex: Pós-graduação" data-test="type-specialization">
@@ -84,7 +84,7 @@
           </div>
         </div>
         <p>Email de contato</p>
-        <div class="email-input" data-test="opp-email">
+        <div class="email-input" data-test="opp-email" id="emailId">
           <i class="eva eva-email-outline"></i>
           <input formControlName="email" type="email" name="email" placeholder="exemplo@email.com" />
         </div>
@@ -95,7 +95,8 @@
           <div fxFlex=' {{this.category == "ESPECIALIZACAO" ? "49" : "100" }}' fxLayout="column wrap">
             <p *ngIf="this.category == 'EVENTO'">Endereço</p>
             <p *ngIf="this.category =='ESPECIALIZACAO'">Instituição</p>
-            <div class="adress-input" *ngIf="this.category == 'EVENTO' || this.category =='ESPECIALIZACAO'">
+            <div class="adress-input" *ngIf="this.category == 'EVENTO' || this.category =='ESPECIALIZACAO'"
+              id="adressOrTypeId">
               <i class="far fa-building" *ngIf="this.category =='ESPECIALIZACAO'"></i>
               <i class="eva eva-compass-outline" *ngIf="this.category == 'EVENTO'"></i>
               <input formControlName="adressOrInstitution" type="text" name="adress" fxFlex="100"
@@ -109,7 +110,7 @@
           </div>
           <div *ngIf="this.category =='ESPECIALIZACAO'" fxFlex="49" fxLayout="column wrap">
             <p>Bolsa</p>
-            <div class="bolsa-input" *ngIf="this.category =='ESPECIALIZACAO'">
+            <div class="bolsa-input" *ngIf="this.category =='ESPECIALIZACAO'" id="scholarshipId">
               <div class="input-money" data-test="opp-scholarship">
                 <i class="fa fa-money"></i>
                 <p>R$</p>
@@ -124,7 +125,7 @@
         <div class="third-line" fxLayout.xs="column" fxLayout="row">
           <div class="wage" *ngIf="this.category == 'EMPREGO'">
             <p>Salário</p>
-            <div class="wage-input">
+            <div class="wage-input" id="wageId">
               <div class="input-money">
                 <i class="fa fa-money"></i>
                 <p>R$</p>
@@ -137,11 +138,11 @@
           <div class="type-input" *ngIf="this.category == 'EMPREGO'" fxFlex="100">
             <p>Tipo</p>
             <div class="buttons-option" fxFlex="100" data-test="type-vancancy">
-              <div class="job-option" fxFlex="100">
+              <div class="job-option" fxFlex="100" data-test="job">
                 <a class="job" [ngClass]='this.typeJob == "emprego" ? "actived" : "not-actived"'
                   (click)="changeTypeJob('emprego')" fxFlex="100">Emprego</a>
               </div>
-              <div class="work-ex-option" fxFlex="100">
+              <div class="work-ex-option" fxFlex="100" data-test="work-ex">
                 <a class="work-experience" [ngClass]='this.typeJob == "estagio" ? "actived" : "not-actived" '
                   (click)="changeTypeJob('estagio')" fxFlex="100">Estágio</a>
               </div>
@@ -151,7 +152,7 @@
         <small *ngIf="checkInputAndType('salary', 'EMPREGO')" class="text-danger">Informe o
           valor do salário</small>
         <p>Descrição</p>
-        <div class="desc-input">
+        <div class="desc-input" id="desc">
           <textarea rows="3" oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight - 30 +'px'"
             id="text-auto-expand" formControlName="description" placeholder="Adicionar descrição..."
             data-test="opp-description"></textarea>
@@ -159,7 +160,8 @@
         <small *ngIf="oppForm.get('description').invalid && oppForm.get('description').touched"
           class="text-danger">Informe a descrição da oportunidade</small>
       </form>
-      <button (click)="subForm()" [disabled]="this.checkData()" class="button" type="button">Cadastrar</button>
+      <button (click)="subForm()" [disabled]="this.checkData()" class="button" type="button"
+        data-test="submit">Cadastrar</button>
     </div>
   </div>
 </div>
