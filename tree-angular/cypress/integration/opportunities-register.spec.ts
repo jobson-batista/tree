@@ -27,6 +27,8 @@ describe('Fluxo de cadastro de oportunidades', () => {
         cy.get('#dateId').click()
         cy.contains('15').click()
         cy.get('[data-test=submit]').first().click();
+        cy.intercept({method: 'POST', url: 'http://localhost:3333/api/jobs'}).as('registerJob');
+        cy.wait('@registerJob');
     });
 
     it('Cadastro de Oportunidades - Event', () => {
@@ -48,12 +50,13 @@ describe('Fluxo de cadastro de oportunidades', () => {
         cy.get('#adressOrTypeId').type('Rodovia BR 230 Km 14 s/n Morada Nova, PB, 58109-303')
         cy.contains('Descrição')
         cy.get('#desc').type('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue sapien in tincidunt ornare. Suspendisse potenti. Nunc volutpat consectetur urna in congue. Praesent ac consectetur nibh. Ut sed lacinia nisi, sed porttitor nunc. Quisque in leo eu dolor tincidunt malesuada. Nunc lacinia accumsan dui non feugiat.')
-        cy.get('[data-test=submit]').first().click({ force: true });
         cy.get('#dateId').click()
         cy.contains('10').click()
         cy.get('#endDateId').click()
         cy.contains('25').click()
         cy.get('[data-test=submit]').first().click();
+        cy.intercept({method: 'POST', url: 'http://localhost:3333/api/events'}).as('registerEvents');
+        cy.wait('@registerEvents');
     });
 
     it('Cadastro de Oportunidades - Specialization', () => {
@@ -78,7 +81,9 @@ describe('Fluxo de cadastro de oportunidades', () => {
         cy.get('#scholarshipId').type('300000')
         cy.contains('Descrição')
         cy.get('#desc').type('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue sapien in tincidunt ornare. Suspendisse potenti. Nunc volutpat consectetur urna in congue. Praesent ac consectetur nibh. Ut sed lacinia nisi, sed porttitor nunc. Quisque in leo eu dolor tincidunt malesuada. Nunc lacinia accumsan dui non feugiat.')
-        cy.get('[data-test=submit]').first().click({ force: true });
+        cy.get('[data-test=submit]').first().click();
+        cy.intercept({method: 'POST', url: 'http://localhost:3333/api/specializations'}).as('registerSpecializations');
+        cy.wait('@registerSpecializations');
     });
 
 
