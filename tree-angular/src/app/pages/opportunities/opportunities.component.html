@@ -7,8 +7,9 @@
         <input (keyup)="searchOpp()" class="search-input" id="search-content" type="text" name="searchOpp"
           [(ngModel)]="searchText" placeholder="Procurar empregos, estágios, eventos..." id="searchTextTest">
         <div class="dropdown">
-          <div class="dropdown-select" data-test="searchTest">
-            <span class="select"><i class="{{this.typeIconOpp}}"></i>{{this.typeNameOpp}}</span>
+          <div class="dropdown-select">
+            <span class="select" data-test="selectOppTest"><i
+                class="{{this.typeIconOpp}}"></i>{{this.typeNameOpp}}</span>
             <i class="eva eva-arrow-ios-downward-outline"></i>
           </div>
           <div class="dropdown-list">

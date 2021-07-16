@@ -39,7 +39,7 @@ describe('Fluxo de cadastro de oportunidades', () => {
         cy.contains('facilmente!');
         cy.url().should('contain', '/opportunities')
         cy.intercept({ method: 'GET', url: 'http://localhost:3333/api/jobs' }).as('getJob');
-        cy.get('[data-test=searchTest]').first().click()
+        cy.get('[data-test=selectOppTest]').first().click()
         cy.contains('Estágio/Emprego')
         cy.get('[data-test=getJobTest]').first().click()
         cy.get('[data-test=dellTest]').first().click()
@@ -84,7 +84,7 @@ describe('Fluxo de cadastro de oportunidades', () => {
         cy.contains('facilmente!');
         cy.url().should('contain', '/opportunities')
         cy.intercept({ method: 'GET', url: 'http://localhost:3333/api/events' }).as('getEvents');
-        cy.get('[data-test=searchTest]').first().click()
+        cy.get('[data-test=selectOppTest]').first().click()
         cy.contains('Eventos')
         cy.get('[data-test=getEventTest]').first().click()
         cy.get('[data-test=dellTest]').first().click()
@@ -128,7 +128,7 @@ describe('Fluxo de cadastro de oportunidades', () => {
         cy.contains('facilmente!');
         cy.url().should('contain', '/opportunities')
         cy.intercept({ method: 'GET', url: 'http://localhost:3333/api/specializations' }).as('getSpecializations');
-        cy.get('[data-test=searchTest]').first().click()
+        cy.get('[data-test=selectOppTest]').first().click()
         cy.contains('Especialização')
         cy.get('[data-test=getSpecTest]').first().click()
         cy.get('[data-test=dellTest]').first().click()
