@@ -1,36 +1,36 @@
 <div class="action">
-  <div class="btn">
-    <div class="profile">
-      <img src="https://thispersondoesnotexist.com/image">
+    <div class="btn">
+        <div class="profile">
+            <img src="https://thispersondoesnotexist.com/image">
+        </div>
+        <div class="toggle" (click)="this.menuToggle()" #toggleButton>
+            <h3>{{this.userCurrent.first_name}}</h3>
+            <div class="toggle-person-img">
+                <img src="https://thispersondoesnotexist.com/image">
+            </div>
+            <i class="eva eva-arrow-down"></i>
+        </div>
     </div>
-    <div class="toggle" (click)="this.menuToggle()" #toggleButton>
-      <h3>{{this.userCurrent.first_name}}</h3>
-      <div class="toggle-person-img">
-        <img src="https://thispersondoesnotexist.com/image">
-      </div>
-      <i class="eva eva-arrow-down"></i>
+    <div class="menu" [ngClass]='this.menuActive ? "active" : ""' #menu>
+        <div class="header">
+            <div class="profile">
+                <img src="https://thispersondoesnotexist.com/image">
+            </div>
+            <div class="name-email">
+                <h3>{{this.userCurrent.first_name}} {{this.userCurrent.last_name}}</h3>
+                <span>{{this.userCurrent.email}}</span>
+            </div>
+        </div>
+        <h2>Minha conta</h2>
+        <ul>
+            <li>
+                <i class="eva eva-edit-2-outline"></i>
+                <p>Alterar dados</p>
+            </li>
+            <li id="logout-button" (click)="this.logOut()">
+                <i class="eva eva-log-out-outline"></i>
+                <p>Sair</p>
+            </li>
+        </ul>
     </div>
-  </div>
-  <div class="menu" [ngClass]='this.menuActive ? "active" : ""' #menu>
-    <div class="header">
-      <div class="profile">
-        <img src="https://thispersondoesnotexist.com/image">
-      </div>
-      <div class="name-email">
-        <h3>{{this.userCurrent.first_name}} {{this.userCurrent.last_name}}</h3>
-        <span>{{this.userCurrent.email}}</span>
-      </div>
-    </div>
-    <h2>Minha conta</h2>
-    <ul>
-      <li>
-        <i class="eva eva-edit-2-outline"></i>
-        <p>Alterar dados</p>
-      </li>
-      <li (click)="this.logOut()">
-        <i class="eva eva-log-out-outline"></i>
-        <p>Sair</p>
-      </li>
-    </ul>
-  </div>
 </div>
