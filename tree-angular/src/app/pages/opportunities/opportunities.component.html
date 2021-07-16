@@ -5,18 +5,21 @@
       <form class="form-control">
         <i class="eva eva-search-outline"></i>
         <input (keyup)="searchOpp()" class="search-input" id="search-content" type="text" name="searchOpp"
-          [(ngModel)]="searchText" placeholder="Procurar empregos, estágios, eventos...">
+          [(ngModel)]="searchText" placeholder="Procurar empregos, estágios, eventos..." id="searchTextTest">
         <div class="dropdown">
-          <div class="dropdown-select">
+          <div class="dropdown-select" data-test="searchTest">
             <span class="select"><i class="{{this.typeIconOpp}}"></i>{{this.typeNameOpp}}</span>
             <i class="eva eva-arrow-ios-downward-outline"></i>
           </div>
           <div class="dropdown-list">
             <div class="dropdown-list-item"><i class="eva eva-grid-outline"></i><label>Todos</label></div>
-            <div class="dropdown-list-item"><i class="eva eva-briefcase-outline"></i><label>Estágio/Emprego</label>
+            <div class="dropdown-list-item" data-test="getJobTest"><i
+                class="eva eva-briefcase-outline"></i><label>Estágio/Emprego</label>
             </div>
-            <div class="dropdown-list-item"><i class="eva eva-star-outline"></i><label>Eventos</label></div>
-            <div class="dropdown-list-item"><i class="eva eva-book-open-outline"></i><label>Especialização</label></div>
+            <div class="dropdown-list-item" data-test="getEventTest"><i
+                class="eva eva-star-outline"></i><label>Eventos</label></div>
+            <div class="dropdown-list-item" data-test="getSpecTest"><i
+                class="eva eva-book-open-outline"></i><label>Especialização</label></div>
           </div>
         </div>
         <button id="targetScroll" (click)="searchOpp()">Buscar</button>

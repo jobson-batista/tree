@@ -15,7 +15,7 @@
         <i class="eva eva-email-outline" (click)="vacancy!= null ? sendEmailVacancy() : sendEmailUsers()"></i>
         <i *ngIf="vacancy != null" class="eva eva-edit-2-outline edit-option"></i>
         <i *ngIf="vacancy != null" class="eva eva-trash-2-outline delete-option"
-          (click)="this.setContextRemoveActive(true)"></i>
+          (click)="this.setContextRemoveActive(true)" data-test="dellTest"></i>
       </div>
     </div>
     <div class="secondLine">
